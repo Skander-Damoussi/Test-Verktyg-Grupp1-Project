@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace TestverktygProject.Model
 {
-    public class Teacher : User
+    public class Exam
     {
-        public int TeacherID { get; set; }
+        public int ExamID { get; set; }
+        public string Subject { get; set; }
+        public ObservableCollection<Question> Questions { get; set; }
     }
 }

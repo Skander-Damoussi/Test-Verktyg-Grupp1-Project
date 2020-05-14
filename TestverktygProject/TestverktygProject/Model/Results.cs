@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TestverktygProject.Model
 {
-    public class Course
+    public class Result
     {
-        public int CourseID { get; set; }
-        public string CourseName { get; set; }
+        public int ResultID { get; set; }
+        public string Results { get; set; }
     }
 }

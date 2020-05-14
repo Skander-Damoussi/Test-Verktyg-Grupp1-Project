@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TestverktygProject.Model
 {
-    public class Teacher : User
+    public class ApiCalls
     {
-        public int TeacherID { get; set; }
+        public void PostExam()
+        {
+        }
+        public void GetExam()
+        {
+        }
     }
 }

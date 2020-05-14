@@ -15,6 +15,5 @@ namespace TestverktygProject.Model
         public string SSN { get; set; }
         public bool IsTeacher { get; set; }
         public string Password { get; set; }
-        public abstract void LogIn();
     }
 }
