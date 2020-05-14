@@ -10,5 +10,6 @@ namespace TestverktygProject.Model
     public class Student : User
     {
         public int StudentID { get; set; }
+        public ObservableCollection<Exam> ListExam { get; set; }
     }    
 }

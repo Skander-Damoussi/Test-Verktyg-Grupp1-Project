@@ -12,8 +12,5 @@ namespace TestverktygProject.Model
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string SSN { get; set; }
-        public bool IsTeacher { get; set; }
-        public string Password { get; set; }
     }
 }

@@ -14,5 +14,8 @@ namespace TestverktygProject.Model
         public void GetExam()
         {
         }
+        public void GetAccount()
+        {
+        }
     }
 }
