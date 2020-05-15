@@ -26,5 +26,10 @@ namespace TestverktygProject.View
         {
             this.InitializeComponent();
         }
+
+        private void BeforeCreationOfExamInfoButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
