@@ -36,7 +36,12 @@ namespace TestverktygProject.View
 
         private void BeforeCreationOfExamInfoButton_OnClick(object sender, RoutedEventArgs e)
         {
-            
+            int NumberOfQuestionsToGenerate = Int32.Parse(NumberOfQuestionsToGenerateField.Text);
+
+            for (int i = 0; i < NumberOfQuestionsToGenerate; i++)
+            {
+                //TODO create number of questions here in xaml
+            }
         }
 
         private void CreateExamButton_OnClick(object sender, RoutedEventArgs e)
@@ -54,14 +59,13 @@ namespace TestverktygProject.View
         {
             List<string> alternatives = new List<string>();
             List<int> RightAnswer = new List<int>();
-            
 
-            var newQ = CreateExamViewModel.Questions;
+            alternatives.Add(Alt1.Text);
+            alternatives.Add(Alt2.Text);
+            alternatives.Add(Alt3.Text);
+            alternatives.Add(Alt4.Text);
 
-            foreach (Question q in newQ)
-            {
-                listOfQuestions.Add(q);
-            }
+            RightAnswer.Add(Int32.Parse(CorrectAnswerField.Text));
 
             Question question = new Question
             {

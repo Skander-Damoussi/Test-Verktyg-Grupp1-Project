@@ -5,6 +5,7 @@
     xmlns:local="using:TestverktygProject.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data ="using:TestverktygProject.Model"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -17,20 +18,23 @@
         </Grid.RowDefinitions>
         <Pivot Title="Create exam">
             <PivotItem Header="Basic information">
+
+
                 <StackPanel>
                     <TextBlock Text="How many questions do you want?"/>
-                    <TextBox PlaceholderText="10 for example"/>
-
+                    <TextBox PlaceholderText="10 for example"
+                                 Name="NumberOfQuestionsToGenerateField"/>
                     <TextBlock Name="SubjectLabel"
-                               Text="Subject:"/>
+                                   Text="Subject:"/>
                     <TextBox Name="SubjectField"
-                             PlaceholderText="Math, for example"/>
+                                 PlaceholderText="Math, for example"/>
                     <TextBlock Name="TitleOfExam"
-                               Text="Title of the Exam:"/>
+                                   Text="Title of the Exam:"/>
                     <TextBox Name="TitleOfExamField"
-                             PlaceholderText="Math exam 1, for example..."/>
+                                 PlaceholderText="Math exam 1, for example..."/>
                     <Button Name="BeforeCreationOfExamInfoButton" Content="Submit" HorizontalAlignment="Right" Click="BeforeCreationOfExamInfoButton_OnClick"/>
                 </StackPanel>
+
             </PivotItem>
             <PivotItem Header="Create questions">
                 <StackPanel Padding="10">

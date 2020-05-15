@@ -11,7 +11,6 @@ namespace TestverktygProject.ViewModel
     public class CreateExamViewModel
     {
         public ObservableCollection<Exam> ExamList { get; set; }
-        public ObservableCollection<Question> Questions { get; set; }
         public void CreateExam()
         {
             ExamList = new ObservableCollection<Exam>();
