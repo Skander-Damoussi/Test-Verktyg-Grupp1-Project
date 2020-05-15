@@ -31,7 +31,7 @@
         </StackPanel>
 
         <Grid Grid.RowSpan="4">
-        <StackPanel Background="AntiqueWhite" Width="250" HorizontalAlignment="Left" >
+        <StackPanel Background="AntiqueWhite" Width="250" HorizontalAlignment="Left" BorderThickness="2" BorderBrush="Black">
             <Image Source="/Assets/logo-footer.png" Grid.Column="0" Grid.Row="0" VerticalAlignment="Top"/>
             <TextBlock Text="David Davidsson" Grid.Row="0"/>
             <TextBlock Text="000000-0000" Grid.Row="1"/>
