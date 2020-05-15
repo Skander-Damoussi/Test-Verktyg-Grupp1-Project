@@ -60,7 +60,8 @@
                             Content="Submit Question"
                             HorizontalAlignment="Right"
                             Padding="10"
-                            Margin="10"/>
+                            Margin="10"
+                            Click="SubmitQuestionButton_OnClick"/>
                 </StackPanel>
             </PivotItem>
             <PivotItem Header="See created exam">
@@ -70,6 +71,7 @@
                     <RadioButton Name="opt2"/>
                     <RadioButton Name="opt3"/>
                     <RadioButton Name="opt4"/>
+                    <Button Name="CreateExamButton" Content="Create exam" Click="CreateExamButton_OnClick"/>
                 </StackPanel>
             </PivotItem>
             </Pivot>
