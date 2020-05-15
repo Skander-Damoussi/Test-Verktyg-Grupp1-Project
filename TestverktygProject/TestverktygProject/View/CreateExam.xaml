@@ -11,18 +11,16 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Frame Name="HowManyQuestionsFrame" Grid.Column="0">
-            <Canvas>
-                <StackPanel Canvas.Left="372" Canvas.Top="229">
+        <Pivot Title="Create exam">
+            <PivotItem Header="Basic information">
+                <StackPanel>
                     <TextBlock Text="How many questions do you want?"/>
                     <TextBox PlaceholderText="10 for example"/>
-                    
+
                     <TextBlock Name="SubjectLabel"
                                Text="Subject:"/>
                     <TextBox Name="SubjectField"
@@ -33,12 +31,9 @@
                              PlaceholderText="Math exam 1, for example..."/>
                     <Button Name="BeforeCreationOfExamInfoButton" Content="Submit" HorizontalAlignment="Right" Click="BeforeCreationOfExamInfoButton_OnClick"/>
                 </StackPanel>
-            </Canvas>
-        </Frame>
-        
-        <Frame Name="CreateQuestionsFrame" Grid.Column="1">
-            <Canvas Background="Aqua">
-                <StackPanel Canvas.Left="330" Canvas.Top="174" Padding="10">
+            </PivotItem>
+            <PivotItem Header="Create questions">
+                <StackPanel Padding="10">
                     <TextBox Name="TitleOfQuestion"
                              PlaceholderText="Enter the title of the question here"
                              Width="300"
@@ -67,10 +62,8 @@
                             Padding="10"
                             Margin="10"/>
                 </StackPanel>
-            </Canvas>
-        </Frame>
-        <Frame Grid.Column="0" Grid.Row="1">
-            <Canvas>
+            </PivotItem>
+            <PivotItem Header="See created exam">
                 <StackPanel Canvas.Left="278" Canvas.Top="197" Width="404">
                     <TextBlock Name="QuestionTitleField_Created" Text="{x:Bind TitleOfQuestion}"/>
                     <RadioButton Name="opt1"/>
@@ -78,10 +71,7 @@
                     <RadioButton Name="opt3"/>
                     <RadioButton Name="opt4"/>
                 </StackPanel>
-            </Canvas>
-
-        </Frame>
-        
-        
+            </PivotItem>
+            </Pivot>
     </Grid>
 </Page>
