@@ -28,8 +28,8 @@
         <ListView Background="White" Grid.Column="2" Header="Exams:" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="black"/>
 
         <StackPanel Grid.Row="1" Grid.Column="6">
-            <Button Content="Create Exam" Grid.Column="7" Grid.Row="0" CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="Button_Click_1"/>
-            <Button Content="View Student Exams" Grid.Column="7" Grid.Row="1" CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="Button_Click_2"/>
+            <Button Content="Create Exam" Grid.Column="7" Grid.Row="0" CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="createexam_Click"/>
+            <Button Content="View Student Exams" Grid.Column="7" Grid.Row="1" CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="viewstudentexam_Click"/>
         </StackPanel>
 
         <Grid Grid.RowSpan="4">
@@ -44,7 +44,7 @@
            
         </Grid>
 
-        <Button Content="Sign Out" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center"  CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="Button_Click"/>
+        <Button Content="Sign Out" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center"  CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="signout_Click"/>
 
 
 

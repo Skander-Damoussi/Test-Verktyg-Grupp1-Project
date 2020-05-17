@@ -27,17 +27,17 @@ namespace TestverktygProject.View
             this.InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void signout_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void createexam_Click(object sender, RoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(CreateExam));
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void viewstudentexam_Click(object sender, RoutedEventArgs e)
         {
 
         }
