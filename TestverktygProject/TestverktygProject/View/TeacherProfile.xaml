@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="LightGray" BorderThickness="5" BorderBrush="black">
+    <Grid Background="LightGray">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -17,29 +17,33 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.6*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <ListView Background="White" Grid.Column="1" Header="Exams:" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" BorderThickness="2" BorderBrush="black"/>
+        <ListView Background="White" Grid.Column="2" Header="Exams:" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="black"/>
 
         <StackPanel Grid.Row="1" Grid.Column="6">
-            <Button Content="Create Exam" Grid.Column="7" Grid.Row="0" CornerRadius="10" Background="Orange" Width="150" Height="50"/>
-            <Button Content="View Student Exams" Grid.Column="7" Grid.Row="1" CornerRadius="10" Background="Orange" Width="150" Height="50"/>
+            <Button Content="Create Exam" Grid.Column="7" Grid.Row="0" CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="Button_Click_1"/>
+            <Button Content="View Student Exams" Grid.Column="7" Grid.Row="1" CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="Button_Click_2"/>
         </StackPanel>
 
         <Grid Grid.RowSpan="4">
-        <StackPanel Background="AntiqueWhite" Width="250" HorizontalAlignment="Left" BorderThickness="2" BorderBrush="Black">
+            
+            
+        <StackPanel Background="AntiqueWhite"  HorizontalAlignment="Left" BorderThickness="1" BorderBrush="Black">
             <Image Source="/Assets/logo-footer.png" Grid.Column="0" Grid.Row="0" VerticalAlignment="Top"/>
             <TextBlock Text="David Davidsson" Grid.Row="0"/>
             <TextBlock Text="000000-0000" Grid.Row="1"/>
+            
         </StackPanel>
            
         </Grid>
 
-        <Button Content="Sign Out" Grid.Column="0" Grid.Row="4" CornerRadius="10" Background="Orange" Width="150" Height="50"/>
+        <Button Content="Sign Out" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center"  CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="Button_Click"/>
 
 
 
