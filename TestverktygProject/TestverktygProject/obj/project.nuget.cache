@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PHsL8P1PCHsGIqXOxcQMaXz8d8vV8465w88hwAUxCYiJ8A+2jqQIkjHxZYuG01agHObETE4MgJTYvS+RhLNbPQ==",
+  "dgSpecHash": "dy5WVSIKC4oPCZxIY9xN0wWwhREvwr0EZrX1+5xrJwC3rybc3FihFPHK5u6yJgY3bNb/fo5JT4AXs16i0NqHuQ==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\Test-Verktyg-Grupp1-Project\\TestverktygProject\\TestverktygProject\\TestverktygProject.csproj",
+  "projectFilePath": "C:\\project bank\\Test-Verktyg-Grupp1-Project\\TestverktygProject\\TestverktygProject\\TestverktygProject.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.native.compiler\\2.2.7-rel-27913-00\\microsoft.net.native.compiler.2.2.7-rel-27913-00.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.uwpcoreruntimesdk\\2.2.9\\microsoft.net.uwpcoreruntimesdk.2.2.9.nupkg.sha512",
