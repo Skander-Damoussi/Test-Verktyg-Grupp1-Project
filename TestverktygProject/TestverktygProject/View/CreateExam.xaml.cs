@@ -26,6 +26,9 @@ namespace TestverktygProject.View
     {
         private List<Question> listOfQuestions;
         private List<Exam> listOfExams;
+        List<string> alternatives = new List<string>();
+        List<int> RightAnswer = new List<int>();
+        private Question[] qArrayQuestions = new Question[3];
         public CreateExamViewModel CreateExamViewModel { get; set; }
         public CreateExam()
         {
@@ -33,6 +36,7 @@ namespace TestverktygProject.View
             CreateExamViewModel = new CreateExamViewModel();
             this.DataContext = CreateExamViewModel.Questions;
             //QuestionTitleFieldCreated.Text = TitleOfQuestion.Text;
+            CreatedQuestionsListView.ItemsSource = CreateExamViewModel.Questions;
         }
 
         private void BeforeCreationOfExamInfoButton_OnClick(object sender, RoutedEventArgs e)
@@ -41,8 +45,20 @@ namespace TestverktygProject.View
 
             for (int i = 0; i < NumberOfQuestionsToGenerate; i++)
             {
-                listOfQuestions.Add(new Question());
+                Question question = new Question
+                {
+                    Alternatives = alternatives,
+                    CorrectAnswer = RightAnswer,
+                    NumberOfPoints = 1,
+                    QuestionTitle = TitleOfQuestion.Text
+                    //TODO edit number of points so that the teacher decides the point per question
+                };
                 //TODO create number of questions here in xaml
+            }
+
+            foreach (Question q in qArrayQuestions)
+            {
+                CreateExamViewModel.Questions.Add(q);
             }
         }
 
@@ -59,8 +75,7 @@ namespace TestverktygProject.View
 
         private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
         {
-            List<string> alternatives = new List<string>();
-            List<int> RightAnswer = new List<int>();
+            
 
             /*alternatives.Add(Alt1.Text);
             alternatives.Add(Alt2.Text);
