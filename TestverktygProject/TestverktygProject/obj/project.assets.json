@@ -8151,18 +8151,18 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Skander\\.nuget\\packages\\": {},
+    "C:\\Users\\Windows 10\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\Test-Verktyg-Grupp1-Project\\TestverktygProject\\TestverktygProject\\TestverktygProject.csproj",
+      "projectUniqueName": "C:\\Users\\Windows 10\\source\\repos\\Test-Verktyg-Grupp1-Project\\TestverktygProject\\TestverktygProject\\TestverktygProject.csproj",
       "projectName": "TestverktygProject",
-      "projectPath": "C:\\Projects\\Test-Verktyg-Grupp1-Project\\TestverktygProject\\TestverktygProject\\TestverktygProject.csproj",
-      "packagesPath": "C:\\Users\\Skander\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\Test-Verktyg-Grupp1-Project\\TestverktygProject\\TestverktygProject\\obj\\",
+      "projectPath": "C:\\Users\\Windows 10\\source\\repos\\Test-Verktyg-Grupp1-Project\\TestverktygProject\\TestverktygProject\\TestverktygProject.csproj",
+      "packagesPath": "C:\\Users\\Windows 10\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Windows 10\\source\\repos\\Test-Verktyg-Grupp1-Project\\TestverktygProject\\TestverktygProject\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -8170,7 +8170,7 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Skander\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Windows 10\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
