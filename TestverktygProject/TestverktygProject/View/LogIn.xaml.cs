@@ -31,5 +31,10 @@ namespace TestverktygProject.View
         {
             this.Frame.Navigate(typeof(TakeExam));
         }
+
+        private void teacherprofile_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(TeacherProfile));
+        }
     }
 }

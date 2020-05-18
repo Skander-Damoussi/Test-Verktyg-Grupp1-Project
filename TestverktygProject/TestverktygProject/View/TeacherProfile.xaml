@@ -2,9 +2,9 @@
     x:Class="TestverktygProject.View.TeacherProfile"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:TestverktygProject.View"
+    xmlns:local="using:TestverktygProject"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:data="using:TestverktygProject.Model"
     mc:Ignorable="d"
     NavigationCacheMode="Enabled"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -23,13 +23,29 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <ListView Background="White" Grid.Column="2" Header="Exams:" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="black"/>
+        <ListView Background="White" Grid.Column="2" Header="Students:" ItemsSource="{x:Bind TeacherProfileView.StudentList}" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="1" BorderThickness="1" BorderBrush="black">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="data:Student">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind StudentID}"/>
+                        <TextBlock Text="{x:Bind FirstName}"/>
+                        <TextBlock Text="{x:Bind LastName}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-        <StackPanel Grid.Row="1" Grid.Column="6">
+
+
+
+        <ListView Background="White" Grid.Column="3" Header="Exams:" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="black"/>
+       
+        <StackPanel Grid.Row="1" Grid.Column="6" Spacing="5">
             <Button Content="Create Exam" Grid.Column="7" Grid.Row="0" CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="createexam_Click"/>
-            <Button Content="View Student Exams" Grid.Column="7" Grid.Row="1" CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="viewstudentexam_Click"/>
+            <!--<Button Content="View Student Exams" Grid.Column="7" Grid.Row="1" CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="viewstudentexam_Click"/>-->
         </StackPanel>
 
         <Grid Grid.RowSpan="4">
@@ -45,6 +61,7 @@
         </Grid>
 
         <Button Content="Sign Out" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center"  CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="signout_Click"/>
+     
 
 
 

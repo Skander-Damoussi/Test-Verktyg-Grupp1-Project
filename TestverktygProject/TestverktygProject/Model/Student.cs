@@ -11,5 +11,14 @@ namespace TestverktygProject.Model
     {
         public int StudentID { get; set; }
         public ObservableCollection<Exam> ListExam { get; set; }
-    }    
+
+
+        public Student(string firstname, string lastname)
+        {
+            this.FirstName = firstname;
+            this.LastName = lastname;
+        }
+            
+    }   
+
 }
