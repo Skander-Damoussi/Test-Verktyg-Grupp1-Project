@@ -45,14 +45,14 @@ namespace TestverktygProject.View
 
             for (int i = 0; i < NumberOfQuestionsToGenerate; i++)
             {
-                Question question = new Question
-                {
-                    Alternatives = alternatives,
-                    CorrectAnswer = RightAnswer,
-                    NumberOfPoints = 1,
-                    QuestionTitle = TitleOfQuestion.Text
-                    //TODO edit number of points so that the teacher decides the point per question
-                };
+                //Question question = new Question
+                //{
+                //    Alternatives = alternatives,
+                //    CorrectAnswer = RightAnswer,
+                //    NumberOfPoints = 1,
+                //    QuestionTitle = TitleOfQuestion.Text
+                //    //TODO edit number of points so that the teacher decides the point per question
+                //};
                 //TODO create number of questions here in xaml
             }
 
@@ -84,14 +84,14 @@ namespace TestverktygProject.View
 
             RightAnswer.Add(Int32.Parse(CorrectAnswerField.Text));*/
 
-            Question question = new Question
-            {
-                Alternatives = alternatives,
-                CorrectAnswer = RightAnswer,
-                NumberOfPoints = 1,
-                QuestionTitle = "Some Question"
-                //TODO edit number of points so that the teacher decides the point per question
-            };
+            //Question question = new Question
+            //{
+            //    Alternatives = alternatives,
+            //    CorrectAnswer = RightAnswer,
+            //    NumberOfPoints = 1,
+            //    QuestionTitle = "Some Question"
+            //    //TODO edit number of points so that the teacher decides the point per question
+            //};
         }
 
         public List<Question> GetQuestions()
