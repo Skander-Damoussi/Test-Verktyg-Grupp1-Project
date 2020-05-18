@@ -26,5 +26,15 @@ namespace TestverktygProject.View
         {
             this.InitializeComponent();
         }
+
+        private void PrevQuestionBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NextQuestionBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
