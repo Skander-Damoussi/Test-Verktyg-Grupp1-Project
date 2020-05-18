@@ -11,7 +11,7 @@ namespace TestverktygProject.Model
     {
         public int ExamID { get; set; }
         public string Subject { get; set; }
-        public ObservableCollection<Question> Questions { get; set; }
+        public List<Question> Questions { get; set; }
         public string ExamName { get; set; }
         public DateTime ExamDate { get; set; }
         public string Results { get; set; }

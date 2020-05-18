@@ -11,8 +11,13 @@ namespace TestverktygProject.ViewModel
     public class CreateExamViewModel
     {
         public ObservableCollection<Exam> ExamList { get; set; }
+        public ObservableCollection<Question> Questions { get; set; }
+        public Question Question { get; set; }
+        public Exam Exam { get; set; }
         public void CreateExam()
         {
+            ExamList = new ObservableCollection<Exam>();
+            Questions = new ObservableCollection<Question>();
         }
     }
 }
