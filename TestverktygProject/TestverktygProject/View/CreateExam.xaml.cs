@@ -31,7 +31,8 @@ namespace TestverktygProject.View
         {
             this.InitializeComponent();
             CreateExamViewModel = new CreateExamViewModel();
-            this.DataContext = CreateExamViewModel;
+            this.DataContext = CreateExamViewModel.Questions;
+            //QuestionTitleFieldCreated.Text = TitleOfQuestion.Text;
         }
 
         private void BeforeCreationOfExamInfoButton_OnClick(object sender, RoutedEventArgs e)
@@ -40,6 +41,7 @@ namespace TestverktygProject.View
 
             for (int i = 0; i < NumberOfQuestionsToGenerate; i++)
             {
+                listOfQuestions.Add(new Question());
                 //TODO create number of questions here in xaml
             }
         }
@@ -60,19 +62,20 @@ namespace TestverktygProject.View
             List<string> alternatives = new List<string>();
             List<int> RightAnswer = new List<int>();
 
-            alternatives.Add(Alt1.Text);
+            /*alternatives.Add(Alt1.Text);
             alternatives.Add(Alt2.Text);
             alternatives.Add(Alt3.Text);
             alternatives.Add(Alt4.Text);
 
-            RightAnswer.Add(Int32.Parse(CorrectAnswerField.Text));
+            RightAnswer.Add(Int32.Parse(CorrectAnswerField.Text));*/
 
             Question question = new Question
             {
                 Alternatives = alternatives,
                 CorrectAnswer = RightAnswer,
                 NumberOfPoints = 1,
-                QuestionTitle = TitleOfQuestion.Text
+                QuestionTitle = "Some Question"
+                //TODO edit number of points so that the teacher decides the point per question
             };
         }
 
