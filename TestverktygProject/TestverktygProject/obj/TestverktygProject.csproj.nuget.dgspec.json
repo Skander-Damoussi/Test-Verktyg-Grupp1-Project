@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Windows 10\\source\\repos\\Test-Verktyg-Grupp1-Project\\TestverktygProject\\TestverktygProject\\TestverktygProject.csproj": {}
+    "C:\\Users\\Windows 10\\source\\repos\\TestVerktyg\\TestverktygProject\\TestverktygProject\\TestverktygProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Windows 10\\source\\repos\\Test-Verktyg-Grupp1-Project\\TestverktygProject\\TestverktygProject\\TestverktygProject.csproj": {
+    "C:\\Users\\Windows 10\\source\\repos\\TestVerktyg\\TestverktygProject\\TestverktygProject\\TestverktygProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Windows 10\\source\\repos\\Test-Verktyg-Grupp1-Project\\TestverktygProject\\TestverktygProject\\TestverktygProject.csproj",
+        "projectUniqueName": "C:\\Users\\Windows 10\\source\\repos\\TestVerktyg\\TestverktygProject\\TestverktygProject\\TestverktygProject.csproj",
         "projectName": "TestverktygProject",
-        "projectPath": "C:\\Users\\Windows 10\\source\\repos\\Test-Verktyg-Grupp1-Project\\TestverktygProject\\TestverktygProject\\TestverktygProject.csproj",
+        "projectPath": "C:\\Users\\Windows 10\\source\\repos\\TestVerktyg\\TestverktygProject\\TestverktygProject\\TestverktygProject.csproj",
         "packagesPath": "C:\\Users\\Windows 10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Windows 10\\source\\repos\\Test-Verktyg-Grupp1-Project\\TestverktygProject\\TestverktygProject\\obj\\",
+        "outputPath": "C:\\Users\\Windows 10\\source\\repos\\TestVerktyg\\TestverktygProject\\TestverktygProject\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [

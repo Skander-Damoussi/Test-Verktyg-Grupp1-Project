@@ -35,7 +35,8 @@
 
             </PivotItem>
             <PivotItem Header="Create questions">
-                <StackPanel Padding="10">
+                
+                <StackPanel Padding="10" x:Name="CreateQuestionsStackPanel">
                     <TextBox Name="TitleOfQuestion"
                                      PlaceholderText="Enter the title of the question here"
                                      Padding="10"/>
@@ -58,7 +59,7 @@
                                      PlaceholderText="Answer with a single digit"
                                      HorizontalAlignment="Right"/>
                     <Button Name="SubmitQuestionButton"
-                                    Content="Submit Question"
+                                    Content="Submit Questions"
                                     HorizontalAlignment="Right"
                                     Padding="10"
                                     Margin="10"

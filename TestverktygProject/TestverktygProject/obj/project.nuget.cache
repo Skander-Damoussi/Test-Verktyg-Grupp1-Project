@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0eeL/1izAnoD8VvQiGdZOUlEeUjcKaygbm0PzhmXDto0mcwW6l8KCbyTu5CfjjtutqAjR0YUkNBRFFsgipl5QQ==",
+  "dgSpecHash": "sMEFZc5GZLhNYERJid2oVssA8xR/ASxR+oBJ6qcPTSqAFIC7x9e87zBm3fapXANo2y+FTu1NdizAZWhEbDXraA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Windows 10\\source\\repos\\Test-Verktyg-Grupp1-Project\\TestverktygProject\\TestverktygProject\\TestverktygProject.csproj",
+  "projectFilePath": "C:\\Users\\Windows 10\\source\\repos\\TestVerktyg\\TestverktygProject\\TestverktygProject\\TestverktygProject.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.native.compiler\\2.2.7-rel-27913-00\\microsoft.net.native.compiler.2.2.7-rel-27913-00.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.uwpcoreruntimesdk\\2.2.9\\microsoft.net.uwpcoreruntimesdk.2.2.9.nupkg.sha512",

@@ -45,20 +45,13 @@ namespace TestverktygProject.View
 
             for (int i = 0; i < NumberOfQuestionsToGenerate; i++)
             {
-                Question question = new Question
-                {
-                    Alternatives = alternatives,
-                    CorrectAnswer = RightAnswer,
-                    NumberOfPoints = 1,
-                    QuestionTitle = TitleOfQuestion.Text
-                    //TODO edit number of points so that the teacher decides the point per question
-                };
-                //TODO create number of questions here in xaml
-            }
-
-            foreach (Question q in qArrayQuestions)
-            {
-                CreateExamViewModel.Questions.Add(q);
+                CreateQuestionsStackPanel.Children.Add(new TextBox(){PlaceholderText = "Title of question", Name = "TitleOfQuestion"});
+                CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 1", Name = "Alt1"});
+                CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 2", Name = "Alt2"});
+                CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 3", Name = "Alt3"});
+                CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 4", Name = "Alt3"});
+                CreateQuestionsStackPanel.Children.Add(new TextBlock() { Text = "The right answer is: ", Name = "CorrectAnswer" });
+                CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "Answer with one digit", Name = "CorrectAnswerField"});
             }
         }
 
@@ -75,23 +68,23 @@ namespace TestverktygProject.View
 
         private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
         {
-            
-
-            /*alternatives.Add(Alt1.Text);
+            alternatives.Add(Alt1.Text);
             alternatives.Add(Alt2.Text);
             alternatives.Add(Alt3.Text);
             alternatives.Add(Alt4.Text);
 
-            RightAnswer.Add(Int32.Parse(CorrectAnswerField.Text));*/
+            RightAnswer.Add(Int32.Parse(CorrectAnswerField.Text));
 
             Question question = new Question
             {
                 Alternatives = alternatives,
                 CorrectAnswer = RightAnswer,
                 NumberOfPoints = 1,
-                QuestionTitle = "Some Question"
+                QuestionTitle = TitleOfQuestion.Text
                 //TODO edit number of points so that the teacher decides the point per question
             };
+
+            listOfQuestions.Add(question);
         }
 
         public List<Question> GetQuestions()

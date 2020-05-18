@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>DESKTOP-VGAK9FM</Machine>
-    <WindowsUser>Skander</WindowsUser>
+    <Machine>DESKTOP-KIID7PT</Machine>
+    <WindowsUser>Windows 10</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>718493ab-af26-4c6e-b76b-aa762df35c8d</PackageIdentityName>
     <PackageIdentityPublisher>CN=Skander</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +18,8 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>F6864E7287D81BDA4C7EADF8791D01424565CB3C7D3D61F49F5272243419066E</RegisteredManifestChecksum>
+    <LayoutDir>C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\bin\x86\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>CFB189EB9F043F359DD6DC07C359D27954A6CCEE2C6161D69380F26421B2F56A</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>718493ab-af26-4c6e-b76b-aa762df35c8d_1.0.0.0_x86__jh1n5p4spfc46</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>718493ab-af26-4c6e-b76b-aa762df35c8d_jh1n5p4spfc46!App</RegisteredUserModeAppID>
     <RegisteredPackageID>718493ab-af26-4c6e-b76b-aa762df35c8d</RegisteredPackageID>
@@ -27,16 +27,16 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-05-18T07:39:36.007</Modified>
+      <Modified>2020-05-18T10:58:54.696</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\bin\x86\Debug\TestverktygProject.exe">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\bin\x86\Debug\TestverktygProject.exe">
       <PackagePath>entrypoint\TestverktygProject.exe</PackagePath>
-      <Modified>2020-05-18T07:39:35.506</Modified>
+      <Modified>2020-05-18T10:58:54.189</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.9\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -46,83 +46,83 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2019-03-18T17:36:56.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2020-05-12T10:43:03.400</Modified>
+      <Modified>2020-05-18T10:13:21.516</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2020-03-17T08:17:36.601</Modified>
+      <Modified>2020-05-18T10:13:21.503</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-03-17T08:17:36.601</Modified>
+      <Modified>2020-05-18T10:13:21.504</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-03-17T08:17:36.601</Modified>
+      <Modified>2020-05-18T10:13:21.505</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-03-17T08:17:36.601</Modified>
+      <Modified>2020-05-18T10:13:21.506</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-03-17T08:17:36.601</Modified>
+      <Modified>2020-05-18T10:13:21.506</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-03-17T08:17:36.601</Modified>
+      <Modified>2020-05-18T10:13:21.507</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-03-17T08:17:36.601</Modified>
+      <Modified>2020-05-18T10:13:21.507</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\bin\x86\Debug\TestverktygProject.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\bin\x86\Debug\TestverktygProject.xr.xml">
       <PackagePath>TestverktygProject.xr.xml</PackagePath>
-      <Modified>2020-05-18T07:13:20.578</Modified>
+      <Modified>2020-05-18T10:25:42.426</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-05-18T07:39:35.380</Modified>
+      <Modified>2020-05-18T10:58:53.976</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\bin\x86\Debug\View\CreateExam.xbf">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\bin\x86\Debug\View\CreateExam.xbf">
       <PackagePath>View\CreateExam.xbf</PackagePath>
-      <Modified>2020-05-18T07:39:35.381</Modified>
+      <Modified>2020-05-18T10:58:53.976</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\bin\x86\Debug\View\LogIn.xbf">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\bin\x86\Debug\View\LogIn.xbf">
       <PackagePath>View\LogIn.xbf</PackagePath>
-      <Modified>2020-05-18T07:39:35.381</Modified>
+      <Modified>2020-05-18T10:58:53.976</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\bin\x86\Debug\View\StudentProfile.xbf">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\bin\x86\Debug\View\StudentProfile.xbf">
       <PackagePath>View\StudentProfile.xbf</PackagePath>
-      <Modified>2020-05-18T07:39:35.381</Modified>
+      <Modified>2020-05-18T10:58:53.977</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\bin\x86\Debug\View\TakeExam.xbf">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\bin\x86\Debug\View\TakeExam.xbf">
       <PackagePath>View\TakeExam.xbf</PackagePath>
-      <Modified>2020-05-18T07:39:35.381</Modified>
+      <Modified>2020-05-18T10:58:53.977</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\bin\x86\Debug\View\TeacherProfile.xbf">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\bin\x86\Debug\View\TeacherProfile.xbf">
       <PackagePath>View\TeacherProfile.xbf</PackagePath>
-      <Modified>2020-05-18T07:39:35.381</Modified>
+      <Modified>2020-05-18T10:58:53.977</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2019-03-18T16:33:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-05-15T14:21:26.121</Modified>
+      <Modified>2020-05-18T10:25:43.090</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Projects\Test-Verktyg-Grupp1-Project\TestverktygProject\TestverktygProject\bin\x86\Debug\Core\TestverktygProject.exe">
+    <AppxPackagedFile Include="C:\Users\Windows 10\source\repos\TestVerktyg\TestverktygProject\TestverktygProject\bin\x86\Debug\Core\TestverktygProject.exe">
       <PackagePath>TestverktygProject.exe</PackagePath>
-      <Modified>2020-05-18T07:39:35.998</Modified>
+      <Modified>2020-05-18T10:58:54.687</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
