@@ -35,56 +35,60 @@
 
             </PivotItem>
             <PivotItem Header="Create questions">
+                <!--<ListView ItemsSource="{x:Bind CreateExamViewModel.Questions, Mode = TwoWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="data:Question"> -->
+                            <StackPanel Padding="10" 
+                                        x:Name="CreateQuestionsStackPanel" 
+                                        HorizontalAlignment="Center" 
+                                        VerticalAlignment="Center">
+
+                                <TextBox Name="TitleOfQuestion"
+                                         PlaceholderText="Enter the title of the question here"
+                                         Padding="10"/>
+                                <TextBox Name="Alt1"
+                                         PlaceholderText="Write an answer here..."
+                                         Padding="10"/>
+                                <TextBox Name="Alt2"
+                                         PlaceholderText="Write an answer here..."
+                                         Padding="10"/>
+                                <TextBox Name="Alt3"
+                                         PlaceholderText="Write an answer here..."
+                                         Padding="10"/>
+                                <TextBox Name="Alt4"
+                                         PlaceholderText="Write an answer here..."
+                                         Padding="10"/>
+                                <TextBlock Name="CorrectAnswerLabel"
+                                           Text="The right answer is: "
+                                           HorizontalAlignment="Left"/>
+                                <TextBox Name="CorrectAnswerField"
+                                         PlaceholderText="Answer with a single digit"
+                                         HorizontalAlignment="Right"/>
+                                <Button Name="SubmitQuestionButton"
+                                        Content="Submit Questions"
+                                        HorizontalAlignment="Right"
+                                        Padding="10"
+                                        Margin="10"
+                                        Click="SubmitQuestionButton_OnClick"/>
+                            </StackPanel>
+                        <!--</DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView> -->
                 
-                <StackPanel Padding="10" x:Name="CreateQuestionsStackPanel">
-                    <TextBox Name="TitleOfQuestion"
-                                     PlaceholderText="Enter the title of the question here"
-                                     Padding="10"/>
-                    <TextBox Name="Alt1"
-                                     PlaceholderText="Write an answer here..."
-                                     Padding="10"/>
-                    <TextBox Name="Alt2"
-                                     PlaceholderText="Write an answer here..."
-                                     Padding="10"/>
-                    <TextBox Name="Alt3"
-                                     PlaceholderText="Write an answer here..."
-                                     Padding="10"/>
-                    <TextBox Name="Alt4"
-                                     PlaceholderText="Write an answer here..."
-                                     Padding="10"/>
-                    <TextBlock Name="CorrectAnsweLabel"
-                                       Text="The right answer is: "
-                                       HorizontalAlignment="Left"/>
-                    <TextBox Name="CorrectAnswerField"
-                                     PlaceholderText="Answer with a single digit"
-                                     HorizontalAlignment="Right"/>
-                    <Button Name="SubmitQuestionButton"
-                                    Content="Submit Questions"
-                                    HorizontalAlignment="Right"
-                                    Padding="10"
-                                    Margin="10"
-                                    Click="SubmitQuestionButton_OnClick"/>
-                </StackPanel>
+
 
             </PivotItem>
             <PivotItem Header="See created exam">
-                <ListView ItemsSource="{x:Bind CreateExamViewModel.Questions}" x:Name="CreatedQuestionsListView">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="data:Question">
-                            <StackPanel>
-                                <TextBlock Name="QuestionTitleFieldCreated" Text="{x:Bind QuestionTitle}"/>
-                                <RadioButton Name="opt1" Content="{x:Bind Alternatives}"/>
-                                <RadioButton Name="opt2" Content="{x:Bind Alternatives}"/>
-                                <RadioButton Name="opt3" Content="{x:Bind Alternatives}"/>
-                                <RadioButton Name="opt4" Content="{x:Bind Alternatives}"/>
+                <StackPanel>
+                    <TextBlock Name="QuestionTitleFieldCreated"/>
+                    <RadioButton Name="opt1" />
+                    <RadioButton Name="opt2" />
+                    <RadioButton Name="opt3" />
+                    <RadioButton Name="opt4" />
 
-                                <Button Name="CreateExamButton" Content="Create exam" Click="CreateExamButton_OnClick"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
+                    <Button Name="CreateExamButton" Content="Create exam" Click="CreateExamButton_OnClick"/>
+                </StackPanel>
 
-                </ListView>
-                
             </PivotItem>
             </Pivot>
     </Grid>
