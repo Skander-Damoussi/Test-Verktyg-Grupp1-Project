@@ -18,7 +18,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Pivot Title="Create exam">
-            <PivotItem Header="Basic information">
+            <!--<PivotItem Header="Basic information">
                 <StackPanel>
                     <TextBlock Text="How many questions do you want?"/>
                     <TextBox PlaceholderText="10 for example"
@@ -34,67 +34,77 @@
                     <Button Name="BeforeCreationOfExamInfoButton" Content="Submit" HorizontalAlignment="Right" Click="BeforeCreationOfExamInfoButton_OnClick"/>
                 </StackPanel>
 
-            </PivotItem>
-            <PivotItem Header="Create questions">
-                <StackPanel>
-                    <control:CreateQuestionUC/>
-                </StackPanel>
-                <!--<StackPanel Padding="10" 
-                                x:Name="CreateQuestionsStackPanel" 
-                                HorizontalAlignment="Center" 
-                                VerticalAlignment="Center">
+            </PivotItem>-->
+        <PivotItem Header="Create questions">
+            <StackPanel Padding="10" 
+                                x:Name="CreateQuestionsStackPanel"
+                                Width="500"
+                                Margin="0,0,0,50">
+                    <StackPanel Name="BasicInfoAboutExam" Margin="0,0,0,50">
+                    <TextBlock Name="SubjectLabel"
+                               Text="Subject:"
+                               Padding="10"/>
+                    <TextBox Name="SubjectField"
+                             PlaceholderText="Math, for example"
+                             Padding="10"/>
+                    <TextBlock Name="TitleOfExam"
+                               Text="Title of the Exam:"
+                               Padding="10"/>
+                    <TextBox Name="TitleOfExamField"
+                             PlaceholderText="Math exam 1, for example..."
+                             Padding="10"/>
 
-                        <TextBox Name="TitleOfQuestion"
-                                         PlaceholderText="Enter the title of the question here"
-                                         Padding="10"/>
-                    <TextBox Name="Alt1"
+</StackPanel>
+                
+                    <TextBox Name="TitleOfQuestion"
+                         PlaceholderText="Enter the title of the question here"
+                         Padding="10"/>
+                <TextBox Name="Alt1"
                                          PlaceholderText="Write an answer here..."
                                          Padding="10"/>
-                    <TextBox Name="Alt2"
+                <TextBox Name="Alt2"
                                          PlaceholderText="Write an answer here..."
                                          Padding="10"/>
-                    <TextBox Name="Alt3"
+                <TextBox Name="Alt3"
                                          PlaceholderText="Write an answer here..."
                                          Padding="10"/>
-                    <TextBox Name="Alt4"
+                <TextBox Name="Alt4"
                                          PlaceholderText="Write an answer here..."
                                          Padding="10"/>
-                    <TextBlock Name="CorrectAnswerLabel"
+                <TextBlock Name="CorrectAnswerLabel"
                                            Text="The right answer is: "
                                            HorizontalAlignment="Left"/>
-                    <TextBox Name="CorrectAnswerField"
+                <TextBox Name="CorrectAnswerField"
                                          PlaceholderText="Answer with a single digit"
                                          HorizontalAlignment="Right"/>
-                        <Button Name="SubmitQuestionButton"
+                <Button Name="SubmitQuestionButton"
                                 Content="Submit Questions"
                                 HorizontalAlignment="Right"
                                 Padding="10"
                                 Margin="10"
                                 Click="SubmitQuestionButton_OnClick"/>
-                    </StackPanel>-->
+            </StackPanel>
 
-                
 
-            </PivotItem>
-            <PivotItem Header="See created exam">
-                <ListView ItemsSource="{x:Bind CreateExamViewModel.Questions}">
+
+        </PivotItem>
+        <PivotItem Header="See created exam">
+            <!--<ListView ItemsSource="{x:Bind CreateExamViewModel.Questions}">
                     <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="data:Question">
-                            <StackPanel>
-                                <TextBlock Name="QuestionTitleFieldCreated"  Text="{x:Bind QuestionTitle}"/>
-                                <RadioButton Name="opt1" Content="{x:Bind Alternatives}" />
-                                <RadioButton Name="opt2" Content="{x:Bind Alternatives}"/>
-                                <RadioButton Name="opt3" Content="{x:Bind Alternatives}"/>
-                                <RadioButton Name="opt4"  Content="{x:Bind Alternatives}"/>
+                        <DataTemplate x:DataType="data:Question">-->
+            <StackPanel>
+                <TextBlock Name="QuestionTitleFieldCreated"  Text=""/>
+                <RadioButton Name="opt1" Content="" />
+                <RadioButton Name="opt2" Content=""/>
+                <RadioButton Name="opt3" Content=""/>
+                <RadioButton Name="opt4"  Content=""/>
 
-                                <Button Name="CreateExamButton" Content="Create exam" Click="CreateExamButton_OnClick"/>
-                            </StackPanel>
-                        </DataTemplate>
+                <Button Name="CreateExamButton" Content="Create exam" Click="CreateExamButton_OnClick"/>
+            </StackPanel>
+            <!-- </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
-                
-
-            </PivotItem>
-            </Pivot>
+                </ListView>-->
+        </PivotItem>
+        </Pivot>
     </Grid>
 </Page>
