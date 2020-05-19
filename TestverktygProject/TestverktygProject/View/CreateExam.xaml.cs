@@ -31,6 +31,7 @@ namespace TestverktygProject.View
         List<int> RightAnswer = new List<int>();
 
         public CreateExamViewModel CreateExamViewModel { get; set; }
+        public CreateQuestionUC QuestionUC { get; set; }
         public CreateExam()
         {
             this.InitializeComponent();
@@ -44,6 +45,11 @@ namespace TestverktygProject.View
 
             for (int i = 0; i < NumberOfQuestionsToGenerate; i++)
             {
+                QuestionUC = new CreateQuestionUC();
+            }
+
+            /*for (int i = 0; i < NumberOfQuestionsToGenerate; i++)
+            {
                 CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "Title of question", Name = "TitleOfQuestion" });
                 CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 1", Name = "Alt1" });
                 CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 2", Name = "Alt2" });
@@ -51,7 +57,7 @@ namespace TestverktygProject.View
                 CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 4", Name = "Alt3" });
                 CreateQuestionsStackPanel.Children.Add(new TextBlock() { Text = "The right answer is: ", Name = "CorrectAnswer" });
                 CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "Answer with one digit", Name = "CorrectAnswerField" });
-            }
+            }*/
 
         }
 
@@ -68,19 +74,8 @@ namespace TestverktygProject.View
 
         private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
         {
+            //GetElementFromCreatedQuestions();
             
-            alternatives.Add(Alt1.Text);
-            alternatives.Add(Alt2.Text);
-            alternatives.Add(Alt3.Text);
-            alternatives.Add(Alt4.Text);
-
-            opt1.Content = Alt1.Text;
-            opt2.Content = Alt2.Text;
-            opt3.Content = Alt3.Text;
-            opt4.Content = Alt4.Text;
-
-            RightAnswer.Add(Int32.Parse(CorrectAnswerField.Text));*/
-
             Question question = new Question
             {
                 Alternatives = alternatives,
@@ -103,5 +98,35 @@ namespace TestverktygProject.View
         {
             return listOfExams;
         }
+
+        /*public void GetElementFromCreatedQuestions()
+        {
+            foreach (UIElement child in CreateQuestionsStackPanel.Children)
+            {
+                if (child is StackPanel)
+                {
+                    foreach (UIElement ctrlChild in (child as StackPanel).Children)
+                    {
+                        if (ctrlChild is TextBox)
+                        {
+                            alternatives.Add(ctrlChild.ToString());
+                        }
+                    }
+                }
+            }
+
+            foreach (UIElement tb in CreateQuestionsStackPanel.Children)
+            {
+                if (tb is TextBox)
+                {
+                    RightAnswer.Add(Int32.Parse(tb.ToString()));
+                }
+            }
+        }
+
+        public UIElement GetQuestionTitle()
+        {
+            
+        }*/
     }
 }

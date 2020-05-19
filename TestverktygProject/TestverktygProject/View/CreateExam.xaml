@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:data ="using:TestverktygProject.Model"
+    xmlns:control = "using:TestverktygProject"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -35,13 +36,15 @@
 
             </PivotItem>
             <PivotItem Header="Create questions">
+                <StackPanel>
+                    <control:CreateQuestionUC/>
+                </StackPanel>
+                <!--<StackPanel Padding="10" 
+                                x:Name="CreateQuestionsStackPanel" 
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center">
 
-                <StackPanel Padding="10" 
-                                        x:Name="CreateQuestionsStackPanel" 
-                                        HorizontalAlignment="Center" 
-                                        VerticalAlignment="Center">
-
-                   <!--<TextBox Name="TitleOfQuestion"
+                        <TextBox Name="TitleOfQuestion"
                                          PlaceholderText="Enter the title of the question here"
                                          Padding="10"/>
                     <TextBox Name="Alt1"
@@ -61,14 +64,16 @@
                                            HorizontalAlignment="Left"/>
                     <TextBox Name="CorrectAnswerField"
                                          PlaceholderText="Answer with a single digit"
-                                         HorizontalAlignment="Right"/>-->
-                    <Button Name="SubmitQuestionButton"
-                                        Content="Submit Questions"
-                                        HorizontalAlignment="Right"
-                                        Padding="10"
-                                        Margin="10"
-                                        Click="SubmitQuestionButton_OnClick"/> 
-                </StackPanel>
+                                         HorizontalAlignment="Right"/>
+                        <Button Name="SubmitQuestionButton"
+                                Content="Submit Questions"
+                                HorizontalAlignment="Right"
+                                Padding="10"
+                                Margin="10"
+                                Click="SubmitQuestionButton_OnClick"/>
+                    </StackPanel>-->
+
+                
 
             </PivotItem>
             <PivotItem Header="See created exam">
