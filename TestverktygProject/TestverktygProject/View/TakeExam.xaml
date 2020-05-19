@@ -67,7 +67,7 @@
                   VerticalAlignment="Top"
                   Margin="0,100,0,0"
                   HorizontalAlignment="Stretch"
-                  ItemsSource="{x:Bind Tvm.questions}">
+                  ItemsSource="{x:Bind Tvm.tempQuest}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local1:Question">
                     <ListView ItemsSource="{x:Bind Alternatives}" VariableSizedWrapGrid.ColumnSpan="2">

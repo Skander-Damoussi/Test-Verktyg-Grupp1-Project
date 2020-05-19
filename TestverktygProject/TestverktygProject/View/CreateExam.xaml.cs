@@ -68,7 +68,7 @@ namespace TestverktygProject.View
             {
                 ExamDate = DateTime.Today,
                 ExamName = TitleOfExam.Text,
-                Questions = GetQuestions(),
+                //Questions = GetQuestions(),
                 Subject = SubjectField.Text
             };
         }

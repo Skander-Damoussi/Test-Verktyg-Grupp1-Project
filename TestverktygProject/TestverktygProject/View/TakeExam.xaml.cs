@@ -24,54 +24,38 @@ namespace TestverktygProject.View
     /// </summary>
     public sealed partial class TakeExam : Page
     {
-        public int index;
         public TakeExam()
         {
             this.InitializeComponent();
 
             this.Tvm = new TakeExamViewModel();
 
-            Question temp;
-            temp = Tvm.questions[index];
-            QuestionTitle.Text = temp.QuestionTitle.ToString();
-            index++;
-            QuestionNumberTitle.Text = index.ToString();
+            setQuestText();
 
-            QuestionNumber.Text = $"Question {index.ToString()} out of {Tvm.questions.Count.ToString()}";
-
-            ////test
+            Tvm.updateAlternatives();
+            AnswerList.ItemsSource = Tvm._tempquest;
         }
         public TakeExamViewModel Tvm { get; set; }
         private void PrevQuestionBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (index <= Tvm.questions.Count || index >= 1)
-            {
-                Question temp;
-                temp = Tvm.questions[index];
-                QuestionTitle.Text = temp.QuestionTitle.ToString();
-                QuestionNumberTitle.Text = index.ToString();
-                index--;
-            }
-            else
-            {
-
-            }
+            Tvm.prevQuestion();
+            setQuestText();
+            AnswerList.ItemsSource = Tvm._tempquest;
         }
-
         private void NextQuestionBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (index <= Tvm.questions.Count)
-            {
-                Question temp;
-                temp = Tvm.questions[index];
-                QuestionTitle.Text = temp.QuestionTitle.ToString();
-                QuestionNumberTitle.Text = index.ToString();
-                index++;
-            }
-            else
-            {
+            Tvm.nextQuestion();
 
-            }
+            setQuestText();
+            
+            AnswerList.ItemsSource = Tvm._tempquest;
+        }
+        public void setQuestText()
+        {
+            Tvm.temp = Tvm.questions[Tvm.index];
+            QuestionTitle.Text = Tvm.temp.QuestionTitle.ToString();
+            QuestionNumberTitle.Text = Tvm.startindex.ToString();
+            QuestionNumber.Text = $"Question {Tvm.startindex.ToString()} out of {Tvm.questions.Count.ToString()}";
         }
     }
 }
