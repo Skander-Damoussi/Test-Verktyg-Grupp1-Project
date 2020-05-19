@@ -41,8 +41,7 @@
                     Content="Submit Questions"
                     HorizontalAlignment="Right"
                     Padding="10"
-                    Margin="10"
-                    Click="SubmitQuestionButton_OnClick"/>
+                    Margin="10"/>
         </StackPanel>
 
     </Grid>

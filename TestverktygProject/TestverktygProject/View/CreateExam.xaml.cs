@@ -60,19 +60,19 @@ namespace TestverktygProject.View
 
         private void CreateExamButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Exam exam = new Exam
+            /*Exam exam = new Exam
             {
                 ExamDate = DateTime.Today,
                 ExamName = TitleOfExam.Text,
                 Questions = GetQuestions(),
                 Subject = SubjectField.Text
-            };
+            };*/
         }
 
         private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
         {
             //GetElementFromCreatedQuestions();
-            alternatives.Add(Alt1.Text);
+            /*alternatives.Add(Alt1.Text);
             alternatives.Add(Alt2.Text);
             alternatives.Add(Alt3.Text);
             alternatives.Add(Alt4.Text);
@@ -82,14 +82,14 @@ namespace TestverktygProject.View
             opt1.Content = Alt1.Text;
             opt2.Content = Alt2.Text;
             opt3.Content = Alt3.Text;
-            opt4.Content = Alt4.Text;
+            opt4.Content = Alt4.Text;*/
 
             Question question = new Question
             {
                 Alternatives = alternatives,
                 CorrectAnswer = RightAnswer,
                 NumberOfPoints = 1,
-                QuestionTitle = TitleOfQuestion.Text
+                QuestionTitle = "Some Title"
                 //TODO edit number of points so that the teacher decides the point per question
             };
 

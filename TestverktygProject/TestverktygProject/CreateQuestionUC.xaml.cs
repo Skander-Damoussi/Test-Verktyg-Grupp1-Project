@@ -23,11 +23,5 @@ namespace TestverktygProject
         {
             this.InitializeComponent();
         }
-
-
-        private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
 }

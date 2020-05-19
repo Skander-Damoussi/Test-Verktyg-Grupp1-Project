@@ -18,6 +18,51 @@ namespace TestverktygProject.ViewModel
         {
             ExamList = new ObservableCollection<Exam>();
             Questions = new ObservableCollection<Question>();
+
+            Questions.Add(new Question()
+            {
+                Alternatives = new List<string>()
+                {
+                    "1", "2","3","4"
+                },
+                CorrectAnswer = new List<int>()
+                {
+                    1
+                },
+                NumberOfPoints = 1,
+                QuestionTitle = "Fråga 1",
+
+            });
+
+            Questions.Add(new Question()
+            {
+                Alternatives = new List<string>()
+                {
+                    "1", "2","3","4"
+                },
+                CorrectAnswer = new List<int>()
+                {
+                    1
+                },
+                NumberOfPoints = 1,
+                QuestionTitle = "Fråga 2",
+
+            });
+
+            Questions.Add(new Question()
+            {
+                Alternatives = new List<string>()
+                {
+                    "1", "2","3","4"
+                },
+                CorrectAnswer = new List<int>()
+                {
+                    1
+                },
+                NumberOfPoints = 1,
+                QuestionTitle = "Fråga 3",
+
+            });
         }
     }
 }
