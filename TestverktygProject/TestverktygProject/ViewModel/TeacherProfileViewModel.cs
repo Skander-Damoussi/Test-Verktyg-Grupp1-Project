@@ -12,7 +12,9 @@ namespace TestverktygProject.ViewModel
     public class TeacherProfileViewModel
     {
         public ObservableCollection<Exam> ExamList { get; set; }
-        public ObservableCollection<Student> StudentList { get; set; } 
+        public ObservableCollection<Student> StudentList { get; set; }
+
+        public Student Student { get; set; }
 
         public void SeeResults()
         {
@@ -22,10 +24,24 @@ namespace TestverktygProject.ViewModel
         public void ListOfStudents()
         {
             StudentList = new ObservableCollection<Student>();
-            StudentList.Add(new Student (" David", " Sten"){StudentID = 1});
+        //    StudentList.Add(new Student (" David", " Sten"){StudentID = 1} );
+
+            Student student = new Student(" testar", " testsson");
+            student.ListExam = new ObservableCollection<Exam>();
+            student.ListExam.Add(new Exam { ExamDate = new DateTime().Date });
+            StudentList.Add(student);
         }
 
- 
+        public void ListOfExams()
+        {
+            ExamList = new ObservableCollection<Exam>();
+            ExamList.Add(new Exam { ExamDate = new DateTime().Date });
+        }
+
+        public void ReadMethod(object obj)
+        {
+            Student = obj as Student;
+        }
 
     }
 }

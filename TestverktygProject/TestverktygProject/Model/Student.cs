@@ -15,8 +15,8 @@ namespace TestverktygProject.Model
 
         public Student(string firstname, string lastname)
         {
-            this.FirstName = firstname;
-            this.LastName = lastname;
+            FirstName = firstname;
+            LastName = lastname;
         }
             
     }   

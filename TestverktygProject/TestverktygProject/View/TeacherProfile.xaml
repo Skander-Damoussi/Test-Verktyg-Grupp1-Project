@@ -26,7 +26,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <ListView Background="White" Grid.Column="2" Header="Students:" ItemsSource="{x:Bind TeacherProfileView.StudentList}" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="1" BorderThickness="1" BorderBrush="black">
+        <ListView Background="White" x:Name="StudentListView" Grid.Column="2" Header="Students:" ItemsSource="{x:Bind TeacherProfileView.StudentList}" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="1" BorderThickness="1" BorderBrush="black">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:Student">
                     <StackPanel Orientation="Horizontal">
@@ -39,13 +39,21 @@
         </ListView>
 
 
-
-
-        <ListView Background="White" Grid.Column="3" Header="Exams:" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="black"/>
-       
+        <ListView Background="White" x:Name="examlistview" ItemsSource="{x:Bind TeacherProfileView.Student}" Grid.Column="3" Header="Exams:" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="black">
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="data:Exam">
+                <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind ExamDate}"/>
+                        <TextBlock Text="{x:Bind ExamName}"/>
+                        <TextBlock Text="{x:Bind Results}"/>
+                    </StackPanel>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        </ListView>
+    
         <StackPanel Grid.Row="1" Grid.Column="6" Spacing="5">
             <Button Content="Create Exam" Grid.Column="7" Grid.Row="0" CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="createexam_Click"/>
-            <!--<Button Content="View Student Exams" Grid.Column="7" Grid.Row="1" CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="viewstudentexam_Click"/>-->
+            <Button Content="View Student Exams" x:Name="viewstudentexam" Grid.Column="7" Grid.Row="1" CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="viewstudentexam_Click"/>
         </StackPanel>
 
         <Grid Grid.RowSpan="4">
@@ -53,20 +61,12 @@
             
         <StackPanel Background="AntiqueWhite"  HorizontalAlignment="Left" BorderThickness="1" BorderBrush="Black">
             <Image Source="/Assets/logo-footer.png" Grid.Column="0" Grid.Row="0" VerticalAlignment="Top"/>
-            <TextBlock Text="David Davidsson" Grid.Row="0"/>
+                <TextBlock Text="David Davidsson" Grid.Row="0"/>
             <TextBlock Text="000000-0000" Grid.Row="1"/>
-            
         </StackPanel>
-           
         </Grid>
 
         <Button Content="Sign Out" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center"  CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="signout_Click"/>
-     
-
-
-
-
-
 
 
 

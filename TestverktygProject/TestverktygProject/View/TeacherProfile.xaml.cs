@@ -36,12 +36,9 @@ namespace TestverktygProject.View
         public TeacherProfile()
         {
             this.InitializeComponent();
-
+            TeacherProfileView.ListOfExams();
             TeacherProfileView.ListOfStudents();
         }
-
-
-
 
 
         private async void signout_Click(object sender, RoutedEventArgs e)
@@ -56,16 +53,19 @@ namespace TestverktygProject.View
             if (confirmResult == null || confirmResult.Label == "Yes") { Frame.Navigate(typeof(LogIn)); }
         }
 
-   
-
-
-    private void createexam_Click(object sender, RoutedEventArgs e)
+        private void createexam_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(CreateExam));
         }
 
         private void viewstudentexam_Click(object sender, RoutedEventArgs e)
         {
+            /// TeacherProfileView.ReadMethod(StudentListView.SelectedItem);
+
+            Student SelectedStudent = (Student)StudentListView.SelectedItem;
+
+            examlistview.ItemsSource = SelectedStudent.ListExam;
+
 
         }
     }
