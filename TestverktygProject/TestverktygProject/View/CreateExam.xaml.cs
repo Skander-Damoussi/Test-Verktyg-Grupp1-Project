@@ -24,12 +24,11 @@ namespace TestverktygProject.View
     /// </summary>
     public sealed partial class CreateExam : Page
     {
-        private List<Question> listOfQuestions;
-        private List<Exam> listOfExams;
+        private List<Question> listOfQuestions = new List<Question>();
+        private List<Exam> listOfExams = new List<Exam>();
 
         List<string> alternatives = new List<string>();
         List<int> RightAnswer = new List<int>();
-        private Question[] qArrayQuestions = new Question[3];
 
         public CreateExamViewModel CreateExamViewModel { get; set; }
         public CreateExam()
@@ -37,14 +36,23 @@ namespace TestverktygProject.View
             this.InitializeComponent();
             CreateExamViewModel = new CreateExamViewModel();
             this.DataContext = CreateExamViewModel.Questions;
-            //QuestionTitleFieldCreated.Text = TitleOfQuestion.Text;
-            CreatedQuestionsListView.ItemsSource = CreateExamViewModel.Questions;
         }
 
         private void BeforeCreationOfExamInfoButton_OnClick(object sender, RoutedEventArgs e)
         {
             int NumberOfQuestionsToGenerate = Int32.Parse(NumberOfQuestionsToGenerateField.Text);
-            
+
+            for (int i = 0; i < NumberOfQuestionsToGenerate; i++)
+            {
+                CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "Title of question", Name = "TitleOfQuestion" });
+                CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 1", Name = "Alt1" });
+                CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 2", Name = "Alt2" });
+                CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 3", Name = "Alt3" });
+                CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 4", Name = "Alt3" });
+                CreateQuestionsStackPanel.Children.Add(new TextBlock() { Text = "The right answer is: ", Name = "CorrectAnswer" });
+                CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "Answer with one digit", Name = "CorrectAnswerField" });
+            }
+
         }
 
         private void CreateExamButton_OnClick(object sender, RoutedEventArgs e)
@@ -71,25 +79,19 @@ namespace TestverktygProject.View
             opt3.Content = Alt3.Text;
             opt4.Content = Alt4.Text;
 
-            RightAnswer.Add(Int32.Parse(CorrectAnswerField.Text));
+            RightAnswer.Add(Int32.Parse(CorrectAnswerField.Text));*/
 
             Question question = new Question
             {
                 Alternatives = alternatives,
                 CorrectAnswer = RightAnswer,
                 NumberOfPoints = 1,
-                QuestionTitle = TitleOfQuestion.Text
+                QuestionTitle = "Some text"
                 //TODO edit number of points so that the teacher decides the point per question
             };
-            List<Question> questionsList = new List<Question>();
-            questionsList.Add(question);
 
-            //listOfQuestions.Add(question);
-
-            foreach (Question q in questionsList)
-            {
-                CreateExamViewModel.Questions.Add(q);
-            }
+            listOfQuestions.Add(question);
+            CreateExamViewModel.Questions.Add(question);
         }
 
         public List<Question> GetQuestions()

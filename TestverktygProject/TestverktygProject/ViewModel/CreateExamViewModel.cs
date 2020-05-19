@@ -14,19 +14,10 @@ namespace TestverktygProject.ViewModel
         public ObservableCollection<Question> Questions { get; set; }
         public Question Question { get; set; }
         public Exam Exam { get; set; }
-        public void CreateExam()
+        public CreateExamViewModel()
         {
             ExamList = new ObservableCollection<Exam>();
             Questions = new ObservableCollection<Question>();
-
-            Questions.Add(new Question
-            {
-                Alternatives = new List<string>{"1", "2", "3", "4"},
-                CorrectAnswer = new List<int> { 1},
-                NumberOfPoints = 1,
-                QuestionTitle = "Title of Question",
-                QuestionValue = "This is a question"
-            });
         }
     }
 }
