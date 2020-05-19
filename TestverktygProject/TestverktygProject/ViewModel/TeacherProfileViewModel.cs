@@ -32,16 +32,16 @@ namespace TestverktygProject.ViewModel
             StudentList.Add(student);
         }
 
-        public void ListOfExams()
-        {
-            ExamList = new ObservableCollection<Exam>();
-            ExamList.Add(new Exam { ExamDate = new DateTime().Date });
-        }
+        //public void ListOfExams()
+        //{
+        //    ExamList = new ObservableCollection<Exam>();
+        //    ExamList.Add(new Exam { ExamDate = new DateTime().Date });
+        //}
 
-        public void ReadMethod(object obj)
-        {
-            Student = obj as Student;
-        }
+        //public void ReadMethod(object obj)
+        //{
+        //    Student = obj as Student;
+        //}
 
     }
 }

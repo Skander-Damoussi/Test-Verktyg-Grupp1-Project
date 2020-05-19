@@ -36,7 +36,7 @@ namespace TestverktygProject.View
         public TeacherProfile()
         {
             this.InitializeComponent();
-            TeacherProfileView.ListOfExams();
+         //   TeacherProfileView.ListOfExams();
             TeacherProfileView.ListOfStudents();
         }
 
