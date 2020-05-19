@@ -38,6 +38,8 @@ namespace TestverktygProject.View
             QuestionNumberTitle.Text = index.ToString();
 
             QuestionNumber.Text = $"Question {index.ToString()} out of {Tvm.questions.Count.ToString()}";
+
+            ////test
         }
         public TakeExamViewModel Tvm { get; set; }
         private void PrevQuestionBtn_Click(object sender, RoutedEventArgs e)
