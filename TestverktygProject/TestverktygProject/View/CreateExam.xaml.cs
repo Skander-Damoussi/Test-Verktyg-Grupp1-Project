@@ -37,7 +37,9 @@ namespace TestverktygProject.View
             this.InitializeComponent();
             CreateExamViewModel = new CreateExamViewModel();
             this.DataContext = CreateExamViewModel.Questions;
-            
+            CQListView.ItemsSource = CreateExamViewModel.Questions;
+
+
         }
 
         /*private void BeforeCreationOfExamInfoButton_OnClick(object sender, RoutedEventArgs e)
@@ -71,9 +73,11 @@ namespace TestverktygProject.View
 
         private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
         {
+            
+
             //GetElementFromCreatedQuestions();
-            /*alternatives.Add(Alt1.Text);
-            alternatives.Add(Alt2.Text);
+            alternatives.Add(CQListView.Items[0].ToString());
+           /* alternatives.Add(Alt2.Text);
             alternatives.Add(Alt3.Text);
             alternatives.Add(Alt4.Text);
 
