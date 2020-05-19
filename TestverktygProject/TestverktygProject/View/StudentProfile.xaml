@@ -8,5 +8,70 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" BorderBrush="Black" BorderThickness="2">
+            <TextBlock Text="Active Exams:" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <ListView Height="700">
+
+                </ListView>
+            </Grid>
+        </StackPanel>
+        <!--Names-->
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <TextBlock Text="First Name:" FontSize="20" FontWeight="Bold"/>
+            <TextBlock Text="Last Name:" FontSize="20" FontWeight="Bold"/>
+        </StackPanel>
+        <!--SIGN OUT BUTTON-->
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Margin="10" Height="90" Width="250" x:Name="signOutButton" Content="Sign Out" FontSize="25" FontWeight="Bold" BorderBrush="Black" RequestedTheme="Default" Click="signOutButton_Click"/>
+        </StackPanel>
+        <!--Pictures-->
+        <Image Source="../Assets/logo-footer.png" Grid.Column="1" Grid.Row="1"/>
+        <!--START EXAM BUTTON-->
+        <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Vertical" HorizontalAlignment="Center">
+            <Button Margin="10" Height="90" Width="250" x:Name="startExamButton" BorderBrush="Black" Content="Start Exam" FontSize="25" FontWeight="Bold" RequestedTheme="Default"/>
+        </StackPanel>
+        <!--EXAM HISTORY BUTTON-->
+        <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Margin="10" Height="90" Width="250" BorderBrush="Black" x:Name="viewExamHistory" Content="Exam History" FontSize="25" FontWeight="Bold" RequestedTheme="Default"/>
+        </StackPanel>
+        <!--POPUP FOR SIGNOUT-->
+        <Popup x:Name="PopupSignOut" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsOpen="False" IsLightDismissEnabled="False" Height="250" Width="400">
+            <Grid Background="LightGray" Height="250" Width="400">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height ="*"/>
+                    <RowDefinition Height ="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock TextWrapping="Wrap" Text="Are you sure?" FontSize="25" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                </TextBlock>
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
+                    <Button x:Name="ConfirmSignOut" Height="30" Width="90" VerticalAlignment="Center" HorizontalAlignment="Center" Content="YES" FontWeight="Bold" Margin="2" BorderBrush="Black"/>
+                    <Button x:Name="CancelSignOut" Height="30" Width="90" VerticalAlignment="Center" HorizontalAlignment="Center" Content="NO" FontWeight="Bold" Margin="2" BorderBrush="Black"/>
+                </StackPanel>
+            </Grid>
+        </Popup>
+    </Grid>
 </Page>
