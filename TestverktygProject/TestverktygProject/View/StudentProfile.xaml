@@ -39,19 +39,16 @@
             <TextBlock Text="First Name:" FontSize="20" FontWeight="Bold"/>
             <TextBlock Text="Last Name:" FontSize="20" FontWeight="Bold"/>
         </StackPanel>
-        <!--SIGN OUT BUTTON-->
-        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Margin="10" Height="90" Width="250" x:Name="signOutButton" Content="Sign Out" FontSize="25" FontWeight="Bold" BorderBrush="Black" RequestedTheme="Default" Click="signOutButton_Click"/>
-        </StackPanel>
         <!--Pictures-->
         <Image Source="../Assets/logo-footer.png" Grid.Column="1" Grid.Row="1"/>
-        <!--START EXAM BUTTON-->
+        <!--START EXAM / EXAM HISTORY BUTTON-->
         <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Vertical" HorizontalAlignment="Center">
             <Button Margin="10" Height="90" Width="250" x:Name="startExamButton" BorderBrush="Black" Content="Start Exam" FontSize="25" FontWeight="Bold" RequestedTheme="Default"/>
+            <Button Margin="10" Height="90" Width="250" BorderBrush="Black" x:Name="viewExamHistory" Content="Exam History" FontSize="25" FontWeight="Bold" RequestedTheme="Default"/>
         </StackPanel>
         <!--EXAM HISTORY BUTTON-->
         <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Margin="10" Height="90" Width="250" BorderBrush="Black" x:Name="viewExamHistory" Content="Exam History" FontSize="25" FontWeight="Bold" RequestedTheme="Default"/>
+            <Button Margin="10" Height="90" Width="250" x:Name="signOutButton" Content="Sign Out" FontSize="25" FontWeight="Bold" BorderBrush="Black" RequestedTheme="Default" Click="signOutButton_Click"/>
         </StackPanel>
         <!--POPUP FOR SIGNOUT-->
         <Popup x:Name="PopupSignOut" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsOpen="False" IsLightDismissEnabled="False" Height="250" Width="400">
