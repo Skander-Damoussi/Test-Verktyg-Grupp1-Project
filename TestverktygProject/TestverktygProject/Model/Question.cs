@@ -12,5 +12,6 @@ namespace TestverktygProject.Model
         public List<string> Alternatives { get; set; }
         public int NumberOfPoints { get; set; }
         public string QuestionTitle { get; set; }
+        public string QuestionValue { get; set; }
     }
 }
