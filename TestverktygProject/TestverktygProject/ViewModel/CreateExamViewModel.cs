@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml.Controls;
 using TestverktygProject.Model;
 using TestverktygProject.View;
 
@@ -17,15 +19,11 @@ namespace TestverktygProject.ViewModel
         public ObservableCollection<Question> CreatedQuestions { get; set; }
         public Question Question { get; set; }
         public Exam Exam { get; set; }
+        public string QuestionTitle { get; set; }
+        public string CorrectAnswer { get; set; }
         public string TB { get; set; }
-
-        public ICommand SearchBusCommand { get; }
-
-        public string SearchText { get; set; }
-
-
-        //Perhaps need to move below properties to viewmodel constructor.
         public List<string> Alternatives { get; set; }
+        
         public CreateExamViewModel()
         {
             ExamList = new ObservableCollection<Exam>();

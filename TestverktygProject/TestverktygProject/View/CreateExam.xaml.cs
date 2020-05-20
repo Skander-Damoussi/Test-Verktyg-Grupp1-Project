@@ -36,7 +36,7 @@ namespace TestverktygProject.View
         public Exam ExamProperty { get; set; }
         public Question QProp { get; set; }
 
-        
+
         public CreateExam()
         {
             this.InitializeComponent();
@@ -56,9 +56,8 @@ namespace TestverktygProject.View
 
             for (int i = 0; i < NumberOfQuestionsToGenerate; i++)
             {
-
                 CreateExamViewModel.QuestionsToBeFilled.Add(new Question());
-
+                
                 /*CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "Title of question", Name = "TitleOfQuestion" });
                 CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 1", Name = "Alt1" });
                 CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 2", Name = "Alt2" });
@@ -66,6 +65,7 @@ namespace TestverktygProject.View
                 CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 4", Name = "Alt3" });
                 CreateQuestionsStackPanel.Children.Add(new TextBlock() { Text = "The right answer is: ", Name = "CorrectAnswer" });
                 CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "Answer with one digit", Name = "CorrectAnswerField" });*/
+                
             }
 
         }
@@ -85,21 +85,20 @@ namespace TestverktygProject.View
 
         private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
         {
-            //b.ElementName = "Alt1";
             
-                alternatives.Add(CreateExamViewModel.SearchText);
-               /* alternatives.Add(QProp.Alt2);
-                alternatives.Add(QProp.Alt3);
-                alternatives.Add(QProp.Alt4); */
+                alternatives.Add("One");
+                alternatives.Add("two");
+                alternatives.Add("three");
+                alternatives.Add("four");
 
-           // RightAnswer.Add(Int32.Parse(QProp.CorrectAnswer.ToString()));
+           RightAnswer.Add(Int32.Parse("1"));
 
             Question question = new Question
             {
                 Alternatives = alternatives,
                 CorrectAnswer = RightAnswer,
                 NumberOfPoints = 1,
-                QuestionTitle = TitleOfQuestion
+                QuestionTitle = CreateExamViewModel.QuestionTitle
                 //TODO edit number of points so that the teacher decides the point per question
             };
 
@@ -107,8 +106,6 @@ namespace TestverktygProject.View
             CreateExamViewModel.CreatedQuestions.Add(question);
             
         }
-
-        public string TitleOfQuestion { get; set; }
 
         public List<Question> GetQuestions()
         {
