@@ -35,14 +35,14 @@ namespace TestverktygProject.ViewModel
 
         public TeacherProfileViewModel() 
         {
-            StudentList = new ObservableCollection<Student>()
-           {
-               new Student(1,MockupTest, "david", "sten", "davidsten", "davidsten1234", false)
-           };
             MockupTest = new ObservableCollection<Exam>()
             {
                 new Exam(1, "math", "math 3c", DateTime.Now, "55/10")
             };
+            StudentList = new ObservableCollection<Student>()
+           {
+               new Student(1,MockupTest, "david", "sten", "davidsten", "davidsten1234", false)
+           };
             TeacherList = new ObservableCollection<Teacher>()
             {
                 new Teacher(1, "johan", "johansson", "johanjohansson", "johanjohansson1234", true)

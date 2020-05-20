@@ -40,7 +40,7 @@
         </ListView>
 
 
-        <ListView Background="White" x:Name="examlistview" ItemsSource="{x:Bind TeacherProfileView.MockupTest}" Grid.Column="3" Header="Exams:" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="black">
+        <ListView Background="White" x:Name="examlistview"  Grid.Column="3" Header="Exams:" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="black">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:Exam">
                     <StackPanel Orientation="Horizontal">
@@ -67,9 +67,9 @@
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="data:Teacher">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="First name: "/>
+                                <TextBlock Text="First name:  "/>
                                 <TextBlock Text="{x:Bind FirstName}"/>
-                                <TextBlock Text="Last name: "/>
+                                <TextBlock Text="Last name:  "/>
                                 <TextBlock Text="{x:Bind LastName}"/>
                             </StackPanel>
                         </DataTemplate>

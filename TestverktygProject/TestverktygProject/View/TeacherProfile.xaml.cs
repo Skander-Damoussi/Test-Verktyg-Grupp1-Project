@@ -37,7 +37,7 @@ namespace TestverktygProject.View
         {
             this.InitializeComponent();
          //   TeacherProfileView.ListOfExams();
-            TeacherProfileView.ListOfStudents();
+         //   TeacherProfileView.ListOfStudents();
         }
 
 
@@ -60,15 +60,8 @@ namespace TestverktygProject.View
 
         private void viewstudentexam_Click(object sender, RoutedEventArgs e)
         {
-            /// TeacherProfileView.ReadMethod(StudentListView.SelectedItem);
-
-
-
             Student SelectedStudent = (Student)StudentListView.SelectedItem;
-
             examlistview.ItemsSource = SelectedStudent.ListExam;
-
-
         }
     }
 }
