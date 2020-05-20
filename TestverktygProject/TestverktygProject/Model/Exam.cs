@@ -11,9 +11,29 @@ namespace TestverktygProject.Model
     {
         public int ExamID { get; set; }
         public string Subject { get; set; }
-        public List<Question> Questions { get; set; }
+ //       public List<Question> Questions { get; set; }
         public string ExamName { get; set; }
         public DateTime ExamDate { get; set; }
         public string Results { get; set; }
+
+        //public Exam(int examID, string subject, List<Question> questions, string examName, DateTime examDate, string results)
+        //{
+        //    ExamID = examID;
+        //    Subject = subject;
+        //    Questions = questions;
+        //    ExamName = examName;
+        //    ExamDate = examDate;
+        //    Results = results;
+        //}
+
+
+        public Exam(int examID, string subject, string examName, DateTime examDate, string results)
+        {
+            ExamID = examID;
+            Subject = subject;
+            ExamName = examName;
+            ExamDate = examDate;
+            Results = results;
+        }
     }
 }

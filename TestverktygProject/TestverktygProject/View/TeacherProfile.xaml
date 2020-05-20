@@ -33,13 +33,14 @@
                         <TextBlock Text="{x:Bind StudentID}"/>
                         <TextBlock Text="{x:Bind FirstName}"/>
                         <TextBlock Text="{x:Bind LastName}"/>
+                        
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
 
-        <ListView Background="White" x:Name="examlistview" ItemsSource="{x:Bind TeacherProfileView.Student}" Grid.Column="3" Header="Exams:" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="black">
+        <ListView Background="White" x:Name="examlistview" ItemsSource="{x:Bind TeacherProfileView.MockupTest}" Grid.Column="3" Header="Exams:" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" BorderThickness="1" BorderBrush="black">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:Exam">
                     <StackPanel Orientation="Horizontal">
@@ -60,9 +61,20 @@
 
 
             <StackPanel Background="AntiqueWhite"  HorizontalAlignment="Left" BorderThickness="1" BorderBrush="Black">
+
                 <Image Source="/Assets/logo-footer.png" Grid.Column="0" Grid.Row="0" VerticalAlignment="Top"/>
-                <TextBlock Text="David Davidsson" Grid.Row="0"/>
-                <TextBlock Text="000000-0000" Grid.Row="1"/>
+                <ListView Height="100" Background="AntiqueWhite" ItemsSource="{x:Bind TeacherProfileView.TeacherList}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="data:Teacher">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="First name: "/>
+                                <TextBlock Text="{x:Bind FirstName}"/>
+                                <TextBlock Text="Last name: "/>
+                                <TextBlock Text="{x:Bind LastName}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackPanel>
         </Grid>
 

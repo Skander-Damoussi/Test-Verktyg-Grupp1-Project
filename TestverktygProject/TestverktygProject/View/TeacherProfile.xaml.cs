@@ -62,6 +62,8 @@ namespace TestverktygProject.View
         {
             /// TeacherProfileView.ReadMethod(StudentListView.SelectedItem);
 
+
+
             Student SelectedStudent = (Student)StudentListView.SelectedItem;
 
             examlistview.ItemsSource = SelectedStudent.ListExam;

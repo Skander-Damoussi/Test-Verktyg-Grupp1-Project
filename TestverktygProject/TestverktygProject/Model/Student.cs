@@ -13,10 +13,15 @@ namespace TestverktygProject.Model
         public ObservableCollection<Exam> ListExam { get; set; }
 
 
-        public Student(string firstname, string lastname)
+        public Student(int studentId,ObservableCollection<Exam> listExam, string firstName, string lastName,string userName, string password,bool isTeacher)
         {
-            FirstName = firstname;
-            LastName = lastname;
+            StudentID = studentId;
+            ListExam = listExam;
+            FirstName = firstName;
+            LastName = lastName;
+            Username = userName;
+            Password = password;
+            IsTeacher = isTeacher;
         }
     }    
 }
