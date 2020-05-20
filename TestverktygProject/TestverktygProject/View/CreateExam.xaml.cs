@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Devices.Sensors;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -32,74 +33,82 @@ namespace TestverktygProject.View
 
         public CreateExamViewModel CreateExamViewModel { get; set; }
         public CreateQuestionUC QuestionUC { get; set; }
+        public Exam ExamProperty { get; set; }
+        public Question QProp { get; set; }
+
+        
         public CreateExam()
         {
             this.InitializeComponent();
             CreateExamViewModel = new CreateExamViewModel();
-            this.DataContext = CreateExamViewModel.Questions;
-            CQListView.ItemsSource = CreateExamViewModel.Questions;
+            this.DataContext = CreateExamViewModel;
+            QuestionsToBeFilledListView.ItemsSource = CreateExamViewModel.QuestionsToBeFilled;
+            NotYetCreatedExamListView.ItemsSource = CreateExamViewModel.CreatedQuestions;
+            SeeCreatedExamListView.ItemsSource = CreateExamViewModel.ExamList;
 
 
         }
 
-        /*private void BeforeCreationOfExamInfoButton_OnClick(object sender, RoutedEventArgs e)
+        private void BeforeCreationOfExamInfoButton_OnClick(object sender, RoutedEventArgs e)
         {
             int NumberOfQuestionsToGenerate = Int32.Parse(NumberOfQuestionsToGenerateField.Text);
 
 
-            /*for (int i = 0; i < NumberOfQuestionsToGenerate; i++)
+            for (int i = 0; i < NumberOfQuestionsToGenerate; i++)
             {
-                CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "Title of question", Name = "TitleOfQuestion" });
+
+                CreateExamViewModel.QuestionsToBeFilled.Add(new Question());
+
+                /*CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "Title of question", Name = "TitleOfQuestion" });
                 CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 1", Name = "Alt1" });
                 CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 2", Name = "Alt2" });
                 CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 3", Name = "Alt3" });
                 CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "alternative 4", Name = "Alt3" });
                 CreateQuestionsStackPanel.Children.Add(new TextBlock() { Text = "The right answer is: ", Name = "CorrectAnswer" });
-                CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "Answer with one digit", Name = "CorrectAnswerField" });
+                CreateQuestionsStackPanel.Children.Add(new TextBox() { PlaceholderText = "Answer with one digit", Name = "CorrectAnswerField" });*/
             }
 
-        }*/
+        }
 
         private void CreateExamButton_OnClick(object sender, RoutedEventArgs e)
         {
-            /*Exam exam = new Exam
+            Exam exam = new Exam
             {
-                ExamDate = DateTime.Today,
-                ExamName = TitleOfExam.Text,
-                Questions = GetQuestions(),
-                Subject = SubjectField.Text
-            };*/
+                ExamID = ExamProperty.ExamID,
+                ExamDate = ExamProperty.ExamDate,
+                ExamName = ExamProperty.ExamName,
+                Questions = ExamProperty.Questions,
+                Subject = ExamProperty.Subject,
+                Results = ExamProperty.Results
+            };
         }
 
         private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
         {
+            //b.ElementName = "Alt1";
             
+                alternatives.Add(CreateExamViewModel.SearchText);
+               /* alternatives.Add(QProp.Alt2);
+                alternatives.Add(QProp.Alt3);
+                alternatives.Add(QProp.Alt4); */
 
-            //GetElementFromCreatedQuestions();
-            alternatives.Add(CQListView.Items[0].ToString());
-           /* alternatives.Add(Alt2.Text);
-            alternatives.Add(Alt3.Text);
-            alternatives.Add(Alt4.Text);
-
-            RightAnswer.Add(Int32.Parse(CorrectAnswerField.Text));
-
-            opt1.Content = Alt1.Text;
-            opt2.Content = Alt2.Text;
-            opt3.Content = Alt3.Text;
-            opt4.Content = Alt4.Text;*/
+           // RightAnswer.Add(Int32.Parse(QProp.CorrectAnswer.ToString()));
 
             Question question = new Question
             {
                 Alternatives = alternatives,
                 CorrectAnswer = RightAnswer,
                 NumberOfPoints = 1,
-                QuestionTitle = "Some Title"
+                QuestionTitle = TitleOfQuestion
                 //TODO edit number of points so that the teacher decides the point per question
             };
 
             listOfQuestions.Add(question);
-            CreateExamViewModel.Questions.Add(question);
+            CreateExamViewModel.CreatedQuestions.Add(question);
+            
         }
+
+        public string TitleOfQuestion { get; set; }
 
         public List<Question> GetQuestions()
         {
@@ -110,43 +119,5 @@ namespace TestverktygProject.View
         {
             return listOfExams;
         }
-
-        /*public void GetElementFromCreatedQuestions()
-        {
-            object WA1 = CreateQuestionsStackPanel.FindName("Alt1");
-            object WA2 = CreateQuestionsStackPanel.FindName("Alt2");
-            object WA3 = CreateQuestionsStackPanel.FindName("Alt3");
-            object WA4 = CreateQuestionsStackPanel.FindName("Alt4");
-            object RA = CreateQuestionsStackPanel.FindName("CorrectAnswerField");
-
-            object WantedQuestionTitle = CreateQuestionsStackPanel.FindName("TitleOfQuestion");
-            foreach (UIElement child in CreateQuestionsStackPanel.Children)
-            {
-                if (child is StackPanel)
-                {
-                    foreach (UIElement ctrlChild in (child as StackPanel).Children)
-                    {
-                        if (ctrlChild is TextBox && WA1 is TextBox && WA2 is TextBox && WA3 is TextBox && WA4 is TextBox)
-                        {
-                            alternatives.Add(ctrlChild.ToString());
-                        }
-
-                        if (ctrlChild is TextBox && RA is TextBox)
-                        {
-                            RightAnswer.Add(Int32.Parse(ctrlChild.ToString()));
-                        }
-                    }
-                }
-            }
-        }*/
-
-        /*public object GetQuestionTitle()
-        {
-            object TitleOfQuestion = CreateQuestionsStackPanel.FindName("TitleOfQuestion");
-
-
-            return TitleOfQuestion;
-
-        }*/
     }
 }
