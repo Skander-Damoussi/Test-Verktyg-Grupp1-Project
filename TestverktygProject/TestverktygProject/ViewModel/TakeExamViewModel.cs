@@ -77,9 +77,7 @@ namespace TestverktygProject.ViewModel
         public void nextQuestion()
         {
             if (index <= questions.Count)
-            {
-                
-
+            {                
                 index++;
                 startindex++;
                 temp = questions[index];
