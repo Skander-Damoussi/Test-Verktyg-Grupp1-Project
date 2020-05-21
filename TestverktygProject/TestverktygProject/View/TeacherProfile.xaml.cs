@@ -40,7 +40,6 @@ namespace TestverktygProject.View
          //   TeacherProfileView.ListOfStudents();
         }
 
-
         private async void signout_Click(object sender, RoutedEventArgs e)
         {
             MessageDialog confirmDialog = new MessageDialog("Do you want to sign out?", "Sign out confirmation");
