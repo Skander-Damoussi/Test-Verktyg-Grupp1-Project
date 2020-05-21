@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TestverktygProject.ViewModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,9 +23,11 @@ namespace TestverktygProject.View
     /// </summary>
     public sealed partial class StudentProfile : Page
     {
+        public StudentProfileViewModel Vm { get; set; }
         public StudentProfile()
         {
             this.InitializeComponent();
+            this.Vm = new StudentProfileViewModel();
         }
     }
 }
