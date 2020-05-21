@@ -31,5 +31,10 @@ namespace TestverktygProject.View
         {
             this.Frame.Navigate(typeof(TakeExam));
         }
+
+        private void CreateExamButtonFromLoginPage_OnClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(CreateExam));
+        }
     }
 }
