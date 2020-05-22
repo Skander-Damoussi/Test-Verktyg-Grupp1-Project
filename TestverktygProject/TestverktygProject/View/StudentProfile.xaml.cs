@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TestverktygProject.Model;
 using TestverktygProject.ViewModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -24,10 +26,20 @@ namespace TestverktygProject.View
     public sealed partial class StudentProfile : Page
     {
         public StudentProfileViewModel Vm { get; set; }
+        public ObservableCollection<Exam> _examList { get; private set; }
+        Student tempstudent;
+
+
         public StudentProfile()
         {
+
             this.InitializeComponent();
+            Student student1 = new Student(1, _examList, "Peter", "Petersson", "PeterPetersson", "Petersson123", false);
+            //student1 ska bli getmetod
+            tempstudent = student1;
             this.Vm = new StudentProfileViewModel();
+            FirstNameText.Text = tempstudent.FirstName;
+            LastNameText.Text = tempstudent.LastName;
         }
     }
 }
