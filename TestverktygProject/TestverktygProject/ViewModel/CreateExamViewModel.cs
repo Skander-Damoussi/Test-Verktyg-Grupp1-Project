@@ -17,19 +17,12 @@ namespace TestverktygProject.ViewModel
         public ObservableCollection<Exam> ExamList { get; set; }
         public ObservableCollection<Question> QuestionsToBeFilled { get; set; }
         public ObservableCollection<Question> CreatedQuestions { get; set; }
-        public Question Question { get; set; }
-        public Exam Exam { get; set; }
-        public string QuestionTitle { get; set; }
-        public string CorrectAnswer { get; set; }
-        public string TB { get; set; }
-        public List<string> Alternatives { get; set; }
         
         public CreateExamViewModel()
         {
             ExamList = new ObservableCollection<Exam>();
             QuestionsToBeFilled = new ObservableCollection<Question>();
             CreatedQuestions = new ObservableCollection<Question>();
-            Alternatives = new List<string>();
         }
     }
 }
