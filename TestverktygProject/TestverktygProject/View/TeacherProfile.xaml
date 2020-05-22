@@ -9,7 +9,7 @@
     NavigationCacheMode="Enabled"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="LightGray">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -53,8 +53,8 @@
         </ListView>
 
         <StackPanel Grid.Row="1" Grid.Column="6" Spacing="5">
-            <Button Content="Create Exam" Grid.Column="7" Grid.Row="0" CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="createexam_Click"/>
-            <Button Content="View Student Exams" x:Name="viewstudentexam" Grid.Column="7" Grid.Row="1" CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="viewstudentexam_Click"/>
+            <Button Content="Create Exam" Grid.Column="7" Grid.Row="0" CornerRadius="10"  Width="150" Height="50" BorderThickness="1" Background="CadetBlue" BorderBrush="Black" Click="createexam_Click"/>
+            <Button Content="View Student Exams" x:Name="viewstudentexam" Grid.Column="7" Grid.Row="1" CornerRadius="10" Background="CadetBlue" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="viewstudentexam_Click"/>
         </StackPanel>
 
         <Grid Grid.RowSpan="4">
@@ -78,7 +78,7 @@
             </StackPanel>
         </Grid>
 
-        <Button Content="Sign Out" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center"  CornerRadius="10" Background="Orange" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="signout_Click"/>
+        <Button Content="Sign Out" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center"  CornerRadius="10" Background="CadetBlue" Width="150" Height="50" BorderThickness="1" BorderBrush="Black" Click="signout_Click"/>
 
 
 

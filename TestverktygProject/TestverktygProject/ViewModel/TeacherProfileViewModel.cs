@@ -37,7 +37,7 @@ namespace TestverktygProject.ViewModel
         {
             MockupTest = new ObservableCollection<Exam>()
             {
-                new Exam(1, "math", "math 3c", DateTime.Now, "55/10")
+                new Exam(1, "  math", "  math 3c", DateTime.Now, "  55/10")
             };
             StudentList = new ObservableCollection<Student>()
            {
