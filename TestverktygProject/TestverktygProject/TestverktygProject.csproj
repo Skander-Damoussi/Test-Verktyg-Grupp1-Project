@@ -119,9 +119,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CreateQuestionUC.xaml.cs">
+      <DependentUpon>CreateQuestionUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Account.cs" />
-    <Compile Include="Model\ApiCalls.cs" />
     <Compile Include="Model\Exam.cs" />
+    <Compile Include="Services\APIService.cs" />
+    <Compile Include="Services\IAPIService.cs" />
     <Compile Include="ViewModel\IResults.cs" />
     <Compile Include="Model\Question.cs" />
     <Compile Include="Model\Student.cs" />
@@ -170,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CreateQuestionUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CreateExam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -199,7 +207,9 @@
       <Version>5.4.1.1</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="UserControl\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

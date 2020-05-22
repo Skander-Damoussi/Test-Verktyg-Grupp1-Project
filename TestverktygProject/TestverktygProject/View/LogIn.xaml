@@ -9,6 +9,10 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button x:Name="GoToTakeExam" Content="Navigate to TakeExamPage" Click="GoToTakeExam_Click"/>
+        <StackPanel>
+            <Button x:Name="GoToTakeExam" Content="Navigate to TakeExamPage" Click="GoToTakeExam_Click"/>
+            <Button x:Name="CreateExamButtonFromLoginPage" Content="Navigate to Create exam" Click="CreateExamButtonFromLoginPage_OnClick"/>
+        </StackPanel>
+        
     </Grid>
 </Page>
