@@ -44,7 +44,7 @@ namespace TestverktygProject.View
 
         /*private void BeforeCreationOfExamInfoButton_OnClick(object sender, RoutedEventArgs e)
         {
-            int NumberOfQuestionsToGenerate = Int32.Parse(NumberOfQuestionsToGenerateField.Text);
+            //        int NumberOfQuestionsToGenerate = Int32.Parse(NumberOfQuestionsToGenerateField.Text);
 
 
             /*for (int i = 0; i < NumberOfQuestionsToGenerate; i++)
@@ -73,7 +73,7 @@ namespace TestverktygProject.View
 
         private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
         {
-            
+
 
             //GetElementFromCreatedQuestions();
             alternatives.Add(CQListView.Items[0].ToString());
@@ -101,10 +101,10 @@ namespace TestverktygProject.View
             CreateExamViewModel.Questions.Add(question);
         }
 
-        public List<Question> GetQuestions()
-        {
-            return listOfQuestions;
-        }
+            //    public List<Question> GetQuestions()
+            //    {
+            //        return listOfQuestions;
+            //    }
 
         public List<Exam> GetExams()
         {
