@@ -9,19 +9,17 @@ namespace TestverktygProject.Model
 {
     public class Question
     {
-        public List<int> CorrectAnswer { get; set; }
-        public List<string> Alternatives { get; set; }
+        public List<int> CorrectAnswer { get; set; } = new List<int>();
+        public List<string> Alternatives { get; set; } = new List<string>();
         public int NumberOfPoints { get; set; }
         public string QuestionTitle { get; set; }
-        public TextBox Alternative1 { get; set; }
 
-        public Question(List<int> correctanswer, List<string> alternative, int numberofpoints, string questiontitle, TextBox alternative1)
+        public Question(List<int> correctanswer, List<string> alternative, int numberofpoints, string questiontitle)
         {
             CorrectAnswer = correctanswer;
             Alternatives = alternative;
             NumberOfPoints = numberofpoints;
             QuestionTitle = questiontitle;
-            Alternative1 = alternative1;
         }
 
         public Question()
