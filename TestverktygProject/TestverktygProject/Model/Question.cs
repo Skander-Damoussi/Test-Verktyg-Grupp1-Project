@@ -8,11 +8,10 @@ namespace TestverktygProject.Model
 {
     public class Question
     {
-        public List<int> CorrectAnswer { get; set; }
-        public List<string> Alternatives { get; set; }
+        public List<int> CorrectAnswer { get; set; } = new List<int>();
+        public List<string> Alternatives { get; set; } = new List<string>();
         public int NumberOfPoints { get; set; }
         public string QuestionTitle { get; set; }
-        public string QuestionValue { get; set; }
 
         public Question(List<int> correctanswer, List<string> alternative, int numberofpoints, string questiontitle)
         {
@@ -22,8 +21,9 @@ namespace TestverktygProject.Model
             QuestionTitle = questiontitle;
         }
 
+        public Question()
+        {
 
-
-
+        }
     }
 }
