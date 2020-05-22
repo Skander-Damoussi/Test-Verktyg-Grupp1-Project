@@ -1,23 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestverktygProject.Model
 {
     public class Exam
     {
-        public Exam(int examID, string subject, List<Question> questions, string examName, DateTime examDate, string results)
-        {
-            ExamID = examID;
-            Subject = subject;
-            Questions = questions;
-            ExamName = examName;
-            ExamDate = examDate;
-            Results = results;
-        }
         public int ExamID { get; set; }
         public string Subject { get; set; }
         public List<Question> Questions { get; set; }
