@@ -120,8 +120,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Account.cs" />
-    <Compile Include="Model\ApiCalls.cs" />
     <Compile Include="Model\Exam.cs" />
+    <Compile Include="Services\APIService.cs" />
+    <Compile Include="Services\IAPIService.cs" />
     <Compile Include="ViewModel\IResults.cs" />
     <Compile Include="Model\Question.cs" />
     <Compile Include="Model\Student.cs" />
@@ -194,6 +195,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmLightLibs">
+      <Version>5.4.1.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />

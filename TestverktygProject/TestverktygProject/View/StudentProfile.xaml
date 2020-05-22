@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TestverktygProject.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local1="using:TestverktygProject.Model"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -29,15 +29,25 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <ListView Height="700">
-
-                </ListView>
+                <StackPanel Grid.Row="1" Grid.Column="1">
+                    <ListView Height="700" ItemsSource="{x:Bind Vm._examList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="local1:Exam">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{x:Bind ExamName}" FontSize="20" FontWeight="Bold"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
             </Grid>
         </StackPanel>
         <!--Names-->
-        <StackPanel Grid.Row="2" Grid.Column="1">
-            <TextBlock Text="First Name:" FontSize="20" FontWeight="Bold"/>
-            <TextBlock Text="Last Name:" FontSize="20" FontWeight="Bold"/>
+        <StackPanel Grid.Row="2" Grid.Column="1"  Margin="25">
+            <TextBlock Text="First Name:" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="FirstNameText" FontSize="20" HorizontalAlignment="Center"/>
+            <TextBlock Text="Last Name:" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="LastNameText" FontSize="20" HorizontalAlignment="Center"/>
         </StackPanel>
         <!--Pictures-->
         <Image Source="../Assets/logo-footer.png" Grid.Column="1" Grid.Row="1"/>
@@ -48,7 +58,7 @@
         </StackPanel>
         <!--EXAM HISTORY BUTTON-->
         <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Margin="10" Height="90" Width="250" x:Name="signOutButton" Content="Sign Out" FontSize="25" FontWeight="Bold" BorderBrush="Black" RequestedTheme="Default" Click="signOutButton_Click"/>
+            <Button Margin="10" Height="90" Width="250" x:Name="signOutButton" Content="Sign Out" FontSize="25" FontWeight="Bold" BorderBrush="Black" RequestedTheme="Default"/>
         </StackPanel>
         <!--POPUP FOR SIGNOUT-->
         <Popup x:Name="PopupSignOut" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsOpen="False" IsLightDismissEnabled="False" Height="250" Width="400">
