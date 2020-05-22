@@ -10,7 +10,7 @@ namespace TestverktygProject.Model
     public class Question
     {
         public List<int> CorrectAnswer { get; set; } = new List<int>();
-        public List<string> Alternatives { get; set; } = new List<string>();
+        public List<string> Alternatives { get; set; } = new List<string>{"", "", "", ""};
         public int NumberOfPoints { get; set; }
         public string QuestionTitle { get; set; }
 
