@@ -60,16 +60,16 @@
 
 //        }*/
 
-//        private void CreateExamButton_OnClick(object sender, RoutedEventArgs e)
-//        {
-//            /*Exam exam = new Exam
-//            {
-//                ExamDate = DateTime.Today,
-//                ExamName = TitleOfExam.Text,
-//                Questions = GetQuestions(),
-//                Subject = SubjectField.Text
-//            };*/
-//        }
+        private void CreateExamButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            /*Exam exam = new Exam
+            {
+                ExamDate = DateTime.Today,
+                ExamName = TitleOfExam.Text,
+                //Questions = GetQuestions(),
+                Subject = SubjectField.Text
+            };*/
+        }
 
 //        private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
 //        {
