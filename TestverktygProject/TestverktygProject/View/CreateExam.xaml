@@ -39,69 +39,70 @@
 
             </PivotItem>
             <PivotItem Header="Create questions">
-                <StackPanel>
-                    <ListView x:Name="QuestionsToBeFilledListView" ItemsSource="{x:Bind CreateExamViewModel.QuestionsToBeFilled}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate x:DataType="model:Question">
-                                <StackPanel
-                                    x:Name="CreateQuestionsStackPanel"
-                                    Width="500"
-                                    Margin="0,0,0,50"
-                                    Padding="10">
-                                    <TextBox
-                                        x:Name="TitleOfQuestion"
-                                        Padding="10"
-                                        PlaceholderText="Title of Question"
-                                        Text="{Binding QuestionTitle, Mode=TwoWay}" />
-                                    <TextBox
-                                        x:Name="Alternative1"
-                                        Padding="10"
-                                        PlaceholderText="Alternative 1"
-                                        Text="{Binding Alternatives[0], Mode=TwoWay}" />
-                                    <TextBox
-                                        x:Name="Alt2"
-                                        Padding="10"
-                                        PlaceholderText="Alternative 2"
-                                        Text="{Binding Alternatives[1], Mode=TwoWay}" />
-                                    <TextBox
-                                        x:Name="Alt3"
-                                        Padding="10"
-                                        PlaceholderText="Alternative 3"
-                                        Text="{Binding Alternatives[2], Mode=TwoWay}" />
-                                    <TextBox
-                                        x:Name="Alt4"
-                                        Padding="10"
-                                        PlaceholderText="Alternative 4"
-                                        Text="{Binding Alternatives[3], Mode=TwoWay}" />
-                                    <TextBlock
-                                        x:Name="CorrectAnswerLabel"
-                                        HorizontalAlignment="Left"
-                                        Text="The right answer is: " />
-                                    <TextBox
-                                        x:Name="CorrectAnswerField"
-                                        HorizontalAlignment="Right"
-                                        Text="{Binding CorrectAnswer[0], Mode=TwoWay}" />
+                <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled">
+                    <StackPanel>
+                        <ListView x:Name="QuestionsToBeFilledListView" ItemsSource="{x:Bind CreateExamViewModel.QuestionsToBeFilled}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="model:Question">
+                                    <StackPanel
+                                        x:Name="CreateQuestionsStackPanel"
+                                        Width="500"
+                                        Margin="0,0,0,50"
+                                        Padding="10">
+                                        <TextBox
+                                            x:Name="TitleOfQuestion"
+                                            Padding="10"
+                                            PlaceholderText="Title of Question"
+                                            Text="{Binding QuestionTitle, Mode=TwoWay}" />
+                                        <TextBox
+                                            x:Name="Alt1"
+                                            Padding="10"
+                                            PlaceholderText="Alternative 1"
+                                            Text="{Binding Alternatives[0], Mode=TwoWay}" />
+                                        <TextBox
+                                            x:Name="Alt2"
+                                            Padding="10"
+                                            PlaceholderText="Alternative 2"
+                                            Text="{Binding Alternatives[1], Mode=TwoWay}" />
+                                        <TextBox
+                                            x:Name="Alt3"
+                                            Padding="10"
+                                            PlaceholderText="Alternative 3"
+                                            Text="{Binding Alternatives[2], Mode=TwoWay}" />
+                                        <TextBox
+                                            x:Name="Alt4"
+                                            Padding="10"
+                                            PlaceholderText="Alternative 4"
+                                            Text="{Binding Alternatives[3], Mode=TwoWay}" />
+                                        <TextBlock
+                                            x:Name="CorrectAnswerLabel"
+                                            HorizontalAlignment="Left"
+                                            Text="The right answer is: " />
+                                        <TextBox
+                                            x:Name="CorrectAnswerField"
+                                            HorizontalAlignment="Right"
+                                            Text="{Binding CorrectAnswer[0], Mode=TwoWay}" />
 
-                                </StackPanel>
-
-
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-
-                    <Button
-                        x:Name="SubmitQuestionButton"
-                        Margin="10"
-                        Padding="10"
-                        HorizontalAlignment="Left"
-                        Click="SubmitQuestionButton_OnClick"
-                        Content="Submit Questions" />
-                </StackPanel>
+                                    </StackPanel>
 
 
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                        <Button
+                            x:Name="SubmitQuestionButton"
+                            Margin="10"
+                            Padding="10"
+                            HorizontalAlignment="Left"
+                            Click="SubmitQuestionButton_OnClick"
+                            Content="Submit Questions" />
+                    </StackPanel>
+                </ScrollViewer>
 
             </PivotItem>
             <PivotItem Header="Preview exam">
+                <ScrollViewer>
                 <StackPanel>
                     <ListView x:Name="NotYetCreatedExamListView" ItemsSource="{x:Bind CreateExamViewModel.CreatedQuestions}">
                         <ListView.ItemTemplate>
@@ -136,44 +137,44 @@
                                         Padding="10"
                                         PlaceholderText="Write an answer here..."
                                         Text="{Binding Alternatives[3], Mode=TwoWay}" />
-                                    <TextBlock
-                                        x:Name="CorrectAnswerLabel"
-                                        HorizontalAlignment="Left"
-                                        Text="The right answer is: " />
-                                    <TextBox
-                                        x:Name="CorrectAnswerField"
-                                        HorizontalAlignment="Right"
-                                        PlaceholderText="Answer with a single digit"
-                                        Text="{Binding CorrectAnswer[0], Mode=TwoWay}" />
 
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                </StackPanel>
+                    <StackPanel>
+                        <Button
+                            Name="CreateExamButton"
+                            Click="CreateExamButton_OnClick"
+                            Content="Create exam" />
+                    </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
 
             </PivotItem>
-            <PivotItem Header="See created exam">
-                <ListView x:Name="SeeCreatedExamListView" ItemsSource="{x:Bind CreateExamViewModel.ExamList}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="model:Exam">
-                            <StackPanel>
-                                <TextBlock x:Name="ExamTitle" Text="{Binding ExamName}" />
-                                <TextBlock x:Name="DateOfExam" Text="{Binding ExamDate}" />
-                                <TextBlock Name="QuestionTitleFieldCreated" Text="{Binding ExamName, Mode=TwoWay}" />
-                                <RadioButton Name="opt1" Content="{Binding Questions, Mode=TwoWay}" />
-                                <!--><RadioButton Name="opt2" Content="{Binding Alternatives[1], Mode=TwoWay}"/>
+            <PivotItem Header="View created exam">
+                <ScrollViewer>
+                <StackPanel>
+                    <ListView x:Name="SeeCreatedExamListView" ItemsSource="{x:Bind CreateExamViewModel.ExamList}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="model:Exam">
+                                <StackPanel>
+                                    <TextBlock x:Name="ExamTitle" Text="{Binding ExamName}" />
+                                    <TextBlock x:Name="DateOfExam" Text="{Binding ExamDate}" />
+                                    <TextBlock Name="QuestionTitleFieldCreated" Text="{Binding ExamName, Mode=TwoWay}" />
+                                    <RadioButton Name="opt1" Content="{Binding Questions, Mode=TwoWay}" />
+                                    <!--><RadioButton Name="opt2" Content="{Binding Alternatives[1], Mode=TwoWay}"/>
                                 <RadioButton Name="opt3" Content="{Binding Alternatives[2], Mode=TwoWay}"/>
                                 <RadioButton Name="opt4"  Content="{Binding Alternatives[3], Mode=TwoWay}"/>-->
-                                <Button
-                                    Name="CreateExamButton"
-                                    Click="CreateExamButton_OnClick"
-                                    Content="Create exam" />
-                            </StackPanel>
 
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                                </StackPanel>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    
+                </StackPanel>
+                </ScrollViewer>
 
             </PivotItem>
         </Pivot>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using TestverktygProject.Model;
@@ -48,15 +49,17 @@ namespace TestverktygProject.View
 
         private void CreateExamButton_OnClick(object sender, RoutedEventArgs e)
         {
+            var exams = CreateExamViewModel.ExamList;
             var exam = new Exam
-            {
-                /*ExamID = ExamProperty.ExamID,
-                ExamDate = ExamProperty.ExamDate,
-                ExamName = ExamProperty.ExamName,
-                Questions = ExamProperty.Questions,
-                Subject = ExamProperty.Subject,
-                Results = ExamProperty.Results*/
+            { 
+                ExamDate = DateTime.Today,
+                ExamName = TitleOfExamField.Text,
+                Questions = GetQuestions(),
+                Subject = SubjectField.Text,
+                Results = 0
             };
+
+            exams.Add(exam);
         }
 
         private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
@@ -71,6 +74,19 @@ namespace TestverktygProject.View
                 CreateExamViewModel.CreatedQuestions.Add(q);
             }
 
+        }
+
+        public List<Question> GetQuestions()
+        {
+            var questions = CreateExamViewModel.CreatedQuestions;
+            List<Question> listOfQuestions = new List<Question>();
+
+            foreach (Question q in questions)
+            {
+                listOfQuestions.Add(q);
+            }
+
+            return listOfQuestions;
         }
     }
 }
