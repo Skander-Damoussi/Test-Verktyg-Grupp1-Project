@@ -26,18 +26,17 @@ namespace TestverktygProject.View
     public sealed partial class StudentProfile : Page
     {
         public StudentProfileViewModel Vm { get; set; }
-        public ObservableCollection<Exam> _examList { get; private set; }
+        public ObservableCollection<Exam> _studentsexams { get; set; }
         Student tempstudent;
-
 
         public StudentProfile()
         {
-
             this.InitializeComponent();
-            Student student1 = new Student(1, _examList, "Peter", "Petersson", "PeterPetersson", "Petersson123", false);
+            Student student1 = new Student(1, _studentsexams, "Peter", "Petersson", "PeterPetersson", "Petersson123", false);
             //student1 ska bli getmetod
             tempstudent = student1;
             this.Vm = new StudentProfileViewModel();
+            //tempstudent = Vm.student1;
             FirstNameText.Text = tempstudent.FirstName;
             LastNameText.Text = tempstudent.LastName;
         }
