@@ -48,7 +48,7 @@ namespace TestVerktygAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTeacher(int id, Teacher teacher)
         {
-            if (id != teacher.UserID)
+            if (id != teacher.TeacherID)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace TestVerktygAPI.Controllers
             _context.Teacher.Add(teacher);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetTeacher", new { id = teacher.UserID }, teacher);
+            return CreatedAtAction("GetTeacher", new { id = teacher.TeacherID }, teacher);
         }
 
         // DELETE: api/Teachers/5
@@ -104,7 +104,7 @@ namespace TestVerktygAPI.Controllers
 
         private bool TeacherExists(int id)
         {
-            return _context.Teacher.Any(e => e.UserID == id);
+            return _context.Teacher.Any(e => e.TeacherID == id);
         }
     }
 }
