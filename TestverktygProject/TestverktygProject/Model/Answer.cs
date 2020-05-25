@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace TestVerktygAPI.Models
+namespace TestverktygProject.Model
 {
-    public class Answer
+    class Answer
     {
-        public int AnswerID { get; set; }
         public string AnswerTitle { get; set; }
         public bool CorrectAnswer { get; set; }
-        public int QuestionID { get; set; }
     }
 }

@@ -123,6 +123,7 @@
       <DependentUpon>CreateQuestionUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Answer.cs" />
     <Compile Include="Model\Exam.cs" />
     <Compile Include="Services\APIService.cs" />
     <Compile Include="Services\IAPIService.cs" />
