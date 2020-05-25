@@ -52,11 +52,11 @@ namespace TestverktygProject.ViewModel
 
             _examList = new ObservableCollection<Exam>()
             {
-                new Exam(1, "Mathematics", _questionList.ToList(),"Math 5c",DateTime.Now,50)
+                new Exam("Mathematics", _questionList.ToList(),"Math 5c",DateTime.Now,50)
             };
             _listOfStudents = new ObservableCollection<Student>()
             {
-                new Student(1, _examList, "Peter", "Petersson", "PeterPetersson", "Petersson123", false)
+                new Student(_examList, "Peter", "Petersson", "PeterPetersson", "Petersson123", false)
             };
 
         }
