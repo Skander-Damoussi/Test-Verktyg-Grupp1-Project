@@ -27,7 +27,7 @@ namespace TestverktygProject.View
     public sealed partial class StudentProfile : Page
     {
         public StudentProfileViewModel Vm { get; set; }
-        public ObservableCollection<Exam> _studentsexams { get; set; }
+        public ObservableCollection<Exam> _examList { get; set; }
         Student tempstudent;
 
         public StudentProfile()
