@@ -38,9 +38,19 @@ namespace TestverktygProject.View
             this.Frame.Navigate(typeof(CreateExam));
         }
 
-        private void GoToStudentProfile_Click(object sender, RoutedEventArgs e)
+        private void TeacherProfile_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(TeacherProfile));
+        }
+
+        private void StudentProfile_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(StudentProfile));
+        }
+
+        private void LogInButton_Click(object sender, RoutedEventArgs e)
+        {
+          
         }
     }
 }
