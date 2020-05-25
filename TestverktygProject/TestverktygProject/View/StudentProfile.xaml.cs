@@ -34,7 +34,7 @@ namespace TestverktygProject.View
         {
 
             this.InitializeComponent();
-            Student student1 = new Student(1, _examList, "Peter", "Petersson", "PeterPetersson", "Petersson123", false);
+            Student student1 = new Student(_examList, "Peter", "Petersson", "PeterPetersson", "Petersson123", false);
             //student1 ska bli getmetod
             tempstudent = student1;
             this.Vm = new StudentProfileViewModel();
