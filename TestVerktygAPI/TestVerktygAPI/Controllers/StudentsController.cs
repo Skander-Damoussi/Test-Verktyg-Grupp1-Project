@@ -48,7 +48,7 @@ namespace TestVerktygAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutStudent(int id, Student student)
         {
-            if (id != student.UserID)
+            if (id != student.StudentID)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace TestVerktygAPI.Controllers
             _context.Student.Add(student);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetStudent", new { id = student.UserID }, student);
+            return CreatedAtAction("GetStudent", new { id = student.StudentID }, student);
         }
 
         // DELETE: api/Students/5
@@ -104,7 +104,7 @@ namespace TestVerktygAPI.Controllers
 
         private bool StudentExists(int id)
         {
-            return _context.Student.Any(e => e.UserID == id);
+            return _context.Student.Any(e => e.StudentID == id);
         }
     }
 }
