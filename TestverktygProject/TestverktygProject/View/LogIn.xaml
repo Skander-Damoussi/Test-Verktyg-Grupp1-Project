@@ -7,13 +7,54 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    
     <Grid>
-        <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.ColumnSpan="2" >
+            <StackPanel BorderBrush="Black" BorderThickness="0.5" Width="400" Spacing="5" >
+                <Border Background="CadetBlue">
+                    <TextBlock Text="Login"/>
+                </Border>
+           
+                <TextBox x:Name="usernamebox" PlaceholderText="Username" Background="White"/>
+                <TextBox x:Name="passwordbox" PlaceholderText="Password" Background="White" />
+                <Button x:Name="LogInButton" Content="Login" CornerRadius="10"  Width="150" Height="35" BorderBrush="Black" BorderThickness="0.5" Background="CadetBlue" Click="LogInButton_Click" HorizontalAlignment="Center" />
+            </StackPanel>
+        </Grid>
+
+
+
+
+
+        <StackPanel BorderBrush="Black" BorderThickness="0,1,0,0" >
+            
             <Button x:Name="GoToTakeExam" Content="Navigate to TakeExamPage" Click="GoToTakeExam_Click"/>
             <Button x:Name="CreateExamButtonFromLoginPage" Content="Navigate to Create exam" Click="CreateExamButtonFromLoginPage_OnClick"/>
-            <Button x:Name="GoToStudentProfile" Content="Student Profile Page" Click="GoToStudentProfile_Click"/>
+            <Button x:Name="TeacherProfile" Content="Navigate to teacherprofile exam" Click="TeacherProfile_Click" />
+            <Button x:Name="StudentProfile" Content="Navigate to studentprofile exam" Click="StudentProfile_Click" />
+
         </StackPanel>
-        
+       
+
+
+
+
+
+
     </Grid>
 </Page>

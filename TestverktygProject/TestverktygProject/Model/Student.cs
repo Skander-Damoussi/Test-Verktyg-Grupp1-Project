@@ -19,5 +19,7 @@ namespace TestverktygProject.Model
             IsTeacher = isTeacher;
         }
         public ObservableCollection<Exam> ListExam { get; set; }
+
+
     }    
 }

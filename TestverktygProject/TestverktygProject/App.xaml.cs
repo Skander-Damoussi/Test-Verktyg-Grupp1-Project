@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TestverktygProject.Model;
 using TestverktygProject.View;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;

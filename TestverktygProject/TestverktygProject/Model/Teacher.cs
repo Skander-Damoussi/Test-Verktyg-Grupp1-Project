@@ -18,5 +18,9 @@ namespace TestverktygProject.Model
             IsTeacher = isteacher;
         }
         public int TeacherID { get; set; }
+
+
+
+
     }
 }
