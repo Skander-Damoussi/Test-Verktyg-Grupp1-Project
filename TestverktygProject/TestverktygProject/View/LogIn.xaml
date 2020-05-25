@@ -12,6 +12,7 @@
         <StackPanel>
             <Button x:Name="GoToTakeExam" Content="Navigate to TakeExamPage" Click="GoToTakeExam_Click"/>
             <Button x:Name="CreateExamButtonFromLoginPage" Content="Navigate to Create exam" Click="CreateExamButtonFromLoginPage_OnClick"/>
+            <Button x:Name="GoToStudentProfile" Content="Student Profile Page" Click="GoToStudentProfile_Click"/>
         </StackPanel>
         
     </Grid>

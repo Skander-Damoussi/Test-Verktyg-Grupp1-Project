@@ -10,6 +10,7 @@ namespace TestverktygProject.ViewModel
 {
     public class StudentProfileViewModel
     {
+        //public Student student1;
         public ICommand _command { get; set; }
         public ObservableCollection<Student> ListOfStudents { get; set; }
         public ObservableCollection<Exam> ExamList { get; set; }
@@ -58,6 +59,7 @@ namespace TestverktygProject.ViewModel
             {
                 new Student(_examList, "Peter", "Petersson", "PeterPetersson", "Petersson123", false)
             };
+            //student1 = ListOfStudents[1];
 
         }
         public void SeeResults()
