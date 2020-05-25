@@ -158,16 +158,27 @@
                     <ListView x:Name="SeeCreatedExamListView" ItemsSource="{x:Bind CreateExamViewModel.ExamList}">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="model:Exam">
-                                <StackPanel>
+                                <StackPanel x:Name="ExamListPanel">
                                     <TextBlock x:Name="ExamTitle" Text="{Binding ExamName}" />
                                     <TextBlock x:Name="DateOfExam" Text="{Binding ExamDate}" />
                                     <TextBlock Name="QuestionTitleFieldCreated" Text="{Binding ExamName, Mode=TwoWay}" />
-                                    <RadioButton Name="opt1" Content="{Binding Questions, Mode=TwoWay}" />
-                                    <!--><RadioButton Name="opt2" Content="{Binding Alternatives[1], Mode=TwoWay}"/>
-                                <RadioButton Name="opt3" Content="{Binding Alternatives[2], Mode=TwoWay}"/>
-                                <RadioButton Name="opt4"  Content="{Binding Alternatives[3], Mode=TwoWay}"/>-->
+                                        <ListView ItemsSource="{x:Bind Questions}">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate x:DataType="model:Question">
+                                                    <StackPanel>
+                                                        <TextBlock x:Name="QuestionTitleLabel" Text="{x:Bind QuestionTitle}"/>
+                                                        <RadioButton Name="opt1" Content="{Binding Alternatives[0], Mode=TwoWay}" />
+                                                        <RadioButton Name="opt2" Content="{Binding Alternatives[1], Mode=TwoWay}"/>
+                                                        <RadioButton Name="opt3" Content="{Binding Alternatives[2], Mode=TwoWay}"/>
+                                                        <RadioButton Name="opt4"  Content="{Binding Alternatives[3], Mode=TwoWay}"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                    
+                                    
 
-                                </StackPanel>
+                                    </StackPanel>
 
                             </DataTemplate>
                         </ListView.ItemTemplate>
