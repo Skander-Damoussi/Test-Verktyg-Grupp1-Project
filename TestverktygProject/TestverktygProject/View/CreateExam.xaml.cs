@@ -52,12 +52,11 @@ namespace TestverktygProject.View
             var exams = CreateExamViewModel.ExamList;
             var exam = new Exam
             { 
-                ExamDate = DateTime.Today,
+                ExamDate = DatePicker.Date.DateTime,
                 ExamName = TitleOfExamField.Text,
                 Questions = GetQuestions(),
                 Subject = SubjectField.Text,
                 Results = 0
-                //Todo Add Date Picker to set exam as active
             };
 
             exams.Add(exam);

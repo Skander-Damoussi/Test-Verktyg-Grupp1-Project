@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
+using Newtonsoft.Json;
 using TestverktygProject.Model;
 using TestverktygProject.View;
 
@@ -39,7 +40,7 @@ namespace TestverktygProject.ViewModel
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.MissingMemberHandling = MissingMemberHandling.Error;
 
-            var exams = JsonConvert.DeserializeObject<ObservableCollection<Pizza>>(jsonPizzas, settings);
+            var exams = JsonConvert.DeserializeObject<ObservableCollection<Exam>>(jsonExams, settings);
 
             return exams;
         }
