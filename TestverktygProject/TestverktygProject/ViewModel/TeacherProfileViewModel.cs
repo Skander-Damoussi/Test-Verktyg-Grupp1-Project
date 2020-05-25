@@ -41,11 +41,11 @@ namespace TestverktygProject.ViewModel
             };
             StudentList = new ObservableCollection<Student>()
            {
-               new Student(1,MockupTest, "david", "sten", "davidsten", "davidsten1234", false)
+               new Student(MockupTest, "david", "sten", "davidsten", "davidsten1234", false)
            };
             TeacherList = new ObservableCollection<Teacher>()
             {
-                new Teacher(1, "johan", "johansson", "johanjohansson", "johanjohansson1234", true)
+                new Teacher("johan", "johansson", "johanjohansson", "johanjohansson1234", true)
             };
         }
        

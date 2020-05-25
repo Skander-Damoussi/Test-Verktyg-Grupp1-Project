@@ -30,7 +30,6 @@
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:Student">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{x:Bind StudentID}"/>
                         <TextBlock Text="{x:Bind FirstName}"/>
                         <TextBlock Text="{x:Bind LastName}"/>
                         
