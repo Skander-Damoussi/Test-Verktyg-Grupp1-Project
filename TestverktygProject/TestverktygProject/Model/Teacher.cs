@@ -9,9 +9,8 @@ namespace TestverktygProject.Model
 {
     public class Teacher : User
     {
-        public Teacher(int teacherId, string firstname, string lastname, string username, string password, bool isteacher)
+        public Teacher(string firstname, string lastname, string username, string password, bool isteacher)
         {
-            TeacherID = teacherId;
             FirstName = firstname;
             LastName = lastname;
             Username = username;
@@ -19,5 +18,9 @@ namespace TestverktygProject.Model
             IsTeacher = isteacher;
         }
         public int TeacherID { get; set; }
+
+
+
+
     }
 }

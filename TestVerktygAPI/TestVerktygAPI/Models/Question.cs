@@ -13,8 +13,7 @@ namespace TestVerktygAPI.Models
     {
         [Key]
         public int QuestionID { get; set; }
-        public List<Answer> CorrectAnswer { get; set; }
-        public List<Alternative> Alternatives { get; set; }
+        public List<Answer> Answers { get; set; }
         public int NumberOfPoints { get; set; }
         public string QuestionTitle { get; set; }
     }

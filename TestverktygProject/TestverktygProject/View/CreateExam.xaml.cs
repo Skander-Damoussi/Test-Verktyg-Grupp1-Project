@@ -57,6 +57,7 @@ namespace TestverktygProject.View
                 Questions = GetQuestions(),
                 Subject = SubjectField.Text,
                 Results = 0
+                //Todo Add Date Picker to set exam as active
             };
 
             exams.Add(exam);
@@ -87,6 +88,16 @@ namespace TestverktygProject.View
             }
 
             return listOfQuestions;
+        }
+
+        public async void GetAllExams()
+        {
+            var exams = await CreateExamViewModel.GetAllExamsAsync();
+
+            foreach (Exam exam in exams)
+            {
+                CreateExamViewModel.ExamList.Add(exam);
+            }
         }
     }
 }

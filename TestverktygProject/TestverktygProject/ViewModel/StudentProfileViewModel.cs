@@ -10,6 +10,7 @@ namespace TestverktygProject.ViewModel
 {
     public class StudentProfileViewModel
     {
+        //public Student student1;
         public ICommand _command { get; set; }
         public ObservableCollection<Student> ListOfStudents { get; set; }
         public ObservableCollection<Exam> ExamList { get; set; }
@@ -52,12 +53,13 @@ namespace TestverktygProject.ViewModel
 
             _examList = new ObservableCollection<Exam>()
             {
-                new Exam(1, "Mathematics", _questionList.ToList(),"Math 5c",DateTime.Now,50)
+                new Exam("Mathematics", _questionList.ToList(),"Math 5c",DateTime.Now,50)
             };
             _listOfStudents = new ObservableCollection<Student>()
             {
-                new Student(1, _examList, "Peter", "Petersson", "PeterPetersson", "Petersson123", false)
+                new Student(_examList, "Peter", "Petersson", "PeterPetersson", "Petersson123", false)
             };
+            //student1 = ListOfStudents[1];
 
         }
         public void SeeResults()

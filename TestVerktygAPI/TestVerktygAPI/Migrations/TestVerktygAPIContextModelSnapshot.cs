@@ -19,26 +19,6 @@ namespace TestVerktygAPI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TestVerktygAPI.Models.Alternative", b =>
-                {
-                    b.Property<int>("AlternativeID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Answer")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("QuestionID")
-                        .HasColumnType("int");
-
-                    b.HasKey("AlternativeID");
-
-                    b.HasIndex("QuestionID");
-
-                    b.ToTable("Alternative");
-                });
-
             modelBuilder.Entity("TestVerktygAPI.Models.Answer", b =>
                 {
                     b.Property<int>("AnswerID")
@@ -46,10 +26,13 @@ namespace TestVerktygAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CorrectAnswer")
-                        .HasColumnType("int");
+                    b.Property<string>("AnswerTitle")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("QuestionID")
+                    b.Property<bool>("CorrectAnswer")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("QuestionID")
                         .HasColumnType("int");
 
                     b.HasKey("AnswerID");
@@ -179,18 +162,13 @@ namespace TestVerktygAPI.Migrations
                     b.HasDiscriminator().HasValue("Teacher");
                 });
 
-            modelBuilder.Entity("TestVerktygAPI.Models.Alternative", b =>
-                {
-                    b.HasOne("TestVerktygAPI.Models.Question", null)
-                        .WithMany("Alternatives")
-                        .HasForeignKey("QuestionID");
-                });
-
             modelBuilder.Entity("TestVerktygAPI.Models.Answer", b =>
                 {
                     b.HasOne("TestVerktygAPI.Models.Question", null)
-                        .WithMany("CorrectAnswer")
-                        .HasForeignKey("QuestionID");
+                        .WithMany("Answers")
+                        .HasForeignKey("QuestionID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("TestVerktygAPI.Models.Exam", b =>

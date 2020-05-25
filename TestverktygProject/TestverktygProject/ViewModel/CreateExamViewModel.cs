@@ -32,7 +32,7 @@ namespace TestverktygProject.ViewModel
             httpClient = new HttpClient();
         }
 
-        /*public async Task<ObservableCollection<Exam>> GetAllExams()
+        public async Task<ObservableCollection<Exam>> GetAllExamsAsync()
         {
             var jsonExams = await httpClient.GetStringAsync(url);
 
@@ -42,9 +42,9 @@ namespace TestverktygProject.ViewModel
             var exams = JsonConvert.DeserializeObject<ObservableCollection<Pizza>>(jsonPizzas, settings);
 
             return exams;
-        }*/
+        }
 
-        /*public async Task AddExamAsync(Exam exam)
+        public async Task AddExamAsync(Exam exam)
         {
             var exams = JsonConvert.SerializeObject(exam);
 
@@ -53,7 +53,7 @@ namespace TestverktygProject.ViewModel
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
             await httpClient.PostAsync(url, httpContent);
-        }*/
+        }
 
 
     }
