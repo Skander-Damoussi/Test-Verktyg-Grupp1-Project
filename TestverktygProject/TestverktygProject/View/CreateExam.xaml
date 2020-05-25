@@ -18,16 +18,18 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Pivot Title="Create exam">
+        <Pivot Title="Create exam" Grid.Column="0" Grid.Row="0">
             <PivotItem Header="Basic information">
 
-                <StackPanel>
+                <StackPanel Width="500" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <TextBlock Text="How many questions do you want?" />
                     <TextBox Name="NumberOfQuestionsToGenerateField" PlaceholderText="10 for example" />
                     <TextBlock Name="SubjectLabel" Text="Subject:" />
                     <TextBox Name="SubjectField" PlaceholderText="Math, for example" />
                     <TextBlock Name="TitleOfExam" Text="Title of the Exam:" />
                     <TextBox Name="TitleOfExamField" PlaceholderText="Math exam 1, for example..." />
+                    <TextBlock  Name="WhenExamIsActiveDatePickerLabel" Text="When should this exam be available?"/>
+                    <DatePicker Name="DatePicker" Header="Starting on:"/>
                     <Button
                         Name="BeforeCreationOfExamInfoButton"
                         HorizontalAlignment="Right"
