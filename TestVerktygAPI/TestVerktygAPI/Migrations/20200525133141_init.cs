@@ -8,23 +8,37 @@ namespace TestVerktygAPI.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Student",
                 columns: table => new
                 {
-                    UserID = table.Column<int>(nullable: false)
+                    StudentID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     Username = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
-                    IsTeacher = table.Column<bool>(nullable: false),
-                    Discriminator = table.Column<string>(nullable: false),
-                    StudentID = table.Column<int>(nullable: true),
-                    TeacherID = table.Column<int>(nullable: true)
+                    IsTeacher = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.UserID);
+                    table.PrimaryKey("PK_Student", x => x.StudentID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Teacher",
+                columns: table => new
+                {
+                    TeacherID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    Username = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(nullable: true),
+                    IsTeacher = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Teacher", x => x.TeacherID);
                 });
 
             migrationBuilder.CreateTable(
@@ -37,16 +51,16 @@ namespace TestVerktygAPI.Migrations
                     ExamName = table.Column<string>(nullable: true),
                     ExamDate = table.Column<DateTime>(nullable: false),
                     Results = table.Column<int>(nullable: false),
-                    StudentUserID = table.Column<int>(nullable: true)
+                    StudentID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Exam", x => x.ExamID);
                     table.ForeignKey(
-                        name: "FK_Exam_User_StudentUserID",
-                        column: x => x.StudentUserID,
-                        principalTable: "User",
-                        principalColumn: "UserID",
+                        name: "FK_Exam_Student_StudentID",
+                        column: x => x.StudentID,
+                        principalTable: "Student",
+                        principalColumn: "StudentID",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -88,10 +102,10 @@ namespace TestVerktygAPI.Migrations
                         principalColumn: "ExamID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_StudentExam_User_StudentID",
+                        name: "FK_StudentExam_Student_StudentID",
                         column: x => x.StudentID,
-                        principalTable: "User",
-                        principalColumn: "UserID",
+                        principalTable: "Student",
+                        principalColumn: "StudentID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -122,9 +136,9 @@ namespace TestVerktygAPI.Migrations
                 column: "QuestionID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Exam_StudentUserID",
+                name: "IX_Exam_StudentID",
                 table: "Exam",
-                column: "StudentUserID");
+                column: "StudentID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Question_ExamID",
@@ -146,13 +160,16 @@ namespace TestVerktygAPI.Migrations
                 name: "StudentExam");
 
             migrationBuilder.DropTable(
+                name: "Teacher");
+
+            migrationBuilder.DropTable(
                 name: "Question");
 
             migrationBuilder.DropTable(
                 name: "Exam");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Student");
         }
     }
 }
