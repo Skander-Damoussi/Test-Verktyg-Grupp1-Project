@@ -96,33 +96,14 @@ namespace TestVerktygAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Alternative",
-                columns: table => new
-                {
-                    AlternativeID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Answer = table.Column<string>(nullable: true),
-                    QuestionID = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Alternative", x => x.AlternativeID);
-                    table.ForeignKey(
-                        name: "FK_Alternative_Question_QuestionID",
-                        column: x => x.QuestionID,
-                        principalTable: "Question",
-                        principalColumn: "QuestionID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Answer",
                 columns: table => new
                 {
                     AnswerID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CorrectAnswer = table.Column<int>(nullable: false),
-                    QuestionID = table.Column<int>(nullable: true)
+                    AnswerTitle = table.Column<string>(nullable: true),
+                    CorrectAnswer = table.Column<bool>(nullable: false),
+                    QuestionID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -132,13 +113,8 @@ namespace TestVerktygAPI.Migrations
                         column: x => x.QuestionID,
                         principalTable: "Question",
                         principalColumn: "QuestionID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Alternative_QuestionID",
-                table: "Alternative",
-                column: "QuestionID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Answer_QuestionID",
@@ -163,9 +139,6 @@ namespace TestVerktygAPI.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Alternative");
-
             migrationBuilder.DropTable(
                 name: "Answer");
 

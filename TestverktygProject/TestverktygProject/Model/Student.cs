@@ -9,9 +9,8 @@ namespace TestverktygProject.Model
 {
     public class Student : User
     {
-        public Student(int studentId, ObservableCollection<Exam> listExam, string firstName, string lastName, string userName, string password, bool isTeacher)
+        public Student(ObservableCollection<Exam> listExam, string firstName, string lastName, string userName, string password, bool isTeacher)
         {
-            StudentID = studentId;
             ListExam = listExam;
             FirstName = firstName;
             LastName = lastName;
@@ -19,7 +18,6 @@ namespace TestverktygProject.Model
             Password = password;
             IsTeacher = isTeacher;
         }
-        public int StudentID { get; set; }
         public ObservableCollection<Exam> ListExam { get; set; }
     }    
 }
