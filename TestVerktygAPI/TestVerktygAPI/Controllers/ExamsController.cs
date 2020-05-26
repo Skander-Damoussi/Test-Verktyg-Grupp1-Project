@@ -25,7 +25,11 @@ namespace TestVerktygAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Exam>>> GetExam()
         {
-            return await _context.Exam.ToListAsync();
+            var exams = await _context.Exam
+                .Include(e => e.Questions)
+                .ThenInclude(q => q.Answers)
+                .ToListAsync();
+            return Ok(exams);
         }
 
         // GET: api/Exams/5
