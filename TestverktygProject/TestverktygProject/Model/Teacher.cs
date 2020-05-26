@@ -17,10 +17,5 @@ namespace TestverktygProject.Model
             Password = password;
             IsTeacher = isteacher;
         }
-        public int TeacherID { get; set; }
-
-
-
-
     }
 }
