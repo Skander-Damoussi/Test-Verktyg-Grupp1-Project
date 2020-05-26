@@ -14,7 +14,6 @@ namespace TestVerktygAPI.Data
         {
         }
 
-     
 
         public DbSet<TestVerktygAPI.Models.Teacher> Teacher { get; set; }
 

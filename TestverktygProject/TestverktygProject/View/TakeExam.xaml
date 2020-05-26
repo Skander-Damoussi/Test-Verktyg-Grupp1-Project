@@ -70,16 +70,13 @@
                   ItemsSource="{x:Bind Tvm.tempQuest}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local1:Question">
-                    <ListView ItemsSource="{x:Bind Alternatives}" VariableSizedWrapGrid.ColumnSpan="2">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <CheckBox/>
-                                    <TextBlock Text="{Binding}" FontSize="32"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                    <StackPanel>
+                        <CheckBox x:Name="Alt1" Content="{x:Bind Alternatives[0]}"/>
+                        <CheckBox x:Name="Alt2" Content="{x:Bind Alternatives[1]}"/>
+                        <CheckBox x:Name="Alt3" Content="{x:Bind Alternatives[2]}"/>
+                        <CheckBox x:Name="Alt4" Content="{x:Bind Alternatives[3]}"/>
+                    </StackPanel>
+                    
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

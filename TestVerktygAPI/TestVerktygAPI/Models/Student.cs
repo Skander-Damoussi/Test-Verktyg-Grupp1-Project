@@ -15,7 +15,6 @@ namespace TestVerktygAPI.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public bool IsTeacher { get; set; }
-        public List<Exam> ListExam { get; set; }
         public IList<StudentExam> StudentExam { get; set; }
     }
 }

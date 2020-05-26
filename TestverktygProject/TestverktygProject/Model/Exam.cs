@@ -19,7 +19,6 @@ namespace TestverktygProject.Model
             ExamDate = examDate;
             Results = results;
         }
-
         public Exam()
         {
         }
