@@ -10,6 +10,5 @@ namespace TestVerktygAPI.Models
         public int AnswerID { get; set; }
         public string AnswerTitle { get; set; }
         public bool CorrectAnswer { get; set; }
-        public int QuestionID { get; set; }
     }
 }
