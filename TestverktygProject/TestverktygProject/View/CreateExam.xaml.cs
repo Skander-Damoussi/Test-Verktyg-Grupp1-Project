@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using TestverktygProject.Model;
@@ -47,27 +50,32 @@ namespace TestverktygProject.View
 
         }
 
-        private void CreateExamButton_OnClick(object sender, RoutedEventArgs e)
+        private async void CreateExamButton_OnClick(object sender, RoutedEventArgs e)
         {
             var exams = CreateExamViewModel.ExamList;
+            var questions = CreateExamViewModel.CreatedQuestions.ToList();
             var exam = new Exam
             { 
-                ExamDate = DatePicker.Date.DateTime,
+                ExamDate = DateTime.Today, //todo check how to insert DatePicker values here
                 ExamName = TitleOfExamField.Text,
-                Questions = GetQuestions(),
+                Questions = questions,
                 Subject = SubjectField.Text,
                 Results = 0
             };
 
             exams.Add(exam);
+
+          await CreateExamViewModel.AddExamAsync(exam);
         }
 
-        private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
+        private async void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
         {
             var questions = CreateExamViewModel.QuestionsToBeFilled;
             var examPreview = CreateExamViewModel.CreatedQuestions;
 
             examPreview.Clear();
+            
+            
 
             foreach (Question q in questions)
             {
