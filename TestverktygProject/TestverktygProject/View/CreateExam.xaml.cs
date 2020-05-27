@@ -52,7 +52,7 @@ namespace TestverktygProject.View
             { 
                 ExamDate = DateTime.Today, //todo check how to insert DatePicker values here
                 ExamName = TitleOfExamField.Text,
-                Questions = questions,
+                Questions = GetQuestions(),
                 Subject = SubjectField.Text,
                 Results = 0
             };
