@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using TestverktygProject.Model;
+using TestverktygProject.Services;
 using TestverktygProject.ViewModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -24,38 +27,49 @@ namespace TestverktygProject.View
     /// </summary>
     public sealed partial class TakeExam : Page
     {
+        public Exam selectedExam;
+        public ObservableCollection<Question> selectedQuestion { get; set; }
+        public TakeExamViewModel Vm { get; set; }
+        public APIService Api { get; set; }
+
         public TakeExam()
         {
             this.InitializeComponent();
 
-            this.Tvm = new TakeExamViewModel();
+            //this.Vm = new TakeExamViewModel();
+            this.Api = new APIService();
 
-            setQuestText();
 
-            Tvm.updateAlternatives();
-            AnswerList.ItemsSource = Tvm._tempquest;
+            //AnswerList.ItemsSource = selectedExam;
         }
-        public TakeExamViewModel Tvm { get; set; }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            selectedExam = (Exam)e?.Parameter;
+        }
         private void PrevQuestionBtn_Click(object sender, RoutedEventArgs e)
         {
-            Tvm.prevQuestion();
-            setQuestText();
-            AnswerList.ItemsSource = Tvm._tempquest;
+
         }
         private void NextQuestionBtn_Click(object sender, RoutedEventArgs e)
         {
-            Tvm.nextQuestion();
 
-            setQuestText();
-            
-            AnswerList.ItemsSource = Tvm._tempquest;
         }
         public void setQuestText()
         {
-            Tvm.temp = Tvm.questions[Tvm.index];
-            QuestionTitle.Text = Tvm.temp.QuestionTitle.ToString();
-            QuestionNumberTitle.Text = Tvm.startindex.ToString();
-            QuestionNumber.Text = $"Question {Tvm.startindex.ToString()} out of {Tvm.questions.Count.ToString()}";
+
         }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageDialog confirmDialog = new MessageDialog("Do you want to cancel the test?", "cancel confirmation");
+            confirmDialog.Commands.Add(new UICommand("Yes"));
+            confirmDialog.Commands.Add(new UICommand("No"));
+            var confirmResult = await confirmDialog.ShowAsync();
+            // "No" button pressed: Keep the app open.
+            if (confirmResult != null && confirmResult.Label == "No") { return; }
+            // "Back" or "Yes" button pressed: Close the app.
+            if (confirmResult == null || confirmResult.Label == "Yes") { Frame.Navigate(typeof(LogIn)); }
+        }
+        
     }
 }

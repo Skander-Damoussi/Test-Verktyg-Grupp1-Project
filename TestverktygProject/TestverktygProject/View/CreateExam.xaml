@@ -83,7 +83,13 @@
                                         <TextBox
                                             x:Name="CorrectAnswerField"
                                             HorizontalAlignment="Right"
-                                            Text="{Binding CorrectAnswer[0], Mode=TwoWay}" />
+                                            Text="{Binding Alternatives[0], Mode=TwoWay}" />
+                                        <TextBlock x:Name="NumberOfPointsLabel"
+                                                   HorizontalAlignment="Left"
+                                                   Text="How many points for this question?"/>
+                                        <TextBox x:Name="NumberOfPointsField"
+                                                 HorizontalAlignment="Right"
+                                                 Text="{Binding NumberOfPoints}"/>
 
                                     </StackPanel>
 
@@ -110,7 +116,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="model:Question">
                                 <StackPanel
-                                    x:Name="CreatedQuestions"
+                                    Name="CreatedQuestionsPanel"
                                     Width="500"
                                     Margin="0,0,0,50"
                                     Padding="10">
