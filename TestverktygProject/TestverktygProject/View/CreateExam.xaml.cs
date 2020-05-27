@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using TestverktygProject.Model;
@@ -14,10 +17,7 @@ namespace TestverktygProject.View
     /// </summary>
     public sealed partial class CreateExam : Page
     {
-        List<int> RightAnswer = new List<int>();
-
         public CreateExamViewModel CreateExamViewModel { get; set; }
-
 
         public CreateExam()
         {
@@ -26,8 +26,6 @@ namespace TestverktygProject.View
             this.DataContext = CreateExamViewModel;
             NotYetCreatedExamListView.ItemsSource = CreateExamViewModel.CreatedQuestions;
             SeeCreatedExamListView.ItemsSource = CreateExamViewModel.ExamList;
-
-
         }
 
         private void BeforeCreationOfExamInfoButton_OnClick(object sender, RoutedEventArgs e)
@@ -42,33 +40,35 @@ namespace TestverktygProject.View
             for (var i = 0; i < numberOfQuestionsToGenerate; i++)
             {
                 CreateExamViewModel.QuestionsToBeFilled.Add(new Question());
-                
             }
 
         }
 
-        private void CreateExamButton_OnClick(object sender, RoutedEventArgs e)
+        private async void CreateExamButton_OnClick(object sender, RoutedEventArgs e)
         {
             var exams = CreateExamViewModel.ExamList;
+            var questions = CreateExamViewModel.CreatedQuestions.ToList();
             var exam = new Exam
             { 
-                ExamDate = DatePicker.Date.DateTime,
+                ExamDate = DateTime.Today, //todo check how to insert DatePicker values here
                 ExamName = TitleOfExamField.Text,
-                Questions = GetQuestions(),
+                Questions = questions,
                 Subject = SubjectField.Text,
                 Results = 0
             };
 
             exams.Add(exam);
+
+          await CreateExamViewModel.AddExamAsync(exam);
         }
 
         private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
         {
             var questions = CreateExamViewModel.QuestionsToBeFilled;
             var examPreview = CreateExamViewModel.CreatedQuestions;
-
+            
             examPreview.Clear();
-
+            
             foreach (Question q in questions)
             {
                 CreateExamViewModel.CreatedQuestions.Add(q);

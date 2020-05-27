@@ -23,8 +23,10 @@ namespace TestverktygProject.ViewModel
         public ObservableCollection<Question> CreatedQuestions { get; set; }
 
         private HttpClient httpClient;
-        private string url = "";
-        
+        private string examURL = "https://localhost:44324/api/exams";
+        private string questionURL = "https://localhost:44324/api/questions";
+
+
         public CreateExamViewModel()
         {
             ExamList = new ObservableCollection<Exam>();
@@ -35,7 +37,7 @@ namespace TestverktygProject.ViewModel
 
         public async Task<ObservableCollection<Exam>> GetAllExamsAsync()
         {
-            var jsonExams = await httpClient.GetStringAsync(url);
+            var jsonExams = await httpClient.GetStringAsync(examURL);
 
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.MissingMemberHandling = MissingMemberHandling.Error;
@@ -53,7 +55,30 @@ namespace TestverktygProject.ViewModel
 
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            await httpClient.PostAsync(url, httpContent);
+            await httpClient.PostAsync(examURL, httpContent);
+        }
+
+        public async Task<ObservableCollection<Question>> GetAllQuestionsAsync()
+        {
+            var jsonQuestions = await httpClient.GetStringAsync(questionURL);
+
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.MissingMemberHandling = MissingMemberHandling.Error;
+
+            var questions = JsonConvert.DeserializeObject<ObservableCollection<Question>>(jsonQuestions, settings);
+
+            return questions;
+        }
+
+        public async Task AddQuestionAsync(Question question)
+        {
+            var questions = JsonConvert.SerializeObject(question);
+            
+            HttpContent httpContent = new StringContent(questions);
+
+            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            await httpClient.PostAsync(questionURL, httpContent);
         }
 
 
