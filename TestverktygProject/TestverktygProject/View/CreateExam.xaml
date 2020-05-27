@@ -60,22 +60,22 @@
                                             x:Name="Alt1"
                                             Padding="10"
                                             PlaceholderText="Alternative 1"
-                                            Text="{Binding Alternatives[0], Mode=TwoWay}" />
+                                            Text="{Binding Alternatives[0].AnswerTitle, Mode=TwoWay}" />
                                         <TextBox
                                             x:Name="Alt2"
                                             Padding="10"
                                             PlaceholderText="Alternative 2"
-                                            Text="{Binding Alternatives[1], Mode=TwoWay}" />
+                                            Text="{Binding Alternatives[1].AnswerTitle, Mode=TwoWay}" />
                                         <TextBox
                                             x:Name="Alt3"
                                             Padding="10"
                                             PlaceholderText="Alternative 3"
-                                            Text="{Binding Alternatives[2], Mode=TwoWay}" />
+                                            Text="{Binding Alternatives[2].AnswerTitle, Mode=TwoWay}" />
                                         <TextBox
                                             x:Name="Alt4"
                                             Padding="10"
                                             PlaceholderText="Alternative 4"
-                                            Text="{Binding Alternatives[3], Mode=TwoWay}" />
+                                            Text="{Binding Alternatives[3].AnswerTitle, Mode=TwoWay}" />
                                         <TextBlock
                                             x:Name="CorrectAnswerLabel"
                                             HorizontalAlignment="Left"
@@ -83,7 +83,7 @@
                                         <TextBox
                                             x:Name="CorrectAnswerField"
                                             HorizontalAlignment="Right"
-                                            Text="{Binding Alternatives[0], Mode=TwoWay}" />
+                                            Text="{Binding Alternatives[0].CorrectAnswer, Mode=TwoWay}" />
                                         <TextBlock x:Name="NumberOfPointsLabel"
                                                    HorizontalAlignment="Left"
                                                    Text="How many points for this question?"/>
@@ -128,25 +128,25 @@
                                     <TextBox
                                         x:Name="Alt1"
                                         Padding="10"
-                                        PlaceholderText="Write an answer here..."
-                                        Text="{Binding Alternatives[0], Mode=TwoWay}" />
+                                        PlaceholderText="Alternative 1"
+                                        Text="{Binding Alternatives[0].AnswerTitle, Mode=TwoWay}" />
                                     <TextBox
                                         x:Name="Alt2"
                                         Padding="10"
-                                        PlaceholderText="Write an answer here..."
-                                        Text="{Binding Alternatives[1], Mode=TwoWay}" />
+                                        PlaceholderText="Alternative 2"
+                                        Text="{Binding Alternatives[1].AnswerTitle, Mode=TwoWay}" />
                                     <TextBox
                                         x:Name="Alt3"
                                         Padding="10"
-                                        PlaceholderText="Write an answer here..."
-                                        Text="{Binding Alternatives[2], Mode=TwoWay}" />
+                                        PlaceholderText="Alternative 3"
+                                        Text="{Binding Alternatives[2].AnswerTitle, Mode=TwoWay}" />
                                     <TextBox
                                         x:Name="Alt4"
                                         Padding="10"
-                                        PlaceholderText="Write an answer here..."
-                                        Text="{Binding Alternatives[3], Mode=TwoWay}" />
+                                        PlaceholderText="Alternative 4"
+                                        Text="{Binding Alternatives[3].AnswerTitle, Mode=TwoWay}" />
 
-                                </StackPanel>
+                                    </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
@@ -175,10 +175,10 @@
                                                 <DataTemplate x:DataType="model:Question">
                                                     <StackPanel>
                                                         <TextBlock x:Name="QuestionTitleLabel" Text="{x:Bind QuestionTitle}"/>
-                                                        <RadioButton Name="opt1" Content="{Binding Alternatives[0], Mode=TwoWay}" />
-                                                        <RadioButton Name="opt2" Content="{Binding Alternatives[1], Mode=TwoWay}"/>
-                                                        <RadioButton Name="opt3" Content="{Binding Alternatives[2], Mode=TwoWay}"/>
-                                                        <RadioButton Name="opt4"  Content="{Binding Alternatives[3], Mode=TwoWay}"/>
+                                                        <RadioButton Name="opt1" Content="{Binding Alternatives[0].AnswerTitle, Mode=TwoWay}" />
+                                                        <RadioButton Name="opt2" Content="{Binding Alternatives[1].AnswerTitle, Mode=TwoWay}"/>
+                                                        <RadioButton Name="opt3" Content="{Binding Alternatives[2].AnswerTitle, Mode=TwoWay}"/>
+                                                        <RadioButton Name="opt4"  Content="{Binding Alternatives[3].AnswerTitle, Mode=TwoWay}"/>
                                                     </StackPanel>
                                                 </DataTemplate>
                                             </ListView.ItemTemplate>

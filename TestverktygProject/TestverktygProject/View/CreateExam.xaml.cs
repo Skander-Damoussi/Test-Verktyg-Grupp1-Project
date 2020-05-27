@@ -66,11 +66,13 @@ namespace TestverktygProject.View
         {
             var questions = CreateExamViewModel.QuestionsToBeFilled;
             var examPreview = CreateExamViewModel.CreatedQuestions;
-            
+            var points = CreateExamViewModel.QuestionsToBeFilled[0].NumberOfPoints;
             examPreview.Clear();
             
             foreach (Question q in questions)
             {
+                CheckRightAnswer();
+                q.NumberOfPoints = points;
                 CreateExamViewModel.CreatedQuestions.Add(q);
             }
 
@@ -96,6 +98,41 @@ namespace TestverktygProject.View
             foreach (Exam exam in exams)
             {
                 CreateExamViewModel.ExamList.Add(exam);
+            }
+        }
+
+        public void CheckRightAnswer()
+        {
+            var rightAnswer = CreateExamViewModel.QuestionsToBeFilled[0].Alternatives[0].CorrectAnswer.ToString();
+            var answers = CreateExamViewModel.QuestionsToBeFilled[0].Alternatives;
+
+            switch (rightAnswer)
+            {
+                case "1":
+                    answers[0].IsCorrectAnswer = true;
+                    answers[1].IsCorrectAnswer = false;
+                    answers[2].IsCorrectAnswer = false;
+                    answers[3].IsCorrectAnswer = false;
+                    break;
+                case "2":
+                    answers[0].IsCorrectAnswer = false;
+                    answers[1].IsCorrectAnswer = true;
+                    answers[2].IsCorrectAnswer = false;
+                    answers[3].IsCorrectAnswer = false;
+                    break;
+                case "3":
+                    answers[0].IsCorrectAnswer = false;
+                    answers[1].IsCorrectAnswer = false;
+                    answers[2].IsCorrectAnswer = true;
+                    answers[3].IsCorrectAnswer = false;
+                    break;
+                case "4":
+                    answers[0].IsCorrectAnswer = false;
+                    answers[1].IsCorrectAnswer = false;
+                    answers[2].IsCorrectAnswer = false;
+                    answers[3].IsCorrectAnswer = true;
+                    break;
+
             }
         }
     }
