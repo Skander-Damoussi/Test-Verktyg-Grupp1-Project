@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestverktygProject.Model
 {
-    class Answer
+    public class Answer
     {
         public string AnswerTitle { get; set; }
         public bool CorrectAnswer { get; set; }
