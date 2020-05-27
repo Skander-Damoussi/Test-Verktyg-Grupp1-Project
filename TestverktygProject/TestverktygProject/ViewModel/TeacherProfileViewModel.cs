@@ -7,91 +7,36 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using TestverktygProject.Model;
+using TestverktygProject.Services;
 
 namespace TestverktygProject.ViewModel
 {
     public class TeacherProfileViewModel
     {
-        public ObservableCollection<Exam> MockupTest { get; set; }
-        public ObservableCollection<Exam> ExamList { get; set; }
-        public ObservableCollection<Student> StudentList { get; set; }
-        public ObservableCollection<Student> _studentList
+        public ObservableCollection<Student> apiStudents { get; set; }
+        public ObservableCollection<Exam> apiExams { get; set; }
+        public ObservableCollection<Teacher> apiTeachers { get; set; }
+        public ObservableCollection<Student> _apiStudents
         {
-            get { return StudentList; }
-            set { StudentList = value; }
+            get { return apiStudents; }
+            set { apiStudents = value; }
         }
-        public ObservableCollection<Teacher> TeacherList { get; set; }
-        public ObservableCollection<Teacher> _teacherList
+        public ObservableCollection<Exam> _apiExams
         {
-            get { return TeacherList; }
-            set { TeacherList = value; }
+            get { return apiExams; }
+            set { apiExams = value; }
         }
-
-        public ObservableCollection<Exam> _mockupTest
+        public ObservableCollection<Teacher> _apiTeachers
         {
-            get { return MockupTest; }
-            set { MockupTest = value; }
+            get { return apiTeachers; }
+            set { apiTeachers = value; }
         }
 
-        public TeacherProfileViewModel() 
+        public TeacherProfileViewModel()
         {
-            MockupTest = new ObservableCollection<Exam>()
-            {
-           //     new Exam(1, "  math", "  math 3c", DateTime.Now, "  55/10")
-            };
-            StudentList = new ObservableCollection<Student>()
-           {
-               new Student(MockupTest, "david", "sten", "davidsten", "davidsten1234", false)
-           };
-            TeacherList = new ObservableCollection<Teacher>()
-            {
-                new Teacher("johan", "johansson", "johanjohansson", "johanjohansson1234", true)
-            };
+            _apiStudents = new ObservableCollection<Student>();
+            _apiExams = new ObservableCollection<Exam>();
+            _apiTeachers = new ObservableCollection<Teacher>();
         }
-       
-
-
-
-
-        public Student Student { get; set; }
-
-        public void SeeResults()
-        {
-
-        }
-
-
-
-        public void ListOfStudents()
-        {
-
-
-
-
-
-         //   student.ListExam = new ObservableCollection<Exam>();
-
-
-
-            //    StudentList.Add(new Student (" David", " Sten"){StudentID = 1} );
-
-            //Student student = new Student(" testar", " testsson");
-            //
-            //student.ListExam.Add(new Exam { ExamDate = new DateTime().Date });
-            //StudentList.Add(student);
-
-        }
-
-        //public void ListOfExams()
-        //{
-        //    ExamList = new ObservableCollection<Exam>();
-        //    ExamList.Add(new Exam { ExamDate = new DateTime().Date });
-        //}
-
-        //public void ReadMethod(object obj)
-        //{
-        //    Student = obj as Student;
-        //}
-
     }
 }

@@ -9,6 +9,7 @@ namespace TestverktygProject.Model
 {
     public class Teacher : User
     {
+        public Teacher() { }
         public Teacher(string firstname, string lastname, string username, string password, bool isteacher)
         {
             FirstName = firstname;
@@ -17,5 +18,6 @@ namespace TestverktygProject.Model
             Password = password;
             IsTeacher = isteacher;
         }
+        public int TeacherID { get; set; }
     }
 }

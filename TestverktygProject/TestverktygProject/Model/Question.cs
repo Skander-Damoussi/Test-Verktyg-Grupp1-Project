@@ -9,6 +9,7 @@ namespace TestverktygProject.Model
 {
     public class Question
     {
+        public Question() { }
         public List<int> CorrectAnswer { get; set; } = new List<int>();
         public List<string> Alternatives { get; set; } = new List<string>{"", "", "", ""};
         public int NumberOfPoints { get; set; }
@@ -20,11 +21,6 @@ namespace TestverktygProject.Model
             Alternatives = alternative;
             NumberOfPoints = numberofpoints;
             QuestionTitle = questiontitle;
-        }
-
-        public Question()
-        {
-
         }
     }
 }
