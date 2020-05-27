@@ -17,10 +17,7 @@ namespace TestverktygProject.View
     /// </summary>
     public sealed partial class CreateExam : Page
     {
-        List<int> RightAnswer = new List<int>();
-
         public CreateExamViewModel CreateExamViewModel { get; set; }
-
 
         public CreateExam()
         {
@@ -29,8 +26,6 @@ namespace TestverktygProject.View
             this.DataContext = CreateExamViewModel;
             NotYetCreatedExamListView.ItemsSource = CreateExamViewModel.CreatedQuestions;
             SeeCreatedExamListView.ItemsSource = CreateExamViewModel.ExamList;
-
-
         }
 
         private void BeforeCreationOfExamInfoButton_OnClick(object sender, RoutedEventArgs e)
@@ -45,7 +40,6 @@ namespace TestverktygProject.View
             for (var i = 0; i < numberOfQuestionsToGenerate; i++)
             {
                 CreateExamViewModel.QuestionsToBeFilled.Add(new Question());
-                
             }
 
         }
@@ -68,15 +62,13 @@ namespace TestverktygProject.View
           await CreateExamViewModel.AddExamAsync(exam);
         }
 
-        private async void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
+        private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
         {
             var questions = CreateExamViewModel.QuestionsToBeFilled;
             var examPreview = CreateExamViewModel.CreatedQuestions;
-
+            
             examPreview.Clear();
             
-            
-
             foreach (Question q in questions)
             {
                 CreateExamViewModel.CreatedQuestions.Add(q);
