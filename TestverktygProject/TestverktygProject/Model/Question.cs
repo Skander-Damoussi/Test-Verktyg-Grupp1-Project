@@ -9,15 +9,14 @@ namespace TestverktygProject.Model
 {
     public class Question
     {
-        public List<int> CorrectAnswer { get; set; } = new List<int>();
-        public List<string> Alternatives { get; set; } = new List<string>{"", "", "", ""};
+        //declaration of new answer is needed to avoid getting null reference exceptions
+        public List<Answer> Alternatives { get; set; } = new List<Answer>{new Answer(), new Answer(), new Answer(), new Answer()};
         public int NumberOfPoints { get; set; }
         public string QuestionTitle { get; set; }
 
-        public Question(List<int> correctanswer, List<string> alternative, int numberofpoints, string questiontitle)
+        public Question( List<Answer> answers, int numberofpoints, string questiontitle)
         {
-            CorrectAnswer = correctanswer;
-            Alternatives = alternative;
+            Alternatives = answers;
             NumberOfPoints = numberofpoints;
             QuestionTitle = questiontitle;
         }
