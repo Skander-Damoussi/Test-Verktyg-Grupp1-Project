@@ -9,6 +9,7 @@ namespace TestverktygProject.Model
 {
     public class Student : User
     {
+        public Student() { }
         public Student(ObservableCollection<Exam> listExam, string firstName, string lastName, string userName, string password, bool isTeacher)
         {
             ListExam = listExam;
@@ -19,7 +20,7 @@ namespace TestverktygProject.Model
             IsTeacher = isTeacher;
         }
         public ObservableCollection<Exam> ListExam { get; set; }
-
-
+        public int StudentID { get; set; }
+        public IList<StudentExam> StudentExam { get; set; }
     }    
 }

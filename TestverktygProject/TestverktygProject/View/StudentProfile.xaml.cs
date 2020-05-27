@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using TestverktygProject.Model;
+using TestverktygProject.Services;
 using TestverktygProject.ViewModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -27,25 +28,20 @@ namespace TestverktygProject.View
     public sealed partial class StudentProfile : Page
     {
         public StudentProfileViewModel Vm { get; set; }
-        public ObservableCollection<Exam> _examList { get; set; }
-        Student tempstudent;
-
+        public APIService Api { get; set; }
+        public TakeExam Te { get; set; }
         public StudentProfile()
         {
             this.InitializeComponent();
-            Student student1 = new Student(_examList, "Peter", "Petersson", "PeterPetersson", "Petersson123", false);
-            //student1 ska bli getmetod
-            tempstudent = student1;
             this.Vm = new StudentProfileViewModel();
-            //tempstudent = Vm.student1;
-            FirstNameText.Text = tempstudent.FirstName;
-            LastNameText.Text = tempstudent.LastName;
+            this.Api = new APIService();
+            this.Te = new TakeExam();
+            apiGet();
         }
 
         private void startExamButton_Click(object sender, RoutedEventArgs e)
-        {
-            Exam selectedExam = (Exam)StudentsExam.SelectedItem;
-            this.Frame.Navigate(typeof(TakeExam),selectedExam);
+        {            
+            this.Frame.Navigate(typeof(TakeExam), (Exam)StudentsExam.SelectedItem);
         }
 
         private async void signOutButton_Click(object sender, RoutedEventArgs e)
@@ -58,6 +54,21 @@ namespace TestverktygProject.View
             if (confirmResult != null && confirmResult.Label == "No") { return; }
             // "Back" or "Yes" button pressed: Close the app.
             if (confirmResult == null || confirmResult.Label == "Yes") { Frame.Navigate(typeof(LogIn)); }
+        }
+        public async void apiGet()
+        {
+            var students = await Api.GetAllStudentsAsync();
+            foreach (Student student in students)
+            {
+                Vm._apiStudents.Add(student);
+            }
+
+            var exams = await Api.GetAllExamsAsync();
+
+            foreach (Exam exam in exams)
+            {
+                Vm._apiExams.Add(exam);
+            }
         }
     }
 }
