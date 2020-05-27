@@ -17,6 +17,8 @@ using System.Windows;
 using TestverktygProject.Model;
 using System.ServiceModel.Channels;
 using TestverktygProject.ViewModel;
+using TestverktygProject.Services;
+using System.Threading.Tasks;
 
 
 
@@ -36,10 +38,17 @@ namespace TestverktygProject.View
         public TeacherProfile()
         {
             this.InitializeComponent();
+            this.api = new APIService();
+            this.vm = new TeacherProfileViewModel();
+            apiGet();
+
+            
+
          //   TeacherProfileView.ListOfExams();
          //   TeacherProfileView.ListOfStudents();
         }
-
+        public APIService api { get; set; }
+        public TeacherProfileViewModel vm { get; set; }
         private async void signout_Click(object sender, RoutedEventArgs e)
         {
             MessageDialog confirmDialog = new MessageDialog("Do you want to sign out?", "Sign out confirmation");
@@ -61,6 +70,27 @@ namespace TestverktygProject.View
         {
             Student SelectedStudent = (Student)StudentListView.SelectedItem;
             examlistview.ItemsSource = SelectedStudent.ListExam;
+        }
+        public async void apiGet()
+        {
+            var students = await api.GetAllStudentsAsync();
+            foreach (Student student in students)
+            {
+                vm._apiStudents.Add(student);
+            }
+            
+            var exams = await api.GetAllExamsAsync();
+            
+            foreach (Exam exam in exams)
+            {
+                vm._apiExams.Add(exam);
+            }
+
+            var teachers = await api.GetAllTeachersAsync();
+            foreach(Teacher teacher in teachers)
+            {
+                vm._apiTeachers.Add(teacher);
+            }
         }
     }
 }

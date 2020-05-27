@@ -8,6 +8,7 @@ namespace TestverktygProject.Model
 {
     class Answer
     {
+        public Answer() { }
         public string AnswerTitle { get; set; }
         public bool CorrectAnswer { get; set; }
     }
