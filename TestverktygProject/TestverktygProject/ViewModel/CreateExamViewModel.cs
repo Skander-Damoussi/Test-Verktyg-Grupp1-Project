@@ -82,7 +82,7 @@ namespace TestverktygProject.ViewModel
             await httpClient.PostAsync(questionURL, httpContent);
         }
 
-        public async Task<ObservableCollection<Answer>> GetAllAnswersAsync()
+        /*public async Task<ObservableCollection<Answer>> GetAllAnswersAsync()
         {
             var jsonAnswers = await httpClient.GetStringAsync(answerURL);
 
@@ -102,7 +102,7 @@ namespace TestverktygProject.ViewModel
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
             await httpClient.PostAsync(answerURL, httpContent);
-        }
+        }*/
 
 
     }
