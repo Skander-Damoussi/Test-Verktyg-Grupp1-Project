@@ -61,19 +61,6 @@ namespace TestverktygProject.View
             await CreateExamViewModel.AddExamAsync(exam);
         }
 
-        private async void PostAnswers()
-        {
-            var questions = CreateExamViewModel.CreatedQuestions[0].Alternatives;
-            var a = CreateExamViewModel.QuestionsToBeFilled[0].Alternatives[0].AnswerTitle;
-
-            var answer = new Answer
-            {
-                AnswerTitle = a
-            };
-
-            await CreateExamViewModel.AddAnswerAsync(answer);
-        }
-
         private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
         {
             var questions = CreateExamViewModel.QuestionsToBeFilled;
@@ -83,7 +70,7 @@ namespace TestverktygProject.View
             
             foreach (Question q in questions)
             {
-                CheckRightAnswer();
+                //CheckRightAnswer();
                 q.NumberOfPoints = points;
                 CreateExamViewModel.CreatedQuestions.Add(q);
             }
@@ -116,33 +103,22 @@ namespace TestverktygProject.View
         public void CheckRightAnswer()
         {
             var rightAnswer = CreateExamViewModel.QuestionsToBeFilled[0].CorrectAnswer.ToString();
-            var answers = CreateExamViewModel.QuestionsToBeFilled[0].Alternatives;
+            var questions = CreateExamViewModel.CreatedQuestions;
+            var alt1 = CreateExamViewModel.CreatedQuestions[0].Alt1;
+            var alt2 = CreateExamViewModel.CreatedQuestions[0].Alt2;
+            var alt3 = CreateExamViewModel.CreatedQuestions[0].Alt3;
+            var alt4 = CreateExamViewModel.CreatedQuestions[0].Alt4;
 
             switch (rightAnswer)
             {
                 case "1":
-                    answers[0].IsCorrectAnswer = true;
-                    answers[1].IsCorrectAnswer = false;
-                    answers[2].IsCorrectAnswer = false;
-                    answers[3].IsCorrectAnswer = false;
+                    
                     break;
                 case "2":
-                    answers[0].IsCorrectAnswer = false;
-                    answers[1].IsCorrectAnswer = true;
-                    answers[2].IsCorrectAnswer = false;
-                    answers[3].IsCorrectAnswer = false;
                     break;
                 case "3":
-                    answers[0].IsCorrectAnswer = false;
-                    answers[1].IsCorrectAnswer = false;
-                    answers[2].IsCorrectAnswer = true;
-                    answers[3].IsCorrectAnswer = false;
                     break;
                 case "4":
-                    answers[0].IsCorrectAnswer = false;
-                    answers[1].IsCorrectAnswer = false;
-                    answers[2].IsCorrectAnswer = false;
-                    answers[3].IsCorrectAnswer = true;
                     break;
 
             }
