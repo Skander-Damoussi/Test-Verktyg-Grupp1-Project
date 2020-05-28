@@ -97,7 +97,7 @@
                                         <TextBox
                                             x:Name="NumberOfPointsField"
                                             HorizontalAlignment="Right"
-                                            Text="{Binding NumberOfPoints}" />
+                                            Text="{Binding NumberOfPoints, Mode=TwoWay}" />
 
 
                                     </StackPanel>

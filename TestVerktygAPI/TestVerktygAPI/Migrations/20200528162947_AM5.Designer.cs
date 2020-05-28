@@ -10,8 +10,8 @@ using TestVerktygAPI.Data;
 namespace TestVerktygAPI.Migrations
 {
     [DbContext(typeof(TestVerktygAPIContext))]
-    [Migration("20200528130913_AM1")]
-    partial class AM1
+    [Migration("20200528162947_AM5")]
+    partial class AM5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,15 +37,10 @@ namespace TestVerktygAPI.Migrations
                     b.Property<int>("Results")
                         .HasColumnType("int");
 
-                    b.Property<int?>("StudentUserID")
-                        .HasColumnType("int");
-
                     b.Property<string>("Subject")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ExamID");
-
-                    b.HasIndex("StudentUserID");
 
                     b.ToTable("Exam");
                 });
@@ -88,31 +83,12 @@ namespace TestVerktygAPI.Migrations
                     b.ToTable("Question");
                 });
 
-            modelBuilder.Entity("TestVerktygAPI.Models.StudentExam", b =>
+            modelBuilder.Entity("TestVerktygAPI.Models.Student", b =>
                 {
                     b.Property<int>("StudentID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ExamID")
-                        .HasColumnType("int");
-
-                    b.HasKey("StudentID", "ExamID");
-
-                    b.HasIndex("ExamID");
-
-                    b.ToTable("StudentExam");
-                });
-
-            modelBuilder.Entity("TestVerktygAPI.Models.User", b =>
-                {
-                    b.Property<int>("UserID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
@@ -129,38 +105,51 @@ namespace TestVerktygAPI.Migrations
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserID");
+                    b.HasKey("StudentID");
 
-                    b.ToTable("User");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("User");
+                    b.ToTable("Student");
                 });
 
-            modelBuilder.Entity("TestVerktygAPI.Models.Student", b =>
+            modelBuilder.Entity("TestVerktygAPI.Models.StudentExam", b =>
                 {
-                    b.HasBaseType("TestVerktygAPI.Models.User");
-
                     b.Property<int>("StudentID")
                         .HasColumnType("int");
 
-                    b.HasDiscriminator().HasValue("Student");
+                    b.Property<int>("ExamID")
+                        .HasColumnType("int");
+
+                    b.HasKey("StudentID", "ExamID");
+
+                    b.HasIndex("ExamID");
+
+                    b.ToTable("StudentExam");
                 });
 
             modelBuilder.Entity("TestVerktygAPI.Models.Teacher", b =>
                 {
-                    b.HasBaseType("TestVerktygAPI.Models.User");
-
                     b.Property<int>("TeacherID")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.HasDiscriminator().HasValue("Teacher");
-                });
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
 
-            modelBuilder.Entity("TestVerktygAPI.Models.Exam", b =>
-                {
-                    b.HasOne("TestVerktygAPI.Models.Student", null)
-                        .WithMany("ListExam")
-                        .HasForeignKey("StudentUserID");
+                    b.Property<bool>("IsTeacher")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TeacherID");
+
+                    b.ToTable("Teacher");
                 });
 
             modelBuilder.Entity("TestVerktygAPI.Models.Question", b =>

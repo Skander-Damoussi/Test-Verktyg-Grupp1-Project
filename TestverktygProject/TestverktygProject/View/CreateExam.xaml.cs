@@ -65,14 +65,19 @@ namespace TestverktygProject.View
         {
             var questions = CreateExamViewModel.QuestionsToBeFilled;
             var examPreview = CreateExamViewModel.CreatedQuestions;
-            var points = CreateExamViewModel.QuestionsToBeFilled[0].NumberOfPoints;
-            examPreview.Clear();
             
-            foreach (Question q in questions)
+            
+            examPreview.Clear();
+
+            for (int i = 0; i < questions.Count; i++)
             {
-                //CheckRightAnswer();
-                q.NumberOfPoints = points;
-                CreateExamViewModel.CreatedQuestions.Add(q);
+                var question = CreateExamViewModel.QuestionsToBeFilled[i];
+                var points = question.NumberOfPoints;
+                var correctAnswer = question.CorrectAnswer;
+
+                question.NumberOfPoints = points;
+                question.CorrectAnswer = correctAnswer;
+                CreateExamViewModel.CreatedQuestions.Add(question);
             }
 
         }
@@ -97,30 +102,6 @@ namespace TestverktygProject.View
             foreach (Exam exam in exams)
             {
                 CreateExamViewModel.ExamList.Add(exam);
-            }
-        }
-
-        public void CheckRightAnswer()
-        {
-            var rightAnswer = CreateExamViewModel.QuestionsToBeFilled[0].CorrectAnswer.ToString();
-            var questions = CreateExamViewModel.CreatedQuestions;
-            var alt1 = CreateExamViewModel.CreatedQuestions[0].Alt1;
-            var alt2 = CreateExamViewModel.CreatedQuestions[0].Alt2;
-            var alt3 = CreateExamViewModel.CreatedQuestions[0].Alt3;
-            var alt4 = CreateExamViewModel.CreatedQuestions[0].Alt4;
-
-            switch (rightAnswer)
-            {
-                case "1":
-                    
-                    break;
-                case "2":
-                    break;
-                case "3":
-                    break;
-                case "4":
-                    break;
-
             }
         }
     }

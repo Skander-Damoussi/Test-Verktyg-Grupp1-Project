@@ -19,6 +19,6 @@ namespace TestVerktygAPI.Models
         public string Alt4 { get; set; }
         public int NumberOfPoints { get; set; }
         public string QuestionTitle { get; set; }
-        public bool IsCorrectAnswer { get; set; }
+        public int CorrectAnswer { get; set; }
     }
 }
