@@ -19,29 +19,6 @@ namespace TestVerktygAPI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TestVerktygAPI.Models.Answer", b =>
-                {
-                    b.Property<int>("AnswerID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AnswerTitle")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("CorrectAnswer")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("QuestionID")
-                        .HasColumnType("int");
-
-                    b.HasKey("AnswerID");
-
-                    b.HasIndex("QuestionID");
-
-                    b.ToTable("Answer");
-                });
-
             modelBuilder.Entity("TestVerktygAPI.Models.Exam", b =>
                 {
                     b.Property<int>("ExamID")
@@ -78,8 +55,23 @@ namespace TestVerktygAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Alt1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Alt2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Alt3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Alt4")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("ExamID")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsCorrectAnswer")
+                        .HasColumnType("bit");
 
                     b.Property<int>("NumberOfPoints")
                         .HasColumnType("int");
@@ -160,15 +152,6 @@ namespace TestVerktygAPI.Migrations
                         .HasColumnType("int");
 
                     b.HasDiscriminator().HasValue("Teacher");
-                });
-
-            modelBuilder.Entity("TestVerktygAPI.Models.Answer", b =>
-                {
-                    b.HasOne("TestVerktygAPI.Models.Question", null)
-                        .WithMany("Answers")
-                        .HasForeignKey("QuestionID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("TestVerktygAPI.Models.Exam", b =>

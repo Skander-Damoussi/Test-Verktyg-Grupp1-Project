@@ -27,7 +27,6 @@ namespace TestVerktygAPI.Controllers
         {
             var exams = await _context.Exam
                 .Include(e => e.Questions)
-                .ThenInclude(q => q.Answers)
                 .ToListAsync();
             return Ok(exams);
         }

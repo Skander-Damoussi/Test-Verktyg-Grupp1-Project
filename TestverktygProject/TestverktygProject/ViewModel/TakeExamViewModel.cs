@@ -59,13 +59,13 @@ namespace TestverktygProject.ViewModel
 
             correctanswer.Add(2);
 
-            _questions = new ObservableCollection<Question>()
+           /* _questions = new ObservableCollection<Question>()
             {
                 new Question(correctanswer, alternatives1, 3, "Question 1 What is 1 + 1"),
                 new Question(correctanswer, alternatives2, 3, "Question 2 What is 1 + 2"),
                 new Question(correctanswer, alternatives3, 3, "Question 3 What is 1 + 3"),
                 new Question(correctanswer, alternatives4, 3, "Question 4 What is 1 + 4"),
-            };
+            };*/
         }
         
         public void TakeExam()

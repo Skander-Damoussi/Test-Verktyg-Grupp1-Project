@@ -37,9 +37,7 @@ namespace TestVerktygAPI.Data
         public DbSet<TestVerktygAPI.Models.Question> Question { get; set; }
 
         public DbSet<TestVerktygAPI.Models.Student> Student { get; set; }
-
-        public DbSet<TestVerktygAPI.Models.Answer> Answer { get; set; }
-
+        
         public DbSet<TestVerktygAPI.Models.Exam> Exam { get; set; }
 
         public DbSet<TestVerktygAPI.Models.StudentExam> StudentExam { get; set; }

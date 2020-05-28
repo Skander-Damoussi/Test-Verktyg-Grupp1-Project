@@ -56,8 +56,13 @@ namespace TestVerktygAPI.Migrations
                 {
                     QuestionID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Alt1 = table.Column<string>(nullable: true),
+                    Alt2 = table.Column<string>(nullable: true),
+                    Alt3 = table.Column<string>(nullable: true),
+                    Alt4 = table.Column<string>(nullable: true),
                     NumberOfPoints = table.Column<int>(nullable: false),
                     QuestionTitle = table.Column<string>(nullable: true),
+                    IsCorrectAnswer = table.Column<bool>(nullable: false),
                     ExamID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -95,32 +100,6 @@ namespace TestVerktygAPI.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Answer",
-                columns: table => new
-                {
-                    AnswerID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AnswerTitle = table.Column<string>(nullable: true),
-                    CorrectAnswer = table.Column<bool>(nullable: false),
-                    QuestionID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Answer", x => x.AnswerID);
-                    table.ForeignKey(
-                        name: "FK_Answer_Question_QuestionID",
-                        column: x => x.QuestionID,
-                        principalTable: "Question",
-                        principalColumn: "QuestionID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Answer_QuestionID",
-                table: "Answer",
-                column: "QuestionID");
-
             migrationBuilder.CreateIndex(
                 name: "IX_Exam_StudentUserID",
                 table: "Exam",
@@ -140,13 +119,10 @@ namespace TestVerktygAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Answer");
+                name: "Question");
 
             migrationBuilder.DropTable(
                 name: "StudentExam");
-
-            migrationBuilder.DropTable(
-                name: "Question");
 
             migrationBuilder.DropTable(
                 name: "Exam");
