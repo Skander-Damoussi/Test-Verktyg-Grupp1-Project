@@ -27,7 +27,7 @@ namespace TestverktygProject.View
     /// </summary>
     public sealed partial class TakeExam : Page
     {
-        public Exam selectedExam;
+        public ObservableCollection<Question> selectedExam;
         public ObservableCollection<Question> selectedQuestion { get; set; }
         public TakeExamViewModel Vm { get; set; }
         public APIService Api { get; set; }
@@ -38,13 +38,19 @@ namespace TestverktygProject.View
 
             //this.Vm = new TakeExamViewModel();
             this.Api = new APIService();
-
+            selectedExam = new ObservableCollection<Question>();
 
             //AnswerList.ItemsSource = selectedExam;
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            selectedExam = (Exam)e?.Parameter;
+            var selectedItem = (Exam)e?.Parameter;
+            //QuestionTitle.Text = selectedItem.ExamName;
+            //AnswerList.ItemsSource = selectedItem.Questions;
+            foreach(Question question in selectedItem.Questions)
+            {
+                selectedExam.Add(question);
+            }            
         }
         private void PrevQuestionBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -52,7 +58,7 @@ namespace TestverktygProject.View
         }
         private void NextQuestionBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
         public void setQuestText()
         {

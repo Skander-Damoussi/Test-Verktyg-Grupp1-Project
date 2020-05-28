@@ -26,6 +26,39 @@ namespace TestverktygProject.ViewModel
         public TakeExamViewModel()
         {
             this.V = new TakeExam();
-        }                
+        }
+        public void nextQuestion()
+        {
+            //if (index <= tempExamList.Questions.Count)
+            //{
+            //    index++;
+            //    startindex++;
+            //    tempQuestList = V.selectedExam.Questions[index];
+
+            //    updateAlternatives();
+            //}
+            //else
+            //{
+            //}
+        }
+        public void prevQuestion()
+        {
+        //    if (index <= V.selectedExam.Questions.Count || index >= 1)
+        //    {
+        //        index--;
+        //        startindex--;
+        //        tempQuestList = V.selectedExam.Questions[index];
+
+        //        updateAlternatives();
+        //    }
+        //    else
+        //    {
+        //    }
+        //}
+        //public void updateAlternatives()
+        //{
+        //    V.selectedExam.Questions.Clear();
+        //    V.selectedExam.Questions.Add(tempExamList.Questions[index]);
+        }
     }
 }
