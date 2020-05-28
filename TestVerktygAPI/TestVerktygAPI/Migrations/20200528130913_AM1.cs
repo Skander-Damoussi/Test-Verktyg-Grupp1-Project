@@ -3,10 +3,30 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TestVerktygAPI.Migrations
 {
-    public partial class initial : Migration
+    public partial class AM1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "User",
+                columns: table => new
+                {
+                    UserID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    Username = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(nullable: true),
+                    IsTeacher = table.Column<bool>(nullable: false),
+                    Discriminator = table.Column<string>(nullable: false),
+                    StudentID = table.Column<int>(nullable: true),
+                    TeacherID = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_User", x => x.UserID);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Exam",
                 columns: table => new
@@ -16,45 +36,18 @@ namespace TestVerktygAPI.Migrations
                     Subject = table.Column<string>(nullable: true),
                     ExamName = table.Column<string>(nullable: true),
                     ExamDate = table.Column<DateTime>(nullable: false),
-                    Results = table.Column<int>(nullable: false)
+                    Results = table.Column<int>(nullable: false),
+                    StudentUserID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Exam", x => x.ExamID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Student",
-                columns: table => new
-                {
-                    StudentID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    Username = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true),
-                    IsTeacher = table.Column<bool>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Student", x => x.StudentID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Teacher",
-                columns: table => new
-                {
-                    TeacherID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    Username = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true),
-                    IsTeacher = table.Column<bool>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Teacher", x => x.TeacherID);
+                    table.ForeignKey(
+                        name: "FK_Exam_User_StudentUserID",
+                        column: x => x.StudentUserID,
+                        principalTable: "User",
+                        principalColumn: "UserID",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -63,9 +56,13 @@ namespace TestVerktygAPI.Migrations
                 {
                     QuestionID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Alt1 = table.Column<string>(nullable: true),
+                    Alt2 = table.Column<string>(nullable: true),
+                    Alt3 = table.Column<string>(nullable: true),
+                    Alt4 = table.Column<string>(nullable: true),
                     NumberOfPoints = table.Column<int>(nullable: false),
                     QuestionTitle = table.Column<string>(nullable: true),
-                    CorrectAnswer = table.Column<int>(nullable: false),
+                    IsCorrectAnswer = table.Column<bool>(nullable: false),
                     ExamID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -96,38 +93,17 @@ namespace TestVerktygAPI.Migrations
                         principalColumn: "ExamID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_StudentExam_Student_StudentID",
+                        name: "FK_StudentExam_User_StudentID",
                         column: x => x.StudentID,
-                        principalTable: "Student",
-                        principalColumn: "StudentID",
+                        principalTable: "User",
+                        principalColumn: "UserID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Answer",
-                columns: table => new
-                {
-                    AnswerID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AnswerTitle = table.Column<string>(nullable: true),
-                    IsCorrectAnswer = table.Column<bool>(nullable: false),
-                    QuestionID = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Answer", x => x.AnswerID);
-                    table.ForeignKey(
-                        name: "FK_Answer_Question_QuestionID",
-                        column: x => x.QuestionID,
-                        principalTable: "Question",
-                        principalColumn: "QuestionID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
             migrationBuilder.CreateIndex(
-                name: "IX_Answer_QuestionID",
-                table: "Answer",
-                column: "QuestionID");
+                name: "IX_Exam_StudentUserID",
+                table: "Exam",
+                column: "StudentUserID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Question_ExamID",
@@ -143,22 +119,16 @@ namespace TestVerktygAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Answer");
+                name: "Question");
 
             migrationBuilder.DropTable(
                 name: "StudentExam");
 
             migrationBuilder.DropTable(
-                name: "Teacher");
-
-            migrationBuilder.DropTable(
-                name: "Question");
-
-            migrationBuilder.DropTable(
-                name: "Student");
-
-            migrationBuilder.DropTable(
                 name: "Exam");
+
+            migrationBuilder.DropTable(
+                name: "User");
         }
     }
 }

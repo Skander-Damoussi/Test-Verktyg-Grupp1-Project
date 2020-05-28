@@ -9,15 +9,21 @@ namespace TestverktygProject.Model
 {
     public class Question
     {
-        //declaration of new answer is needed to avoid getting null reference exceptions
-        public List<Answer> Alternatives { get; set; } = new List<Answer>{new Answer(), new Answer(), new Answer(), new Answer()};
+        public int CorrectAnswer { get; set; }
+        public List<string> Alternatives { get; set; } = new List<string>{"", "", "", ""};
+
+        public string Alt1 { get; set; }
+        public string Alt2 { get; set; }
+        public string Alt3 { get; set; }
+        public string Alt4 { get; set; }
         public int NumberOfPoints { get; set; }
         public string QuestionTitle { get; set; }
-        public int CorrectAnswer { get; set; } //Added this so that the field works in createExam.xaml, just a boolean is simply not enough.
+        public bool IsCorrectAnswer { get; set; }
 
-        public Question( List<Answer> answers, int numberofpoints, string questiontitle)
+        public Question(int correctanswer, List<string> alternative, int numberofpoints, string questiontitle)
         {
-            Alternatives = answers;
+            CorrectAnswer = correctanswer;
+            Alternatives = alternative;
             NumberOfPoints = numberofpoints;
             QuestionTitle = questiontitle;
         }
