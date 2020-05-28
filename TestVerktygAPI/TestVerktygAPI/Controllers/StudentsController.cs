@@ -25,6 +25,7 @@ namespace TestVerktygAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Student>>> GetStudent()
         {
+
             return await _context.Student.ToListAsync();
         }
 

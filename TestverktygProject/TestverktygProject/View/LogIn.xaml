@@ -32,7 +32,7 @@
                 </Border>
            
                 <TextBox x:Name="usernamebox" PlaceholderText="Username" Background="White"/>
-                <TextBox x:Name="passwordbox" PlaceholderText="Password" Background="White" />
+                <PasswordBox x:Name="passwordbox" PlaceholderText="Password" Background="White" />
                 <Button x:Name="LogInButton" Content="Login" CornerRadius="10"  Width="150" Height="35" BorderBrush="Black" BorderThickness="0.5" Background="CadetBlue" Click="LogInButton_Click" HorizontalAlignment="Center" />
             </StackPanel>
         </Grid>

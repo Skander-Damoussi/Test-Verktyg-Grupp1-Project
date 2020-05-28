@@ -2,11 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using TestverktygProject.Model;
+using TestverktygProject.View;
 
 namespace TestverktygProject.Services
 {
@@ -19,9 +22,15 @@ namespace TestverktygProject.Services
         {
             httpClient = new HttpClient();
         }
-        public async Task LogInAsync()
+        public async Task<string> LogInAsync(LoginModel login)
         {
-            throw new Exception();
+            string IsTeacher = null;
+            HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(login));
+            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var message =  await httpClient.PostAsync(WebServiceUrl + "LoginModels", httpContent);
+            IsTeacher = await message.Content.ReadAsStringAsync();
+            Debug.WriteLine(IsTeacher);
+            return IsTeacher;
         }
         public async Task PostExams()
         {
@@ -50,6 +59,9 @@ namespace TestverktygProject.Services
 
             return exams;
         }
+
+       
+
         public async Task<ObservableCollection<Teacher>> GetAllTeachersAsync()
         {
             var jsonTeachers = await httpClient.GetStringAsync(WebServiceUrl + "Teachers");

@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="Model\Answer.cs" />
     <Compile Include="Model\Exam.cs" />
+    <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\StudentExam.cs" />
     <Compile Include="Services\APIService.cs" />
     <Compile Include="Services\IAPIService.cs" />
