@@ -86,6 +86,20 @@ namespace TestVerktygAPI.Controllers
             _context.Exam.Add(exam);
             await _context.SaveChangesAsync();
 
+            var students = await _context.Student.ToListAsync();
+
+            foreach (Student student in students)
+            {
+                _context.StudentExam.Add(new StudentExam
+                {
+                    Exam = exam,
+                    ExamID = exam.ExamID,
+                    Student = student,
+                    StudentID = student.StudentID
+                });
+            }
+
+            await _context.SaveChangesAsync();
             return CreatedAtAction("GetExam", new { id = exam.ExamID }, exam);
         }
 
