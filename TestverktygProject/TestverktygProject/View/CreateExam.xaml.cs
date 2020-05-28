@@ -71,8 +71,8 @@ namespace TestverktygProject.View
             
             foreach (Question q in questions)
             {
-                CheckRightAnswer();
-                q.NumberOfPoints = points;
+                //CheckRightAnswer();
+                q.NumberOfPoints = 1;
                 CreateExamViewModel.CreatedQuestions.Add(q);
             }
 
@@ -101,7 +101,7 @@ namespace TestverktygProject.View
             }
         }
 
-        public void CheckRightAnswer()
+        /*public void CheckRightAnswer()
         {
             var rightAnswer = CreateExamViewModel.QuestionsToBeFilled[0].Alternatives[0].CorrectAnswer.ToString();
             var answers = CreateExamViewModel.QuestionsToBeFilled[0].Alternatives;
@@ -134,6 +134,6 @@ namespace TestverktygProject.View
                     break;
 
             }
-        }
+        }*/
     }
 }

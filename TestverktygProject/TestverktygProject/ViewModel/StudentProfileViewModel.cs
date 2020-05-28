@@ -46,7 +46,7 @@ namespace TestverktygProject.ViewModel
             correctAnswers.Add(1);
 
             //Creating lists of Questions/Exams and Students
-            _questionList = new ObservableCollection<Question>()
+           /* _questionList = new ObservableCollection<Question>()
             {
                 new Question(correctAnswers, alternatives, 5, "which one holds a?")
             };
@@ -59,7 +59,7 @@ namespace TestverktygProject.ViewModel
             {
                 new Student(_examList, "Peter", "Petersson", "PeterPetersson", "Petersson123", false)
             };
-            //student1 = ListOfStudents[1];
+            //student1 = ListOfStudents[1];*/
 
         }
         public void SeeResults()

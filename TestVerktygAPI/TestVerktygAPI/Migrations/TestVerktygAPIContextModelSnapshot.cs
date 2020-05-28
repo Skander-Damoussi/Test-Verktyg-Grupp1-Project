@@ -29,10 +29,13 @@ namespace TestVerktygAPI.Migrations
                     b.Property<string>("AnswerTitle")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("CorrectAnswer")
+                    b.Property<int>("CorrectAnswer")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsCorrectAnswer")
                         .HasColumnType("bit");
 
-                    b.Property<int>("QuestionID")
+                    b.Property<int?>("QuestionID")
                         .HasColumnType("int");
 
                     b.HasKey("AnswerID");
@@ -58,15 +61,10 @@ namespace TestVerktygAPI.Migrations
                     b.Property<int>("Results")
                         .HasColumnType("int");
 
-                    b.Property<int?>("StudentID")
-                        .HasColumnType("int");
-
                     b.Property<string>("Subject")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ExamID");
-
-                    b.HasIndex("StudentID");
 
                     b.ToTable("Exam");
                 });
@@ -167,16 +165,7 @@ namespace TestVerktygAPI.Migrations
                 {
                     b.HasOne("TestVerktygAPI.Models.Question", null)
                         .WithMany("Answers")
-                        .HasForeignKey("QuestionID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("TestVerktygAPI.Models.Exam", b =>
-                {
-                    b.HasOne("TestVerktygAPI.Models.Student", null)
-                        .WithMany("ListExam")
-                        .HasForeignKey("StudentID");
+                        .HasForeignKey("QuestionID");
                 });
 
             modelBuilder.Entity("TestVerktygAPI.Models.Question", b =>

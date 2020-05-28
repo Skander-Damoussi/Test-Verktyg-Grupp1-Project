@@ -27,6 +27,7 @@ namespace TestVerktygAPI.Controllers
         {
             var questions = await _context.Question
                 .Include(q => q.Answers)
+                .ThenInclude(a => a.AnswerTitle)
                 .ToListAsync();
             return Ok(questions);
         }

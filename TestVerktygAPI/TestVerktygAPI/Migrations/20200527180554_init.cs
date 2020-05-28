@@ -8,6 +8,22 @@ namespace TestVerktygAPI.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Exam",
+                columns: table => new
+                {
+                    ExamID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Subject = table.Column<string>(nullable: true),
+                    ExamName = table.Column<string>(nullable: true),
+                    ExamDate = table.Column<DateTime>(nullable: false),
+                    Results = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Exam", x => x.ExamID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Student",
                 columns: table => new
                 {
@@ -39,29 +55,6 @@ namespace TestVerktygAPI.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Teacher", x => x.TeacherID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Exam",
-                columns: table => new
-                {
-                    ExamID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Subject = table.Column<string>(nullable: true),
-                    ExamName = table.Column<string>(nullable: true),
-                    ExamDate = table.Column<DateTime>(nullable: false),
-                    Results = table.Column<int>(nullable: false),
-                    StudentID = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Exam", x => x.ExamID);
-                    table.ForeignKey(
-                        name: "FK_Exam_Student_StudentID",
-                        column: x => x.StudentID,
-                        principalTable: "Student",
-                        principalColumn: "StudentID",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -116,8 +109,9 @@ namespace TestVerktygAPI.Migrations
                     AnswerID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AnswerTitle = table.Column<string>(nullable: true),
-                    CorrectAnswer = table.Column<bool>(nullable: false),
-                    QuestionID = table.Column<int>(nullable: false)
+                    IsCorrectAnswer = table.Column<bool>(nullable: false),
+                    CorrectAnswer = table.Column<int>(nullable: false),
+                    QuestionID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -127,18 +121,13 @@ namespace TestVerktygAPI.Migrations
                         column: x => x.QuestionID,
                         principalTable: "Question",
                         principalColumn: "QuestionID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Answer_QuestionID",
                 table: "Answer",
                 column: "QuestionID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Exam_StudentID",
-                table: "Exam",
-                column: "StudentID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Question_ExamID",
@@ -166,10 +155,10 @@ namespace TestVerktygAPI.Migrations
                 name: "Question");
 
             migrationBuilder.DropTable(
-                name: "Exam");
+                name: "Student");
 
             migrationBuilder.DropTable(
-                name: "Student");
+                name: "Exam");
         }
     }
 }

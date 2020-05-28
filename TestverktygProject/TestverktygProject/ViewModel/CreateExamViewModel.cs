@@ -25,6 +25,7 @@ namespace TestverktygProject.ViewModel
         private HttpClient httpClient;
         private string examURL = "https://localhost:44324/api/exams";
         private string questionURL = "https://localhost:44324/api/questions";
+        private string answerURL = "https://localhost:44324/api/answers";
 
 
         public CreateExamViewModel()
@@ -79,6 +80,28 @@ namespace TestverktygProject.ViewModel
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
             await httpClient.PostAsync(questionURL, httpContent);
+        }
+
+        public async Task<ObservableCollection<Answer>> GetAllAnswersAsync()
+        {
+            var jsonAnswers = await httpClient.GetStringAsync(answerURL);
+
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.MissingMemberHandling = MissingMemberHandling.Error;
+
+            var answers = JsonConvert.DeserializeObject<ObservableCollection<Answer>>(jsonAnswers, settings);
+            
+            return answers;
+        }
+
+        public async Task AddAnswerAsync(Answer answer)
+        {
+            var answers = JsonConvert.SerializeObject(answer);
+            HttpContent httpContent = new StringContent(answers);
+
+            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            await httpClient.PostAsync(answerURL, httpContent);
         }
 
 
