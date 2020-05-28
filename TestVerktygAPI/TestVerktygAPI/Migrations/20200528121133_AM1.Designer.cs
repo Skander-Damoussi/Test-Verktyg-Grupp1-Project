@@ -10,8 +10,8 @@ using TestVerktygAPI.Data;
 namespace TestVerktygAPI.Migrations
 {
     [DbContext(typeof(TestVerktygAPIContext))]
-    [Migration("20200527180554_init")]
-    partial class init
+    [Migration("20200528121133_AM1")]
+    partial class AM1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,9 +30,6 @@ namespace TestVerktygAPI.Migrations
 
                     b.Property<string>("AnswerTitle")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CorrectAnswer")
-                        .HasColumnType("int");
 
                     b.Property<bool>("IsCorrectAnswer")
                         .HasColumnType("bit");
@@ -77,6 +74,9 @@ namespace TestVerktygAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CorrectAnswer")
+                        .HasColumnType("int");
 
                     b.Property<int?>("ExamID")
                         .HasColumnType("int");

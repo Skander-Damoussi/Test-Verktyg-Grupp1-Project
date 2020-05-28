@@ -47,7 +47,6 @@ namespace TestverktygProject.View
         private async void CreateExamButton_OnClick(object sender, RoutedEventArgs e)
         {
             var exams = CreateExamViewModel.ExamList;
-            var questions = CreateExamViewModel.CreatedQuestions.ToList();
             var exam = new Exam
             { 
                 ExamDate = DateTime.Today, //todo check how to insert DatePicker values here
@@ -59,7 +58,20 @@ namespace TestverktygProject.View
 
             exams.Add(exam);
 
-          await CreateExamViewModel.AddExamAsync(exam);
+            await CreateExamViewModel.AddExamAsync(exam);
+        }
+
+        private async void PostAnswers()
+        {
+            var questions = CreateExamViewModel.CreatedQuestions[0].Alternatives;
+            var a = CreateExamViewModel.QuestionsToBeFilled[0].Alternatives[0].AnswerTitle;
+
+            var answer = new Answer
+            {
+                AnswerTitle = a
+            };
+
+            await CreateExamViewModel.AddAnswerAsync(answer);
         }
 
         private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
@@ -71,8 +83,8 @@ namespace TestverktygProject.View
             
             foreach (Question q in questions)
             {
-                //CheckRightAnswer();
-                q.NumberOfPoints = 1;
+                CheckRightAnswer();
+                q.NumberOfPoints = points;
                 CreateExamViewModel.CreatedQuestions.Add(q);
             }
 
@@ -101,9 +113,9 @@ namespace TestverktygProject.View
             }
         }
 
-        /*public void CheckRightAnswer()
+        public void CheckRightAnswer()
         {
-            var rightAnswer = CreateExamViewModel.QuestionsToBeFilled[0].Alternatives[0].CorrectAnswer.ToString();
+            var rightAnswer = CreateExamViewModel.QuestionsToBeFilled[0].CorrectAnswer.ToString();
             var answers = CreateExamViewModel.QuestionsToBeFilled[0].Alternatives;
 
             switch (rightAnswer)
@@ -134,6 +146,6 @@ namespace TestverktygProject.View
                     break;
 
             }
-        }*/
+        }
     }
 }

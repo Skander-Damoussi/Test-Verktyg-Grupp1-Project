@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TestVerktygAPI.Migrations
 {
-    public partial class init : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -65,6 +65,7 @@ namespace TestVerktygAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NumberOfPoints = table.Column<int>(nullable: false),
                     QuestionTitle = table.Column<string>(nullable: true),
+                    CorrectAnswer = table.Column<int>(nullable: false),
                     ExamID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -110,7 +111,6 @@ namespace TestVerktygAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AnswerTitle = table.Column<string>(nullable: true),
                     IsCorrectAnswer = table.Column<bool>(nullable: false),
-                    CorrectAnswer = table.Column<int>(nullable: false),
                     QuestionID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>

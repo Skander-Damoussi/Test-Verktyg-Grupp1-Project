@@ -24,12 +24,8 @@ namespace TestVerktygAPI.Controllers
         // GET: api/Questions
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Question>>> GetQuestion()
-        {
-            var questions = await _context.Question
-                .Include(q => q.Answers)
-                .ThenInclude(a => a.AnswerTitle)
-                .ToListAsync();
-            return Ok(questions);
+        {;
+            return await _context.Question.ToListAsync();
         }
 
         // GET: api/Questions/5

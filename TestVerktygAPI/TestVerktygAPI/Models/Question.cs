@@ -16,5 +16,6 @@ namespace TestVerktygAPI.Models
         public List<Answer> Answers { get; set; } //= new List<Answer>{new Answer(), new Answer(), new Answer(), new Answer()};
         public int NumberOfPoints { get; set; }
         public string QuestionTitle { get; set; }
+        public int CorrectAnswer { get; set; }
     }
 }
