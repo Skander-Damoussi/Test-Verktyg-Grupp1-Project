@@ -10,8 +10,8 @@ using TestVerktygAPI.Data;
 namespace TestVerktygAPI.Migrations
 {
     [DbContext(typeof(TestVerktygAPIContext))]
-    [Migration("20200526095134_init")]
-    partial class init
+    [Migration("20200528164646_AM6")]
+    partial class AM6
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,29 +20,6 @@ namespace TestVerktygAPI.Migrations
                 .HasAnnotation("ProductVersion", "3.1.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("TestVerktygAPI.Models.Answer", b =>
-                {
-                    b.Property<int>("AnswerID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AnswerTitle")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("CorrectAnswer")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("QuestionID")
-                        .HasColumnType("int");
-
-                    b.HasKey("AnswerID");
-
-                    b.HasIndex("QuestionID");
-
-                    b.ToTable("Answer");
-                });
 
             modelBuilder.Entity("TestVerktygAPI.Models.Exam", b =>
                 {
@@ -74,6 +51,21 @@ namespace TestVerktygAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Alt1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Alt2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Alt3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Alt4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CorrectAnswer")
+                        .HasColumnType("int");
 
                     b.Property<int?>("ExamID")
                         .HasColumnType("int");
@@ -158,13 +150,6 @@ namespace TestVerktygAPI.Migrations
                     b.HasKey("TeacherID");
 
                     b.ToTable("Teacher");
-                });
-
-            modelBuilder.Entity("TestVerktygAPI.Models.Answer", b =>
-                {
-                    b.HasOne("TestVerktygAPI.Models.Question", null)
-                        .WithMany("Answers")
-                        .HasForeignKey("QuestionID");
                 });
 
             modelBuilder.Entity("TestVerktygAPI.Models.Question", b =>
