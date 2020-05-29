@@ -6,7 +6,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:data="using:TestverktygProject.Model"
       mc:Ignorable="d"
-      NavigationCacheMode="Enabled"
+      
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
@@ -57,7 +57,7 @@
                   Grid.ColumnSpan="2"
                   BorderThickness="1"
                   BorderBrush="black"
-                  ItemsSource="{x:Bind vm._apiExams}">
+                  ItemsSource="{}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:Exam">
                     <StackPanel Orientation="Horizontal">

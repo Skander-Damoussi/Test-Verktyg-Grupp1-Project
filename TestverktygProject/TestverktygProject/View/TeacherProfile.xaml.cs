@@ -19,6 +19,7 @@ using System.ServiceModel.Channels;
 using TestverktygProject.ViewModel;
 using TestverktygProject.Services;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 
 
@@ -32,7 +33,7 @@ namespace TestverktygProject.View
     public sealed partial class TeacherProfile : Page
     {
 
-        TeacherProfileViewModel TeacherProfileView = new TeacherProfileViewModel();
+  //     TeacherProfileViewModel TeacherProfileView = new TeacherProfileViewModel();
 
 
         public TeacherProfile()
@@ -40,7 +41,7 @@ namespace TestverktygProject.View
             this.InitializeComponent();
             this.api = new APIService();
             this.vm = new TeacherProfileViewModel();
-            apiGet();
+            vm.apiGet();
 
             
 
@@ -68,29 +69,9 @@ namespace TestverktygProject.View
 
         private void viewstudentexam_Click(object sender, RoutedEventArgs e)
         {
-            Student SelectedStudent = (Student)StudentListView.SelectedItem;
-            examlistview.ItemsSource = SelectedStudent.ListExam;
+            var examlist = vm.examstudentbind((Student)StudentListView.SelectedItem);
+            examlistview.ItemsSource = examlist;
         }
-        public async void apiGet()
-        {
-            var students = await api.GetAllStudentsAsync();
-            foreach (Student student in students)
-            {
-                vm._apiStudents.Add(student);
-            }
-            
-            var exams = await api.GetAllExamsAsync();
-            
-            foreach (Exam exam in exams)
-            {
-                vm._apiExams.Add(exam);
-            }
 
-            var teachers = await api.GetAllTeachersAsync();
-            foreach(Teacher teacher in teachers)
-            {
-                vm._apiTeachers.Add(teacher);
-            }
-        }
     }
 }
