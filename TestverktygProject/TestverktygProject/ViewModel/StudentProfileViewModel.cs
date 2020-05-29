@@ -10,6 +10,8 @@ namespace TestverktygProject.ViewModel
 {
     public class StudentProfileViewModel
     {
+        public ObservableCollection<StudentExam> apiStudentExams { get; set; }
+
         public ICommand _command { get; set; }
         public ObservableCollection<Exam> apiExams { get; set; }
         public ObservableCollection<Student> apiStudents { get; set; }
@@ -28,6 +30,24 @@ namespace TestverktygProject.ViewModel
             _apiExams = new ObservableCollection<Exam>();
             _apiStudents = new ObservableCollection<Student>();
         }
+        public ObservableCollection<Exam> examstudentbind(Student student)
+        {
+            student.ListExam = new ObservableCollection<Exam>();
 
+            foreach (var item in apiStudentExams)
+            {
+                if (item.StudentID == student.StudentID)
+                {
+                    foreach (var exam in apiExams)
+                    {
+                        if (item.ExamID == exam.ExamID)
+                        {
+                            student.ListExam.Add(exam);
+                        }
+                    }
+                }
+            }
+            return student.ListExam;
+        }
     }
 }

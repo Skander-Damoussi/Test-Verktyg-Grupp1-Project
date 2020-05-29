@@ -22,7 +22,7 @@ namespace TestverktygProject.Services
         {
             httpClient = new HttpClient();
         }
-        public async Task<string> LogInAsync(LoginModel login)
+        public async Task<int> LogInAsync(LoginModel login)
         {
             string IsTeacher = null;
             HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(login));
@@ -30,7 +30,8 @@ namespace TestverktygProject.Services
             var message =  await httpClient.PostAsync(WebServiceUrl + "LoginModels", httpContent);
             IsTeacher = await message.Content.ReadAsStringAsync();
             Debug.WriteLine(IsTeacher);
-            return IsTeacher;
+            
+            return int.Parse(IsTeacher);
         }
         public async Task PostExams()
         {
@@ -48,6 +49,30 @@ namespace TestverktygProject.Services
 
             return students;
         }
+        public async Task<Student> GetStudentAsync(int id,string username)
+        {
+
+            var jsonStudent = await httpClient.GetStringAsync(WebServiceUrl + $"Students/ {id}/{username}");
+
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.MissingMemberHandling = MissingMemberHandling.Error;
+
+            var student = JsonConvert.DeserializeObject<Student>(jsonStudent, settings);
+
+            return student;
+        }
+        public async Task<Teacher> GetTeacherAsync(int id,string username)
+        {
+            
+            var jsonTeacher = await httpClient.GetStringAsync(WebServiceUrl + $"Teachers/ {id}/{username}");
+
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.MissingMemberHandling = MissingMemberHandling.Error;
+
+            var teacher = JsonConvert.DeserializeObject<Teacher>(jsonTeacher, settings);
+
+            return teacher;
+        }
         public async Task<ObservableCollection<Exam>> GetAllExamsAsync()
         {
             var jsonExams = await httpClient.GetStringAsync(WebServiceUrl + "Exams");
@@ -60,8 +85,18 @@ namespace TestverktygProject.Services
             return exams;
         }
 
-       
 
+        public async Task<ObservableCollection<StudentExam>> GetAllStudentExamsAsync()
+        {
+            var jsonTeachers = await httpClient.GetStringAsync(WebServiceUrl + "studentexams");
+
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.MissingMemberHandling = MissingMemberHandling.Error;
+
+            var studentexams = JsonConvert.DeserializeObject<ObservableCollection<StudentExam>>(jsonTeachers, settings);
+
+            return studentexams;
+        }
         public async Task<ObservableCollection<Teacher>> GetAllTeachersAsync()
         {
             var jsonTeachers = await httpClient.GetStringAsync(WebServiceUrl + "Teachers");

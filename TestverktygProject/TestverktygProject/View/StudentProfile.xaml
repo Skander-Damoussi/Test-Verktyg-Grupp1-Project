@@ -31,7 +31,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="1" Grid.Column="1">
-                            <ListView Height="650" x:Name="StudentsExam" ItemsSource="{x:Bind Vm._apiExams}" SelectedItem="aa">
+                            <ListView Height="650" x:Name="StudentsExam" ItemsSource="{x:Bind Vm.apiStudentExams}" SelectedItem="aa">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="local1:Exam">
                                         <StackPanel Orientation="Horizontal">

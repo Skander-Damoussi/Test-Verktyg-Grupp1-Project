@@ -82,20 +82,31 @@ namespace TestVerktygAPI.Controllers
         public async Task<ActionResult<LoginModel>> PostLoginModel(LoginModel loginModel)
         {
 
-            var user = _context.Student.Where(s => s.Username == loginModel.Username && s.Password == loginModel.Password).FirstOrDefault();
-            if (user != null)
+           var  student = _context.Student.Where(s => s.Username == loginModel.Username && s.Password == loginModel.Password).FirstOrDefault();
+           var  teacher = _context.Teacher.Where(s => s.Username == loginModel.Username && s.Password == loginModel.Password).FirstOrDefault();
+                
+          
+            if (student != null || teacher != null)
             {
-                    switch (user.IsTeacher)
-                    {
-                        case true:
-                            return Content("true");
-                        case false:
-                            return Content("false");
-                    }              
+                if (student == null)
+
+                {
+
+                   
+
+                            return Content(teacher.TeacherID.ToString());
+                       
+                    
+
+                }
+                else
+                {
+                    return Content(student.StudentID.ToString());
+                }
             }
             else
             {
-                return Content("Hittade ingen använadre med det lösenordet");
+                return Content("Hittade ingen användare med det lösenordet");
             }
 
         }

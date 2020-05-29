@@ -5,6 +5,6 @@ namespace TestverktygProject.Services
 {
     public interface IAPIService
     {
-        Task<string> LogInAsync(LoginModel login);
+        Task<int> LogInAsync(LoginModel login);
     }
 }

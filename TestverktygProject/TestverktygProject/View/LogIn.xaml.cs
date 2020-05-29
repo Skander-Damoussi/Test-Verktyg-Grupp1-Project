@@ -61,19 +61,33 @@ namespace TestverktygProject.View
 
         private async void LogInButton_Click(object sender, RoutedEventArgs e)
         {
-         switch(await Lvm.LogIn(usernamebox.Text.ToLower(), passwordbox.Password.ToLower()))
-            {
-                case 1:
-                    Debug.WriteLine("Teacher");
-                    break;
-                case 2:
-                    Debug.WriteLine("Student");
-                    break;
-                case 3:
-                    Debug.WriteLine("Wrong password/username");
-                    break;
 
+            string username = usernamebox.Text.ToLower();
+            string password = passwordbox.Password.ToLower();
+            object temp = await Lvm.LogIn(username,password);
+            object student = null;
+            object teacher = null;
+            try
+            {
+                teacher = (Teacher)temp;
             }
+            catch (InvalidCastException)
+            {
+                student = (Student)temp;
+            }
+            
+                if (student != null)
+                {
+                    Debug.WriteLine("En student loggande in");
+                    Frame.Navigate(typeof(StudentProfile), student);
+                }
+                else if (teacher != null)
+                {
+                    Debug.WriteLine("En teacher loggade in");
+                    Frame.Navigate(typeof(TeacherProfile), teacher);
+                }
+                else
+                    Debug.WriteLine("Fel lösenord/användarnamn");
         }
        
     }
