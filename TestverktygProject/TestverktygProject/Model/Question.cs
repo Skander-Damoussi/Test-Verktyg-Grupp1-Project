@@ -25,10 +25,5 @@ namespace TestverktygProject.Model
             NumberOfPoints = numberofpoints;
             QuestionTitle = questiontitle;
         }
-
-        public Question()
-        {
-
-        }
     }
 }

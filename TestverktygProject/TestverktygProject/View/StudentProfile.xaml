@@ -30,10 +30,13 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="1" Grid.Column="1">
-                    <ListView Height="700" x:Name="StudentsExam" ItemsSource="{x:Bind Vm._examList}">
+                    <ListView Height="700" x:Name="StudentsExam" ItemsSource="{x:Bind Vm._apiExams}" SelectedItem="aa">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="local1:Exam">
                                 <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{x:Bind ExamDate}"
+                                               FontSize="20"
+                                               FontWeight="Bold" />
                                     <TextBlock Text="{x:Bind ExamName}" FontSize="20" FontWeight="Bold"/>
                                 </StackPanel>
                             </DataTemplate>
