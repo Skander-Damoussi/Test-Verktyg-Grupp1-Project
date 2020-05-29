@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestVerktygAPI.Data;
 
 namespace TestVerktygAPI.Migrations
 {
     [DbContext(typeof(TestVerktygAPIContext))]
-    partial class TestVerktygAPIContextModelSnapshot : ModelSnapshot
+    [Migration("20200528162947_AM5")]
+    partial class AM5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,11 +64,11 @@ namespace TestVerktygAPI.Migrations
                     b.Property<string>("Alt4")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CorrectAnswer")
-                        .HasColumnType("int");
-
                     b.Property<int?>("ExamID")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsCorrectAnswer")
+                        .HasColumnType("bit");
 
                     b.Property<int>("NumberOfPoints")
                         .HasColumnType("int");
