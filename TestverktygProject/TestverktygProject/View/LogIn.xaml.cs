@@ -79,7 +79,7 @@ namespace TestverktygProject.View
                 if (student != null)
                 {
                     Debug.WriteLine("En student loggande in");
-                    Frame.Navigate(typeof(StudentProfile), student);
+                    Frame.Navigate(typeof(StudentProfile), (Student)student);
                 }
                 else if (teacher != null)
                 {

@@ -27,6 +27,8 @@ namespace TestverktygProject.View
     /// </summary>
     public sealed partial class StudentProfile : Page
     {
+        public Student student1;
+        public ObservableCollection<Student> studentList;
         public StudentProfileViewModel Vm { get; set; }
         public APIService Api { get; set; }
         public TakeExam Te { get; set; }
@@ -36,9 +38,17 @@ namespace TestverktygProject.View
             this.Vm = new StudentProfileViewModel();
             this.Api = new APIService();
             this.Te = new TakeExam();
+            student1 = new Student();
             apiGet();
         }
-
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var student1 = (Student)e?.Parameter;
+            FirstNameText.Text = student1.FirstName;
+            LastNameText.Text = student1.LastName;
+            FirstNameText1.Text = student1.FirstName;
+            LastNameText1.Text = student1.LastName;
+        }
         private void startExamButton_Click(object sender, RoutedEventArgs e)
         {            
             this.Frame.Navigate(typeof(TakeExam), (Exam)StudentsExam.SelectedItem);
