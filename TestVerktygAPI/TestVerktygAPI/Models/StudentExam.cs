@@ -11,5 +11,6 @@ namespace TestVerktygAPI.Models
         public Student Student { get; set; }
         public int ExamID { get; set; }
         public Exam Exam { get; set; }
+        public int Results { get; set; }
     }
 }

@@ -29,6 +29,7 @@ namespace TestverktygProject.View
     {
         public ObservableCollection<Question> selectedExam;
         public ObservableCollection<Question> selectedQuestion { get; set; }
+        public StudentExam studentExam;
         public TakeExamViewModel Vm { get; set; }
         public APIService Api { get; set; }
 
@@ -39,6 +40,7 @@ namespace TestverktygProject.View
             //this.Vm = new TakeExamViewModel();
             this.Api = new APIService();
             selectedExam = new ObservableCollection<Question>();
+            studentExam = new StudentExam();
 
             //AnswerList.ItemsSource = selectedExam;
         }
@@ -75,7 +77,6 @@ namespace TestverktygProject.View
             if (confirmResult != null && confirmResult.Label == "No") { return; }
             // "Back" or "Yes" button pressed: Close the app.
             if (confirmResult == null || confirmResult.Label == "Yes") { Frame.Navigate(typeof(LogIn)); }
-        }
-        
+        }        
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using TestverktygProject.Model;
@@ -60,6 +61,19 @@ namespace TestverktygProject.Services
             var teachers = JsonConvert.DeserializeObject<ObservableCollection<Teacher>>(jsonTeachers, settings);
 
             return teachers;
+        }
+        public async Task UpdateExamAsync(int StudentId, int ExamID ,int Result)
+        {
+            StudentExam studentExam = new StudentExam();
+            studentExam.ExamID = ExamID;
+            studentExam.StudentID = StudentId;
+            studentExam.Results = Result;
+
+            var json = JsonConvert.SerializeObject(studentExam);
+            HttpContent httpContent = new StringContent(json);
+            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var result = await httpClient.PutAsync(WebServiceUrl + "StudentExams/" + StudentId, httpContent);
+
         }
     }
 }

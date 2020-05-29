@@ -13,5 +13,6 @@ namespace TestverktygProject.Model
         public Exam Exam { get; set; }
         public int StudentID { get; set; }
         public Student Student { get; set; }
+        public int Results { get; set; }
     }
 }
