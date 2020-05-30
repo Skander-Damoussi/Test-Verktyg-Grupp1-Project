@@ -26,7 +26,6 @@ namespace TestVerktygAPI.Controllers
         public async Task<ActionResult<IEnumerable<Question>>> GetQuestion()
         {
             var questions = await _context.Question
-                .Include(q => q.Answers)
                 .ToListAsync();
             return Ok(questions);
         }

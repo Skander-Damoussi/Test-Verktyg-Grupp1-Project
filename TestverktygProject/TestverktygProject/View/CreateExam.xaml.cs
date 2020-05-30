@@ -47,19 +47,18 @@ namespace TestverktygProject.View
         private async void CreateExamButton_OnClick(object sender, RoutedEventArgs e)
         {
             var exams = CreateExamViewModel.ExamList;
-            var questions = CreateExamViewModel.CreatedQuestions.ToList();
             var exam = new Exam
             { 
                 ExamDate = DateTime.Today, //todo check how to insert DatePicker values here
                 ExamName = TitleOfExamField.Text,
-                Questions = questions,
+                Questions = GetQuestions(),
                 Subject = SubjectField.Text,
                 Results = 0
             };
 
             exams.Add(exam);
 
-          await CreateExamViewModel.AddExamAsync(exam);
+            await CreateExamViewModel.AddExamAsync(exam);
         }
 
         private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
@@ -67,11 +66,18 @@ namespace TestverktygProject.View
             var questions = CreateExamViewModel.QuestionsToBeFilled;
             var examPreview = CreateExamViewModel.CreatedQuestions;
             
-            examPreview.Clear();
             
-            foreach (Question q in questions)
+            examPreview.Clear();
+
+            for (int i = 0; i < questions.Count; i++)
             {
-                CreateExamViewModel.CreatedQuestions.Add(q);
+                var question = CreateExamViewModel.QuestionsToBeFilled[i];
+                var points = question.NumberOfPoints;
+                var correctAnswer = question.CorrectAnswer;
+
+                question.NumberOfPoints = points;
+                question.CorrectAnswer = correctAnswer;
+                CreateExamViewModel.CreatedQuestions.Add(question);
             }
 
         }
