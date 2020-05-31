@@ -16,6 +16,7 @@ namespace TestverktygProject.ViewModel
     {
         public ObservableCollection<User> UserList { get; set; }
         public APIService Api { get; set; }
+        public Teacher tempteacher { get; set; }
         public async  Task<object> LogIn(string username,string password)
         {
 

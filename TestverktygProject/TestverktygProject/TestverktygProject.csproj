@@ -119,7 +119,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Exam.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\StudentExam.cs" />

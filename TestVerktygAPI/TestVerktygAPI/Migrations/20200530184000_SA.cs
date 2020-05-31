@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TestVerktygAPI.Migrations
 {
-    public partial class Initial : Migration
+    public partial class SA : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,6 +21,21 @@ namespace TestVerktygAPI.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Exam", x => x.ExamID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LoginModel",
+                columns: table => new
+                {
+                    LoginId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Username = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(nullable: true),
+                    IsTeacher = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LoginModel", x => x.LoginId);
                 });
 
             migrationBuilder.CreateTable(
@@ -63,8 +78,13 @@ namespace TestVerktygAPI.Migrations
                 {
                     QuestionID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Alt1 = table.Column<string>(nullable: true),
+                    Alt2 = table.Column<string>(nullable: true),
+                    Alt3 = table.Column<string>(nullable: true),
+                    Alt4 = table.Column<string>(nullable: true),
                     NumberOfPoints = table.Column<int>(nullable: false),
                     QuestionTitle = table.Column<string>(nullable: true),
+                    CorrectAnswer = table.Column<int>(nullable: false),
                     ExamID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -102,32 +122,6 @@ namespace TestVerktygAPI.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Answer",
-                columns: table => new
-                {
-                    AnswerID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AnswerTitle = table.Column<string>(nullable: true),
-                    CorrectAnswer = table.Column<bool>(nullable: false),
-                    QuestionID = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Answer", x => x.AnswerID);
-                    table.ForeignKey(
-                        name: "FK_Answer_Question_QuestionID",
-                        column: x => x.QuestionID,
-                        principalTable: "Question",
-                        principalColumn: "QuestionID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Answer_QuestionID",
-                table: "Answer",
-                column: "QuestionID");
-
             migrationBuilder.CreateIndex(
                 name: "IX_Question_ExamID",
                 table: "Question",
@@ -142,7 +136,10 @@ namespace TestVerktygAPI.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Answer");
+                name: "LoginModel");
+
+            migrationBuilder.DropTable(
+                name: "Question");
 
             migrationBuilder.DropTable(
                 name: "StudentExam");
@@ -151,13 +148,10 @@ namespace TestVerktygAPI.Migrations
                 name: "Teacher");
 
             migrationBuilder.DropTable(
-                name: "Question");
+                name: "Exam");
 
             migrationBuilder.DropTable(
                 name: "Student");
-
-            migrationBuilder.DropTable(
-                name: "Exam");
         }
     }
 }

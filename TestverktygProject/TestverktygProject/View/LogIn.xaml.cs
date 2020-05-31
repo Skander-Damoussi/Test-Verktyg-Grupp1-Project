@@ -84,7 +84,7 @@ namespace TestverktygProject.View
                 else if (teacher != null)
                 {
                     Debug.WriteLine("En teacher loggade in");
-                    Frame.Navigate(typeof(TeacherProfile), teacher);
+                Frame.Navigate(typeof(TeacherProfile), teacher);
                 }
                 else
                     Debug.WriteLine("Fel lösenord/användarnamn");

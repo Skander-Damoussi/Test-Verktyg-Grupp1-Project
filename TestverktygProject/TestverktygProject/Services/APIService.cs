@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TestverktygProject.Model;
 using TestverktygProject.View;
+using Windows.Foundation;
 
 namespace TestverktygProject.Services
 {
@@ -86,15 +87,15 @@ namespace TestverktygProject.Services
         }
 
 
-        public async Task<ObservableCollection<StudentExam>> GetAllStudentExamsAsync()
+        public async Task<ObservableCollection<StudentExam>> GetAllStudentExamsAsync(Student student)
         {
-            var jsonTeachers = await httpClient.GetStringAsync(WebServiceUrl + "studentexams");
+
+            string jsonStudentExams = await httpClient.GetStringAsync(WebServiceUrl + "studentexams/" + student.StudentID);
 
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.MissingMemberHandling = MissingMemberHandling.Error;
 
-            var studentexams = JsonConvert.DeserializeObject<ObservableCollection<StudentExam>>(jsonTeachers, settings);
-
+            var studentexams = JsonConvert.DeserializeObject<ObservableCollection<StudentExam>>(jsonStudentExams);
             return studentexams;
         }
         public async Task<ObservableCollection<Teacher>> GetAllTeachersAsync()

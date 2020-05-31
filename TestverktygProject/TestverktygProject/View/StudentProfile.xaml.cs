@@ -29,25 +29,27 @@ namespace TestverktygProject.View
     {
         public Student student1;
         public ObservableCollection<Student> studentList;
-        public StudentProfileViewModel Vm { get; set; }
+        public StudentProfileViewModel Sp { get; set; }
         public APIService Api { get; set; }
         public TakeExam Te { get; set; }
         public StudentProfile()
         {
             this.InitializeComponent();
-            this.Vm = new StudentProfileViewModel();
+            this.Sp = new StudentProfileViewModel();
             this.Api = new APIService();
             this.Te = new TakeExam();
-            student1 = new Student();
-            apiGet();
+            //student1 = new Student();
         }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var student1 = (Student)e?.Parameter;
+            student1 = (Student)e?.Parameter;
+            Sp.tempstudent = student1;
             FirstNameText.Text = student1.FirstName;
             LastNameText.Text = student1.LastName;
             FirstNameText1.Text = student1.FirstName;
             LastNameText1.Text = student1.LastName;
+            apiGet();
         }
         private void startExamButton_Click(object sender, RoutedEventArgs e)
         {            
@@ -70,15 +72,16 @@ namespace TestverktygProject.View
             var students = await Api.GetAllStudentsAsync();
             foreach (Student student in students)
             {
-                Vm._apiStudents.Add(student);
+                Sp._apiStudents.Add(student);
             }
 
             var exams = await Api.GetAllExamsAsync();
 
             foreach (Exam exam in exams)
             {
-                Vm._apiExams.Add(exam);
+                Sp._apiExams.Add(exam);
             }
+
         }
 
         private async void signOutButton1_Click(object sender, RoutedEventArgs e)
