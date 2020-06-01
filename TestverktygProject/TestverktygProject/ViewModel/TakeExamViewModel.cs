@@ -14,18 +14,54 @@ namespace TestverktygProject.ViewModel
     {
         public int index = 0;
         public int startindex = 1;
-        public ObservableCollection<Question> tempQuestList;
-        public Exam tempExamList;
-        public TakeExam V { get; set; }
-        public ObservableCollection<Exam> apiExams { get; set; }
-        public ObservableCollection<Exam> _apiExams
+
+        public ObservableCollection<Question> selectedExam;
+        public ObservableCollection<Question> tempQuest;
+        public List<int> selectedAlt;
+
+
+        public ObservableCollection<Question> _tempQuest
         {
-            get { return apiExams; }
-            set { apiExams = value; }
+            get { return tempQuest; }
+            set { tempQuest = value; }
         }
         public TakeExamViewModel()
         {
-            this.V = new TakeExam();
-        }                
+            selectedExam = new ObservableCollection<Question>();
+            tempQuest = new ObservableCollection<Question>();
+            selectedAlt = new List<int>();
+        }
+        public void nextQuestion()
+        {
+            if (index + 1 < selectedExam.Count)
+            {
+                index++;
+                startindex++;
+
+                //updateAlternatives();
+            }
+            else
+            {
+            }
+        }
+        public void prevQuestion()
+        {
+            if (index > 0)
+            {
+                index--;
+                startindex--;
+
+                //updateAlternatives();
+            }
+            else
+            {
+                
+            }
+        }
+        public void updateAlternatives()
+        {
+            tempQuest.Clear();
+            tempQuest.Add(selectedExam[index]);
+        }
     }
 }

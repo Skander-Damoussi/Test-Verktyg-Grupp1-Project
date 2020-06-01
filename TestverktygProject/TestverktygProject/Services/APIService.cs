@@ -109,6 +109,19 @@ namespace TestverktygProject.Services
 
             return teachers;
         }
+        public async Task UpdateExamAsync(int StudentId, int ExamID ,int Result)
+        {
+            StudentExam studentExam = new StudentExam();
+
+            studentExam.ExamID = ExamID;
+            studentExam.StudentID = StudentId;
+            studentExam.Results = Result;
+
+            var json = JsonConvert.SerializeObject(studentExam);
+            HttpContent httpContent = new StringContent(json);
+            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var result = await httpClient.PutAsync(WebServiceUrl + "StudentExams/" + StudentId, httpContent);
+         }
         public async Task<ObservableCollection<StudentExam>> GetAllStudentExamsAsync()
         {
             var jsonTeachers = await httpClient.GetStringAsync(WebServiceUrl + "studentexams");
@@ -120,8 +133,5 @@ namespace TestverktygProject.Services
 
             return studentexams;
         }
-
-
-
         }
     }

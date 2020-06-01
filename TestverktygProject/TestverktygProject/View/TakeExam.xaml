@@ -30,7 +30,7 @@
                     Background="CadetBlue" />
 
         <TextBlock x:Name="SubjectTitle"
-                   Text="Matematik 4 - Alegbra"
+                   Text=""
                    Grid.Row="1"
                    Grid.Column="1"
                    FontSize="20"
@@ -66,16 +66,18 @@
                   VerticalAlignment="Top"
                   Margin="0,100,0,0"
                   HorizontalAlignment="Stretch"
-                  ItemsSource="{x:Bind selectedExam}">
+                  ItemsSource="{x:Bind tempAltList}"
+                  SelectionMode="Multiple"
+                  >
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="local1:Question">
+                <DataTemplate x:DataType="local:TakeExam">
                     <StackPanel>
-                        <CheckBox x:Name="Alt1"
-                                  Content="{x:Bind Alternatives}" />
+                        <TextBlock x:Name="chckBoxAlt1"
+                                   Text="{Binding}" />
                     </StackPanel>
-
                 </DataTemplate>
             </ListView.ItemTemplate>
+
         </ListView>
 
         <Button x:Name="PrevQuestionBtn"
@@ -97,19 +99,33 @@
                 Margin="0,5,0,0"
                 Background="CadetBlue" />
         
-        <Button Content="Sign Out"
+        <Button Content="Cancel Exam"
                 Grid.Column="1"
                 Grid.Row="4"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
                 CornerRadius="10"
-                Background="CadetBlue"
+                Background="Red"
                 Width="150"
                 Height="50"
                 BorderThickness="1"
                 BorderBrush="Black"
                 Margin="0,0,0,100"
                 Click="Button_Click" />
+
+        <Button Content="Turn in Exam"
+                Grid.Column="1"
+                Grid.Row="4"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                CornerRadius="10"
+                Background="Green"
+                Width="150"
+                Height="50"
+                BorderThickness="1"
+                BorderBrush="Black"
+                Margin="0,0,0,155"
+                />
 
         <Grid Grid.Row="2"
               Grid.Column="1"
