@@ -93,7 +93,8 @@ namespace TestverktygProject.View
             if (confirmResult == null || confirmResult.Label == "Yes") { Frame.Navigate(typeof(LogIn)); }
         }
         public void checkAlt()
-        {                        
+        {
+            numberofSelectedAlt.Clear();
             for (int i = 0; i < AnswerList.SelectedItems.Count; i++)
             {
                 if (Tvm.selectedExam[Tvm.index].Alt1 == AnswerList.SelectedItems[i].ToString())
