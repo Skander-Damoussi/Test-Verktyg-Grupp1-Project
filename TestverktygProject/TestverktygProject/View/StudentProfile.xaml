@@ -88,8 +88,8 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-                            <ListView Height="650" x:Name="InactiveExamsList" ItemsSource="{x:Bind Sp._listOfStudentsExams, Mode=TwoWay}" SelectedItem="aa" IsHitTestVisible="false" Width="370">
+                        <StackPanel Grid.Row="1" Grid.Column="1">
+                            <ListView Height="650" x:Name="InactiveExamsList" ItemsSource="{x:Bind Sp._listOfStudentsExams, Mode=TwoWay}" SelectedItem="aa" IsHitTestVisible="false">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="local1:Exam">
                                         <StackPanel Orientation="Horizontal">
@@ -97,18 +97,6 @@
                                                FontSize="20"
                                                FontWeight="Bold"/>
                                             <TextBlock Text="{x:Bind ExamDate}" FontSize="20" FontWeight="Bold"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>
-                            <ListView Height="650" x:Name="InactiveExamsList1" ItemsSource="{x:Bind Sp._apiStudentExams, Mode=TwoWay}" SelectedItem="aa" IsHitTestVisible="false" Width="370">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate x:DataType="local1:StudentExam">
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Result: "
-                                               FontSize="20"
-                                               FontWeight="Bold"/>
-                                            <TextBlock Text="{x:Bind Results}" FontSize="20" FontWeight="Bold"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
