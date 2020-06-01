@@ -30,6 +30,7 @@ namespace TestverktygProject.View
         public Student student1;
         public ObservableCollection<Student> studentList;
         public StudentProfileViewModel Sp { get; set; }
+        public TakeExamPage tePage { get;set; }
         public APIService Api { get; set; }
         public TakeExam Te { get; set; }
         public StudentProfile()
@@ -52,8 +53,9 @@ namespace TestverktygProject.View
             apiGet();
         }
         private void startExamButton_Click(object sender, RoutedEventArgs e)
-        {            
-            this.Frame.Navigate(typeof(TakeExam), (Exam)StudentsExam.SelectedItem);
+        {
+            tePage = new TakeExamPage(student1, (Exam)StudentsExam.SelectedItem);
+            this.Frame.Navigate(typeof(TakeExam), tePage);
         }
 
         private async void signOutButton_Click(object sender, RoutedEventArgs e)
