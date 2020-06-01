@@ -89,7 +89,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-                            <ListView Height="650" x:Name="InactiveExamsList" ItemsSource="{x:Bind Sp._listOfStudentsExams, Mode=TwoWay}" SelectedItem="aa" IsHitTestVisible="false" Width="370">
+                            <ListView Height="650" x:Name="InactiveExamsList" ItemsSource="{x:Bind Sp.updatedListOfExam, Mode=TwoWay}" SelectedItem="aa" IsHitTestVisible="false" Width="370">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="local1:Exam">
                                         <StackPanel Orientation="Horizontal">

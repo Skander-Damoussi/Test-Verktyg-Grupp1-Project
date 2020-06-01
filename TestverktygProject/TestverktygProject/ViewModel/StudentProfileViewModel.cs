@@ -15,6 +15,7 @@ namespace TestverktygProject.ViewModel
     public class StudentProfileViewModel
     {
         APIService api { get; set; }
+        public ObservableCollection<Exam> updatedListOfExam;
         public Student tempstudent { get; set; }
         public ObservableCollection<Exam> listOfStudentsExams { get; set; }
         public ObservableCollection<StudentExam> apiStudentExams { get; set; }
@@ -47,6 +48,7 @@ namespace TestverktygProject.ViewModel
             api = new APIService();
             _apiExams = new ObservableCollection<Exam>();
             _apiStudents = new ObservableCollection<Student>();
+            updatedListOfExam = new ObservableCollection<Exam>();
         }
         public ObservableCollection<Exam> examstudentbind(Student student)
         {
@@ -61,8 +63,15 @@ namespace TestverktygProject.ViewModel
                         student.ListExam.Add(exam);
                     }
                 }
-            }
+            }           
             return student.ListExam;
+        }
+        public void cloneList()
+        {
+            foreach(Exam exam in _listOfStudentsExams)
+            {
+                updatedListOfExam.Add(exam);
+            }
         }
     }
 }

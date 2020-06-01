@@ -32,12 +32,14 @@ namespace TestverktygProject.View
         public StudentProfileViewModel Sp { get; set; }
         public APIService Api { get; set; }
         public TakeExam Te { get; set; }
+        public Exam test;
         public StudentProfile()
         {
             this.InitializeComponent();
             this.Sp = new StudentProfileViewModel();
             this.Api = new APIService();
             this.Te = new TakeExam();
+            test = new Exam();
             //student1 = new Student();
         }
 
@@ -50,9 +52,26 @@ namespace TestverktygProject.View
             FirstNameText1.Text = student1.FirstName;
             LastNameText1.Text = student1.LastName;
             apiGet();
+            Sp.cloneList();
         }
         private void startExamButton_Click(object sender, RoutedEventArgs e)
-        {            
+        {
+
+            test = (Exam)StudentsExam.SelectedItem;
+            foreach(Exam exam in Sp._listOfStudentsExams)
+            {
+                for (int i = 0; i < Sp._listOfStudentsExams.Count; i++)
+                {
+                    if (Sp._listOfStudentsExams[i].ExamID == Sp.updatedListOfExam[i].ExamID)
+                    {
+                        Sp.updatedListOfExam.Remove(Sp.updatedListOfExam[i]);
+                    }
+                    else
+                    {
+
+                    }
+                }
+            }
             this.Frame.Navigate(typeof(TakeExam), (Exam)StudentsExam.SelectedItem);
         }
 
