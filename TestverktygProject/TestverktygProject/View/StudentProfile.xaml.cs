@@ -83,7 +83,6 @@ namespace TestverktygProject.View
             }
 
         }
-
         private async void signOutButton1_Click(object sender, RoutedEventArgs e)
         {
             MessageDialog confirmDialog = new MessageDialog("Do you want to sign out?", "Sign out confirmation");

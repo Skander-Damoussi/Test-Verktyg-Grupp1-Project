@@ -89,14 +89,14 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="1" Grid.Column="1">
-                            <ListView Height="650" x:Name="InactiveExamsList" ItemsSource="{x:Bind Sp._listOfStudentsExams, Mode=TwoWay}" SelectedItem="aa">
+                            <ListView Height="650" x:Name="InactiveExamsList" ItemsSource="{x:Bind Sp._listOfStudentsExams, Mode=TwoWay}" SelectedItem="aa" IsHitTestVisible="false">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="local1:Exam">
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{}"
+                                            <TextBlock Text="{x:Bind ExamName}"
                                                FontSize="20"
-                                               FontWeight="Bold" />
-                                            <TextBlock Text="{}" FontSize="20" FontWeight="Bold"/>
+                                               FontWeight="Bold"/>
+                                            <TextBlock Text="{x:Bind ExamDate}" FontSize="20" FontWeight="Bold"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
