@@ -39,7 +39,7 @@ namespace TestverktygProject.View
 
             for (var i = 0; i < numberOfQuestionsToGenerate; i++)
             {
-   //             CreateExamViewModel.QuestionsToBeFilled.Add(new Question());
+                CreateExamViewModel.QuestionsToBeFilled.Add(new Question());
             }
 
         }

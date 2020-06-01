@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TestVerktygAPI.Migrations
 {
-    public partial class initial : Migration
+    public partial class skander : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,6 +21,21 @@ namespace TestVerktygAPI.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Exam", x => x.ExamID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LoginModel",
+                columns: table => new
+                {
+                    LoginId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Username = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(nullable: true),
+                    IsTeacher = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LoginModel", x => x.LoginId);
                 });
 
             migrationBuilder.CreateTable(
@@ -88,7 +103,8 @@ namespace TestVerktygAPI.Migrations
                 columns: table => new
                 {
                     StudentID = table.Column<int>(nullable: false),
-                    ExamID = table.Column<int>(nullable: false)
+                    ExamID = table.Column<int>(nullable: false),
+                    Results = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -120,6 +136,9 @@ namespace TestVerktygAPI.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "LoginModel");
+
             migrationBuilder.DropTable(
                 name: "Question");
 

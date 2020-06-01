@@ -10,8 +10,8 @@ using TestVerktygAPI.Data;
 namespace TestVerktygAPI.Migrations
 {
     [DbContext(typeof(TestVerktygAPIContext))]
-    [Migration("20200530214743_initial")]
-    partial class initial
+    [Migration("20200601094926_skander")]
+    partial class skander
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,6 +43,27 @@ namespace TestVerktygAPI.Migrations
                     b.HasKey("ExamID");
 
                     b.ToTable("Exam");
+                });
+
+            modelBuilder.Entity("TestVerktygAPI.Models.LoginModel", b =>
+                {
+                    b.Property<int>("LoginId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsTeacher")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LoginId");
+
+                    b.ToTable("LoginModel");
                 });
 
             modelBuilder.Entity("TestVerktygAPI.Models.Question", b =>
@@ -116,6 +137,9 @@ namespace TestVerktygAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("ExamID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Results")
                         .HasColumnType("int");
 
                     b.HasKey("StudentID", "ExamID");

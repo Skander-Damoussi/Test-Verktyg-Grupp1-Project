@@ -34,6 +34,8 @@ namespace TestverktygProject.View
         public TakeExamViewModel Tvm { get; set; }
         public ObservableCollection<string> tempAltList = new ObservableCollection<string>();
         public List<int> numberofSelectedAlt = new List<int>();
+        public int finalResult;
+        
 
         public TakeExam()
         {
@@ -91,23 +93,27 @@ namespace TestverktygProject.View
             if (confirmResult == null || confirmResult.Label == "Yes") { Frame.Navigate(typeof(LogIn)); }
         }
         public void checkAlt()
-        {
-            if (Tvm.selectedExam[Tvm.index].Alt1.ToString() == AnswerList.SelectedItem.ToString())
+        {                        
+            for (int i = 0; i < AnswerList.SelectedItems.Count; i++)
             {
-                numberofSelectedAlt.Add(1);
+                if (Tvm.selectedExam[Tvm.index].Alt1 == AnswerList.SelectedItems[i].ToString())
+                {
+                    numberofSelectedAlt.Add(1);
+                }
+                if (Tvm.selectedExam[Tvm.index].Alt2 == AnswerList.SelectedItems[i].ToString())
+                {
+                    numberofSelectedAlt.Add(2);
+                }
+                if (Tvm.selectedExam[Tvm.index].Alt3 == AnswerList.SelectedItems[i].ToString())
+                {
+                    numberofSelectedAlt.Add(3);
+                }
+                if (Tvm.selectedExam[Tvm.index].Alt4 == AnswerList.SelectedItems[i].ToString())
+                {
+                    numberofSelectedAlt.Add(4);
+                }
             }
-            if(Tvm.selectedExam[Tvm.index].Alt2.ToString() == AnswerList.SelectedItem.ToString())
-            {
-                numberofSelectedAlt.Add(2);
-            }
-            if (Tvm.selectedExam[Tvm.index].Alt3.ToString() == AnswerList.SelectedItem.ToString())
-            {
-                numberofSelectedAlt.Add(3);
-            }
-            if (Tvm.selectedExam[Tvm.index].Alt4.ToString() == AnswerList.SelectedItem.ToString())
-            {
-                numberofSelectedAlt.Add(4);
-            }
+            testMethod();
         }
         public void updateListOfAlt()
         {
@@ -116,6 +122,16 @@ namespace TestverktygProject.View
             tempAltList.Add(Tvm.selectedExam[Tvm.index].Alt2);
             tempAltList.Add(Tvm.selectedExam[Tvm.index].Alt3);
             tempAltList.Add(Tvm.selectedExam[Tvm.index].Alt4);
+        }
+        public void testMethod()
+        {
+            for (int i = 0; i < numberofSelectedAlt.Count; i++)
+            {
+                if(Tvm.selectedExam[Tvm.index].CorrectAnswer == numberofSelectedAlt[i])
+                {
+                    finalResult += Tvm.selectedExam[Tvm.index].NumberOfPoints;
+                }
+            }
         }
     }
 }

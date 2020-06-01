@@ -137,6 +137,9 @@ namespace TestVerktygAPI.Migrations
                     b.Property<int>("ExamID")
                         .HasColumnType("int");
 
+                    b.Property<int>("Results")
+                        .HasColumnType("int");
+
                     b.HasKey("StudentID", "ExamID");
 
                     b.HasIndex("ExamID");
