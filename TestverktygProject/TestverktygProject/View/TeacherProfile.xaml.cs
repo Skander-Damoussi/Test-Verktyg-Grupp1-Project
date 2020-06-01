@@ -33,23 +33,30 @@ namespace TestverktygProject.View
     public sealed partial class TeacherProfile : Page
     {
 
-  //     TeacherProfileViewModel TeacherProfileView = new TeacherProfileViewModel();
-
-
+        //     TeacherProfileViewModel TeacherProfileView = new TeacherProfileViewModel();
+        public APIService api { get; set; }
+        public TeacherProfileViewModel vm { get; set; }
+     //   public Teacher teacher;
+   //     public ObservableCollection<Teacher> teacherlist;
         public TeacherProfile()
         {
             this.InitializeComponent();
             this.api = new APIService();
             this.vm = new TeacherProfileViewModel();
+       //     teacher = new Teacher();
             vm.apiGet();
-
-            
-
-         //   TeacherProfileView.ListOfExams();
-         //   TeacherProfileView.ListOfStudents();
+           
         }
-        public APIService api { get; set; }
-        public TeacherProfileViewModel vm { get; set; }
+
+
+        //protected override void OnNavigatedTo(NavigationEventArgs e)
+        //{
+        //    var teacher = (Teacher)e?.Parameter;
+        //    teacherfirstname.Text = teacher.LastName;
+        //    teacherlastname.Text = teacher.FirstName;
+
+        //}
+
         private async void signout_Click(object sender, RoutedEventArgs e)
         {
             MessageDialog confirmDialog = new MessageDialog("Do you want to sign out?", "Sign out confirmation");

@@ -107,20 +107,12 @@
                        Grid.Column="0"
                        Grid.Row="0"
                        VerticalAlignment="Top" />
-                <ListView Height="100"
-                          Background="AntiqueWhite"
-                          ItemsSource="{x:Bind vm._apiTeachers}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="data:Teacher">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="First name:  " />
-                                <TextBlock Text="{x:Bind FirstName}" />
-                                <TextBlock Text="Last name:  " />
-                                <TextBlock Text="{x:Bind LastName}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                <TextBlock Text="First Name:" />
+                <TextBlock Name="teacherfirstname" />
+                <TextBlock Text="Last Name:" />
+                <TextBlock Name="teacherlastname" />
+                
+                
             </StackPanel>
         </Grid>
 
