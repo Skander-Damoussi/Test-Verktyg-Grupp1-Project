@@ -95,6 +95,7 @@ namespace TestverktygProject.ViewModel
             }
             return student.ListExam;
         }
+
     }
 
 }

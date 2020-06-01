@@ -8,7 +8,6 @@
       mc:Ignorable="d"
       
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -16,59 +15,53 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.6*" />
             <ColumnDefinition Width="*" />
+       
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-
+        
         <ListView Background="White"
                   x:Name="StudentListView"
-                  Grid.Column="2"
+                  Grid.Column="1"
                   Header="Students:"
                   ItemsSource="{x:Bind vm._apiStudents}"
                   Grid.Row="1"
                   Grid.RowSpan="2"
                   Grid.ColumnSpan="1"
                   BorderThickness="1"
-                  BorderBrush="black">
+                  BorderBrush="black"
+                  >
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:Student">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{x:Bind FirstName}" />
                         <TextBlock Text="{x:Bind LastName}" />
-
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-
         <ListView Background="White"
                   x:Name="examlistview"
-                  Grid.Column="3"
+                  Grid.Column="2"
                   Header="Exams:"
                   Grid.Row="1"
                   Grid.RowSpan="2"
-                  Grid.ColumnSpan="2"
+                  Grid.ColumnSpan="1"
                   BorderThickness="1"
-                  BorderBrush="black"
-                  ItemsSource="{}">
+                  BorderBrush="black">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:Exam">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{x:Bind ExamDate}" />
                         <TextBlock Text="{x:Bind ExamName}" />
-                        <TextBlock Text="{x:Bind Results}" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
         <StackPanel Grid.Row="1"
                     Grid.Column="6"
                     Spacing="5">
@@ -94,29 +87,22 @@
                     BorderBrush="Black"
                     Click="viewstudentexam_Click" />
         </StackPanel>
-
-        <Grid Grid.RowSpan="4">
-
-
-            <StackPanel Background="AntiqueWhite"
-                        HorizontalAlignment="Left"
-                        BorderThickness="1"
-                        BorderBrush="Black">
-
+        <Grid Grid.RowSpan="3">
+            <StackPanel Grid.Row="3" >
                 <Image Source="/Assets/logo-footer.png"
                        Grid.Column="0"
-                       Grid.Row="0"
-                       VerticalAlignment="Top" />
-                <TextBlock Text="First Name:" />
-                <TextBlock Name="teacherfirstname" />
-                <TextBlock Text="Last Name:" />
-                <TextBlock Name="teacherlastname" />
-                
-                
+                       Grid.Row="1"
+                       VerticalAlignment="Top"
+                       Height="150"
+                       Width="250"/>
+                <TextBlock Text="First Name:" HorizontalAlignment="Center"  />
+                <TextBlock Name="teacherfirstname" HorizontalAlignment="Center" />
+                <TextBlock Text="Last Name:" HorizontalAlignment="Center" />
+                <TextBlock Name="teacherlastname" HorizontalAlignment="Center" />
             </StackPanel>
         </Grid>
-
         <Button Content="Sign Out"
+                Grid.Column="4"
                 Grid.Row="3"
                 CornerRadius="10"
                 Background="CadetBlue"
@@ -126,8 +112,21 @@
                 BorderBrush="Black"
                 Click="signout_Click"
                 Margin="5,0,0,0" />
-
-
-
+        <ListView x:Name="pointslistview" 
+                  Header="Points" 
+                  Grid.Column="3"
+                  Grid.Row="1" 
+                  Grid.RowSpan="2" 
+                  BorderThickness="1"
+                  BorderBrush="black" 
+                  ItemsSource="{x:Bind vm._apiStudentExams}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="data:StudentExam">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind Results}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

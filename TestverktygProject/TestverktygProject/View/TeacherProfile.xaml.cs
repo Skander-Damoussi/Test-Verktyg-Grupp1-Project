@@ -43,19 +43,19 @@ namespace TestverktygProject.View
             this.InitializeComponent();
             this.api = new APIService();
             this.vm = new TeacherProfileViewModel();
-       //     teacher = new Teacher();
+         //   teacher = new Teacher();
             vm.apiGet();
            
         }
 
 
-        //protected override void OnNavigatedTo(NavigationEventArgs e)
-        //{
-        //    var teacher = (Teacher)e?.Parameter;
-        //    teacherfirstname.Text = teacher.LastName;
-        //    teacherlastname.Text = teacher.FirstName;
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var teacher = (Teacher)e?.Parameter;
+            teacherfirstname.Text = teacher.FirstName;
+            teacherlastname.Text = teacher.LastName;
 
-        //}
+        }
 
         private async void signout_Click(object sender, RoutedEventArgs e)
         {
@@ -78,7 +78,9 @@ namespace TestverktygProject.View
         {
             var examlist = vm.examstudentbind((Student)StudentListView.SelectedItem);
             examlistview.ItemsSource = examlist;
+            
         }
+
 
     }
 }
