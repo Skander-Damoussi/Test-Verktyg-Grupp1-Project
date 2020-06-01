@@ -49,7 +49,7 @@ namespace TestverktygProject.View
             var exams = CreateExamViewModel.ExamList;
             var exam = new Exam
             { 
-                ExamDate = DateTime.Today, //todo check how to insert DatePicker values here
+                ExamDate = DatePicker.Date.Date, //todo check how to insert DatePicker values here
                 ExamName = TitleOfExamField.Text,
                 Questions = GetQuestions(),
                 Subject = SubjectField.Text,
