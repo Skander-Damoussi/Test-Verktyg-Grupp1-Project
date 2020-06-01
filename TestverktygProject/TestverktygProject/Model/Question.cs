@@ -9,6 +9,8 @@ namespace TestverktygProject.Model
 {
     public class Question
     {
+        public Question() {}
+        public int QuestionID { get; set; }
         public int CorrectAnswer { get; set; }
         public List<string> Alternatives { get; set; } = new List<string>{"", "", "", ""};
         public string Alt1 { get; set; }

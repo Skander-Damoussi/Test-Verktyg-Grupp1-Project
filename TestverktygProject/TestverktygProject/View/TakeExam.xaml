@@ -30,7 +30,7 @@
                     Background="CadetBlue" />
 
         <TextBlock x:Name="SubjectTitle"
-                   Text="Matematik 4 - Alegbra"
+                   Text=""
                    Grid.Row="1"
                    Grid.Column="1"
                    FontSize="20"
@@ -66,16 +66,18 @@
                   VerticalAlignment="Top"
                   Margin="0,100,0,0"
                   HorizontalAlignment="Stretch"
-                  ItemsSource="{x:Bind selectedExam}">
+                  ItemsSource="{x:Bind tempAltList}"
+                  SelectionMode="Multiple"
+                  >
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="local1:Exam">
+                <DataTemplate x:DataType="local:TakeExam">
                     <StackPanel>
-                        <CheckBox x:Name="Alt1"
-                                  Content="{x:Bind ExamName}" />
+                        <TextBlock x:Name="chckBoxAlt1"
+                                   Text="{Binding}" />
                     </StackPanel>
-
                 </DataTemplate>
             </ListView.ItemTemplate>
+
         </ListView>
 
         <Button x:Name="PrevQuestionBtn"

@@ -65,6 +65,7 @@ namespace TestverktygProject.Services
         public async Task UpdateExamAsync(int StudentId, int ExamID ,int Result)
         {
             StudentExam studentExam = new StudentExam();
+
             studentExam.ExamID = ExamID;
             studentExam.StudentID = StudentId;
             studentExam.Results = Result;
