@@ -10,8 +10,8 @@ using TestVerktygAPI.Data;
 namespace TestVerktygAPI.Migrations
 {
     [DbContext(typeof(TestVerktygAPIContext))]
-    [Migration("20200530184000_SA")]
-    partial class SA
+    [Migration("20200530214743_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,27 +43,6 @@ namespace TestVerktygAPI.Migrations
                     b.HasKey("ExamID");
 
                     b.ToTable("Exam");
-                });
-
-            modelBuilder.Entity("TestVerktygAPI.Models.LoginModel", b =>
-                {
-                    b.Property<int>("LoginId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("IsTeacher")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("LoginId");
-
-                    b.ToTable("LoginModel");
                 });
 
             modelBuilder.Entity("TestVerktygAPI.Models.Question", b =>

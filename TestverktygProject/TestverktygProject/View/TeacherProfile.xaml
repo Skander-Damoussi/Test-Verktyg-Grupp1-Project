@@ -6,7 +6,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:data="using:TestverktygProject.Model"
       mc:Ignorable="d"
-      NavigationCacheMode="Enabled"
+      
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
@@ -57,7 +57,7 @@
                   Grid.ColumnSpan="2"
                   BorderThickness="1"
                   BorderBrush="black"
-                  ItemsSource="{x:Bind vm._apiExams}">
+                  ItemsSource="{}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:Exam">
                     <StackPanel Orientation="Horizontal">
@@ -107,20 +107,12 @@
                        Grid.Column="0"
                        Grid.Row="0"
                        VerticalAlignment="Top" />
-                <ListView Height="100"
-                          Background="AntiqueWhite"
-                          ItemsSource="{x:Bind vm._apiTeachers}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="data:Teacher">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="First name:  " />
-                                <TextBlock Text="{x:Bind FirstName}" />
-                                <TextBlock Text="Last name:  " />
-                                <TextBlock Text="{x:Bind LastName}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                <TextBlock Text="First Name:" />
+                <TextBlock Name="teacherfirstname" />
+                <TextBlock Text="Last Name:" />
+                <TextBlock Name="teacherlastname" />
+                
+                
             </StackPanel>
         </Grid>
 
