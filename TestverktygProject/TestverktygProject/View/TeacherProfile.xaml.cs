@@ -19,6 +19,7 @@ using System.ServiceModel.Channels;
 using TestverktygProject.ViewModel;
 using TestverktygProject.Services;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 
 
@@ -32,23 +33,30 @@ namespace TestverktygProject.View
     public sealed partial class TeacherProfile : Page
     {
 
-        TeacherProfileViewModel TeacherProfileView = new TeacherProfileViewModel();
-
-
+        //     TeacherProfileViewModel TeacherProfileView = new TeacherProfileViewModel();
+        public APIService api { get; set; }
+        public TeacherProfileViewModel vm { get; set; }
+     //   public Teacher teacher;
+   //     public ObservableCollection<Teacher> teacherlist;
         public TeacherProfile()
         {
             this.InitializeComponent();
             this.api = new APIService();
             this.vm = new TeacherProfileViewModel();
-            apiGet();
-
-            
-
-         //   TeacherProfileView.ListOfExams();
-         //   TeacherProfileView.ListOfStudents();
+       //     teacher = new Teacher();
+            vm.apiGet();
+           
         }
-        public APIService api { get; set; }
-        public TeacherProfileViewModel vm { get; set; }
+
+
+        //protected override void OnNavigatedTo(NavigationEventArgs e)
+        //{
+        //    var teacher = (Teacher)e?.Parameter;
+        //    teacherfirstname.Text = teacher.LastName;
+        //    teacherlastname.Text = teacher.FirstName;
+
+        //}
+
         private async void signout_Click(object sender, RoutedEventArgs e)
         {
             MessageDialog confirmDialog = new MessageDialog("Do you want to sign out?", "Sign out confirmation");
@@ -68,29 +76,9 @@ namespace TestverktygProject.View
 
         private void viewstudentexam_Click(object sender, RoutedEventArgs e)
         {
-            Student SelectedStudent = (Student)StudentListView.SelectedItem;
-            examlistview.ItemsSource = SelectedStudent.ListExam;
+            var examlist = vm.examstudentbind((Student)StudentListView.SelectedItem);
+            examlistview.ItemsSource = examlist;
         }
-        public async void apiGet()
-        {
-            var students = await api.GetAllStudentsAsync();
-            foreach (Student student in students)
-            {
-                vm._apiStudents.Add(student);
-            }
-            
-            var exams = await api.GetAllExamsAsync();
-            
-            foreach (Exam exam in exams)
-            {
-                vm._apiExams.Add(exam);
-            }
 
-            var teachers = await api.GetAllTeachersAsync();
-            foreach(Teacher teacher in teachers)
-            {
-                vm._apiTeachers.Add(teacher);
-            }
-        }
     }
 }

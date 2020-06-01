@@ -2,12 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using TestverktygProject.Model;
+using TestverktygProject.View;
+using Windows.Foundation;
 
 namespace TestverktygProject.Services
 {
@@ -20,9 +23,16 @@ namespace TestverktygProject.Services
         {
             httpClient = new HttpClient();
         }
-        public async Task LogInAsync()
+        public async Task<int> LogInAsync(LoginModel login)
         {
-            throw new Exception();
+            string IsTeacher = null;
+            HttpContent httpContent = new StringContent(JsonConvert.SerializeObject(login));
+            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var message =  await httpClient.PostAsync(WebServiceUrl + "LoginModels", httpContent);
+            IsTeacher = await message.Content.ReadAsStringAsync();
+            Debug.WriteLine(IsTeacher);
+            
+            return int.Parse(IsTeacher);
         }
         public async Task PostExams()
         {
@@ -40,6 +50,30 @@ namespace TestverktygProject.Services
 
             return students;
         }
+        public async Task<Student> GetStudentAsync(int id,string username)
+        {
+
+            var jsonStudent = await httpClient.GetStringAsync(WebServiceUrl + $"Students/ {id}/{username}");
+
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.MissingMemberHandling = MissingMemberHandling.Error;
+
+            var student = JsonConvert.DeserializeObject<Student>(jsonStudent, settings);
+
+            return student;
+        }
+        public async Task<Teacher> GetTeacherAsync(int id,string username)
+        {
+            
+            var jsonTeacher = await httpClient.GetStringAsync(WebServiceUrl + $"Teachers/ {id}/{username}");
+
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.MissingMemberHandling = MissingMemberHandling.Error;
+
+            var teacher = JsonConvert.DeserializeObject<Teacher>(jsonTeacher, settings);
+
+            return teacher;
+        }
         public async Task<ObservableCollection<Exam>> GetAllExamsAsync()
         {
             var jsonExams = await httpClient.GetStringAsync(WebServiceUrl + "Exams");
@@ -50,6 +84,19 @@ namespace TestverktygProject.Services
             var exams = JsonConvert.DeserializeObject<ObservableCollection<Exam>>(jsonExams, settings);
 
             return exams;
+        }
+
+
+        public async Task<ObservableCollection<StudentExam>> GetAllStudentExamsAsync(Student student)
+        {
+
+            string jsonStudentExams = await httpClient.GetStringAsync(WebServiceUrl + "studentexams/" + student.StudentID);
+
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.MissingMemberHandling = MissingMemberHandling.Error;
+
+            var studentexams = JsonConvert.DeserializeObject<ObservableCollection<StudentExam>>(jsonStudentExams);
+            return studentexams;
         }
         public async Task<ObservableCollection<Teacher>> GetAllTeachersAsync()
         {
@@ -74,7 +121,17 @@ namespace TestverktygProject.Services
             HttpContent httpContent = new StringContent(json);
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             var result = await httpClient.PutAsync(WebServiceUrl + "StudentExams/" + StudentId, httpContent);
+         }
+        public async Task<ObservableCollection<StudentExam>> GetAllStudentExamsAsync()
+        {
+            var jsonTeachers = await httpClient.GetStringAsync(WebServiceUrl + "studentexams");
 
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.MissingMemberHandling = MissingMemberHandling.Error;
+
+            var studentexams = JsonConvert.DeserializeObject<ObservableCollection<StudentExam>>(jsonTeachers, settings);
+
+            return studentexams;
+        }
         }
     }
-}

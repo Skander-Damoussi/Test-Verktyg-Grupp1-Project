@@ -30,13 +30,13 @@ namespace TestVerktygAPI.Controllers
 
         // GET: api/StudentExams/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<StudentExam>> GetStudentExam(int id)
+        public async Task<ActionResult<List<StudentExam>>> GetStudentExam(int id)
         {
-            var studentExam = await _context.StudentExam.FindAsync(id);
+            var studentExam = await _context.StudentExam.Where(x => x.StudentID == id).ToListAsync();
 
             if (studentExam == null)
             {
-                return NotFound();
+                return Ok();
             }
 
             return studentExam;
