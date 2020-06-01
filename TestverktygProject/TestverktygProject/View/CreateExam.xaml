@@ -40,6 +40,7 @@
                         Name="BeforeCreationOfExamInfoButton"
                         HorizontalAlignment="Right"
                         Click="BeforeCreationOfExamInfoButton_OnClick"
+                        Background="CadetBlue"
                         Content="Submit" />
 
                 </StackPanel>
@@ -113,6 +114,7 @@
                             Padding="10"
                             HorizontalAlignment="Left"
                             Click="SubmitQuestionButton_OnClick"
+                            Background="CadetBlue"
                             Content="Submit Questions" />
                     </StackPanel>
                 </ScrollViewer>
@@ -163,6 +165,7 @@
                             <Button
                                 Name="CreateExamButton"
                                 Click="CreateExamButton_OnClick"
+                                Background="CadetBlue"
                                 Content="Create exam" />
                         </StackPanel>
                     </StackPanel>
@@ -200,6 +203,10 @@
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
+                        <Button Name="ReturnToTeacherProfileButton"
+                                Content="Return to profile"
+                                Background="CadetBlue"
+                                Click="ReturnToTeacherProfileButton_OnClick"/>
 
                     </StackPanel>
                 </ScrollViewer>

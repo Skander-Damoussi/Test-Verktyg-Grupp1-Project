@@ -39,7 +39,7 @@ namespace TestverktygProject.View
 
             for (var i = 0; i < numberOfQuestionsToGenerate; i++)
             {
-   //             CreateExamViewModel.QuestionsToBeFilled.Add(new Question());
+               CreateExamViewModel.QuestionsToBeFilled.Add(new Question());
             }
 
         }
@@ -103,6 +103,11 @@ namespace TestverktygProject.View
             {
                 CreateExamViewModel.ExamList.Add(exam);
             }
+        }
+
+        private void ReturnToTeacherProfileButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(TeacherProfile));
         }
     }
 }
