@@ -76,11 +76,16 @@ namespace TestverktygProject.View
 
         private void viewstudentexam_Click(object sender, RoutedEventArgs e)
         {
-            var examlist = vm.examstudentbind((Student)StudentListView.SelectedItem);
-            examlistview.ItemsSource = examlist;
-            
+          
+            examlistview.ItemsSource = vm.examstudentbind((Student)StudentListView.SelectedItem);
+
         }
 
-
+        private void viewstudentexam_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            var student = (Student)StudentListView.SelectedItem;
+            var exam = (Exam)examlistview.SelectedItem;
+            pointslistview.ItemsSource = vm.getexampoints(student, exam);
+        }
     }
 }

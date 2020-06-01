@@ -34,6 +34,8 @@
                   Grid.ColumnSpan="1"
                   BorderThickness="1"
                   BorderBrush="black"
+             
+                  
                   >
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:Student">
@@ -86,6 +88,15 @@
                     BorderThickness="1"
                     BorderBrush="Black"
                     Click="viewstudentexam_Click" />
+            <Button Content="View Student Exam points"
+                x:Name="viewstudentexam_Copy"
+                CornerRadius="10"
+                Background="CadetBlue"
+                Width="276"
+                Height="50"
+                BorderThickness="1"
+                BorderBrush="Black"
+                Click="viewstudentexam_Copy_Click" />
         </StackPanel>
         <Grid Grid.RowSpan="3">
             <StackPanel Grid.Row="3" >
@@ -119,7 +130,7 @@
                   Grid.RowSpan="2" 
                   BorderThickness="1"
                   BorderBrush="black" 
-                  ItemsSource="{x:Bind vm._apiStudentExams}">
+                  ItemsSource="">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:StudentExam">
                     <StackPanel Orientation="Horizontal">
