@@ -25,18 +25,19 @@ namespace TestVerktygAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Student>>> GetStudent()
         {
+
             return await _context.Student.ToListAsync();
         }
 
         // GET: api/Students/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Student>> GetStudent(int id)
+        [HttpGet("{id}/{username}")]
+        public async Task<ActionResult<Student>> GetStudent(int id,string username)
         {
-            var student = await _context.Student.FindAsync(id);
+            Student student = _context.Student.Where(x => x.StudentID == id && x.Username == username).FirstOrDefault();
 
             if (student == null)
             {
-                return NotFound();
+                return Ok();
             }
 
             return student;

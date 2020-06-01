@@ -7,81 +7,117 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local1="using:TestverktygProject.Model"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="6*"/>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="6*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="13*"/>
-            <ColumnDefinition Width="30*"/>
-            <ColumnDefinition Width="13*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Bottom" BorderBrush="Black" BorderThickness="2">
-            <TextBlock Text="Active Exams:" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+    <Pivot x:Name="rootPivot" Title="Student Profile">
+        <PivotItem Header="Active Exams">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <StackPanel Grid.Row="1" Grid.Column="1">
-                    <ListView Height="700" x:Name="StudentsExam" ItemsSource="{x:Bind Vm._apiExams}" SelectedItem="aa">
-                        <ListView.ItemTemplate>
-                            <DataTemplate x:DataType="local1:Exam">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{x:Bind ExamDate}"
-                                               FontSize="20"
-                                               FontWeight="Bold" />
-                                    <TextBlock Text="{x:Bind ExamName}" FontSize="20" FontWeight="Bold"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackPanel>
-            </Grid>
-        </StackPanel>
-        <!--Names-->
-        <StackPanel Grid.Row="2" Grid.Column="1"  Margin="25">
-            <TextBlock Text="First Name:" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="FirstNameText" FontSize="20" HorizontalAlignment="Center"/>
-            <TextBlock Text="Last Name:" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="LastNameText" FontSize="20" HorizontalAlignment="Center"/>
-        </StackPanel>
-        <!--Pictures-->
-        <Image Source="../Assets/logo-footer.png" Grid.Column="1" Grid.Row="1"/>
-        <!--START EXAM / EXAM HISTORY BUTTON-->
-        <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Vertical" HorizontalAlignment="Center">
-            <Button Margin="10" Height="90" Width="250" x:Name="startExamButton" BorderBrush="Black" Content="Start Exam" FontSize="25" FontWeight="Bold" RequestedTheme="Default" Click="startExamButton_Click"/>
-            <Button Margin="10" Height="90" Width="250" BorderBrush="Black" x:Name="viewExamHistory" Content="Exam History" FontSize="25" FontWeight="Bold" RequestedTheme="Default"/>
-        </StackPanel>
-        <!--SIGN OUT BUTTON-->
-        <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Margin="10" Height="90" Width="250" x:Name="signOutButton" Content="Sign Out" FontSize="25" FontWeight="Bold" BorderBrush="Black" RequestedTheme="Default" Click="signOutButton_Click"/>
-        </StackPanel>
-        <!--POPUP FOR EXAM HISTORY-->
-        <Popup x:Name="PopupSignOut" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsOpen="False" IsLightDismissEnabled="False" Height="250" Width="400">
-            <Grid Background="LightGray" Height="250" Width="400">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height ="*"/>
-                    <RowDefinition Height ="*"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="13*"/>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="13*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock TextWrapping="Wrap" Text="Are you sure?" FontSize="25" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-                </TextBlock>
-                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
-                    <Button x:Name="ConfirmSignOut" Height="30" Width="90" VerticalAlignment="Center" HorizontalAlignment="Center" Content="YES" FontWeight="Bold" Margin="2" BorderBrush="Black"/>
-                    <Button x:Name="CancelSignOut" Height="30" Width="90" VerticalAlignment="Center" HorizontalAlignment="Center" Content="NO" FontWeight="Bold" Margin="2" BorderBrush="Black"/>
+                <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" VerticalAlignment="Bottom" BorderBrush="Black" BorderThickness="2">
+                    <TextBlock Text="Active Exams:" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="1" Grid.Column="1">
+                            <ListView Height="650" x:Name="StudentsExam" ItemsSource="{x:Bind Sp._listOfStudentsExams}" SelectedItem="aa">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="local1:Exam">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{x:Bind ExamName}"
+                                               FontSize="20"
+                                               FontWeight="Bold"/>
+                                            <TextBlock Text="{x:Bind ExamDate}" FontSize="20" FontWeight="Bold"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+                <!--Names-->
+                <StackPanel Grid.Row="2" Grid.Column="1"  Margin="25">
+                    <TextBlock Text="First Name:" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="FirstNameText" FontSize="20" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Last Name:" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="LastNameText" FontSize="20" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <!--Pictures-->
+                <Image Source="../Assets/logo-footer.png" Grid.Column="1" Grid.Row="1"/>
+                <!--START EXAM / EXAM HISTORY BUTTON-->
+                <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Vertical" HorizontalAlignment="Center">
+                    <Button Margin="10" Height="90" Width="250" x:Name="startExamButton" BorderBrush="Black" Content="Start Exam" FontSize="25" FontWeight="Bold" RequestedTheme="Default" Click="startExamButton_Click"/>
+                </StackPanel>
+                <!--SIGN OUT BUTTON-->
+                <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Margin="10" Height="90" Width="250" x:Name="signOutButton" Content="Sign Out" FontSize="25" FontWeight="Bold" BorderBrush="Black" RequestedTheme="Default" Click="signOutButton_Click"/>
                 </StackPanel>
             </Grid>
-        </Popup>
-    </Grid>
+        </PivotItem>
+
+        <PivotItem Header="Exam History">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="40*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="13*"/>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="13*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" VerticalAlignment="Bottom" BorderBrush="Black" BorderThickness="2">
+                    <TextBlock Text="Exam History:" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="1" Grid.Column="1">
+                            <ListView Height="650" x:Name="InactiveExamsList" ItemsSource="{x:Bind Sp._listOfStudentsExams, Mode=TwoWay}" SelectedItem="aa" IsHitTestVisible="false">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="local1:Exam">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{x:Bind ExamName}"
+                                               FontSize="20"
+                                               FontWeight="Bold"/>
+                                            <TextBlock Text="{x:Bind ExamDate}" FontSize="20" FontWeight="Bold"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+                <!--Names-->
+                <StackPanel Grid.Row="2" Grid.Column="1"  Margin="25">
+                    <TextBlock Text="First Name:" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="FirstNameText1" FontSize="20" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Last Name:" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="LastNameText1" FontSize="20" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <!--Pictures-->
+                <Image Source="../Assets/logo-footer.png" Grid.Column="1" Grid.Row="1"/>
+                <!--GO BACK-->
+                <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Margin="10" Height="90" Width="250" x:Name="signOutButton1" Content="Sign Out" FontSize="25" FontWeight="Bold" BorderBrush="Black" RequestedTheme="Default" Click="signOutButton1_Click"/>
+                </StackPanel>
+            </Grid>
+        </PivotItem>
+    </Pivot>
 </Page>

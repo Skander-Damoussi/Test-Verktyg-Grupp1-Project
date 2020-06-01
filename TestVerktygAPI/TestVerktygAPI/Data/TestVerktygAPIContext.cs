@@ -40,5 +40,7 @@ namespace TestVerktygAPI.Data
         public DbSet<TestVerktygAPI.Models.Exam> Exam { get; set; }
 
         public DbSet<TestVerktygAPI.Models.StudentExam> StudentExam { get; set; }
+
+        public DbSet<TestVerktygAPI.Models.LoginModel> LoginModel { get; set; }
     }
 }

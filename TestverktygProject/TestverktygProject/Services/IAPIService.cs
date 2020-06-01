@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
+using TestverktygProject.Model;
 
 namespace TestverktygProject.Services
 {
     public interface IAPIService
     {
-        Task LogInAsync();
+        Task<int> LogInAsync(LoginModel login);
     }
 }

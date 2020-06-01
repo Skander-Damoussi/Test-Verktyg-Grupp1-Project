@@ -43,6 +43,27 @@ namespace TestVerktygAPI.Migrations
                     b.ToTable("Exam");
                 });
 
+            modelBuilder.Entity("TestVerktygAPI.Models.LoginModel", b =>
+                {
+                    b.Property<int>("LoginId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsTeacher")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LoginId");
+
+                    b.ToTable("LoginModel");
+                });
+
             modelBuilder.Entity("TestVerktygAPI.Models.Question", b =>
                 {
                     b.Property<int>("QuestionID")

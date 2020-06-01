@@ -27,18 +27,30 @@ namespace TestverktygProject.View
     /// </summary>
     public sealed partial class StudentProfile : Page
     {
-        public StudentProfileViewModel Vm { get; set; }
+        public Student student1;
+        public ObservableCollection<Student> studentList;
+        public StudentProfileViewModel Sp { get; set; }
         public APIService Api { get; set; }
         public TakeExam Te { get; set; }
         public StudentProfile()
         {
             this.InitializeComponent();
-            this.Vm = new StudentProfileViewModel();
+            this.Sp = new StudentProfileViewModel();
             this.Api = new APIService();
             this.Te = new TakeExam();
-            apiGet();
+            //student1 = new Student();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            student1 = (Student)e?.Parameter;
+            Sp.tempstudent = student1;
+            FirstNameText.Text = student1.FirstName;
+            LastNameText.Text = student1.LastName;
+            FirstNameText1.Text = student1.FirstName;
+            LastNameText1.Text = student1.LastName;
+            apiGet();
+        }
         private void startExamButton_Click(object sender, RoutedEventArgs e)
         {            
             this.Frame.Navigate(typeof(TakeExam), (Exam)StudentsExam.SelectedItem);
@@ -60,15 +72,27 @@ namespace TestverktygProject.View
             var students = await Api.GetAllStudentsAsync();
             foreach (Student student in students)
             {
-                Vm._apiStudents.Add(student);
+                Sp._apiStudents.Add(student);
             }
 
             var exams = await Api.GetAllExamsAsync();
 
             foreach (Exam exam in exams)
             {
-                Vm._apiExams.Add(exam);
+                Sp._apiExams.Add(exam);
             }
+
+        }
+        private async void signOutButton1_Click(object sender, RoutedEventArgs e)
+        {
+            MessageDialog confirmDialog = new MessageDialog("Do you want to sign out?", "Sign out confirmation");
+            confirmDialog.Commands.Add(new UICommand("Yes"));
+            confirmDialog.Commands.Add(new UICommand("No"));
+            var confirmResult = await confirmDialog.ShowAsync();
+            // "No" button pressed: Keep the app open.
+            if (confirmResult != null && confirmResult.Label == "No") { return; }
+            // "Back" or "Yes" button pressed: Close the app.
+            if (confirmResult == null || confirmResult.Label == "Yes") { Frame.Navigate(typeof(LogIn)); }
         }
     }
 }

@@ -29,14 +29,14 @@ namespace TestVerktygAPI.Controllers
         }
 
         // GET: api/Teachers/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Teacher>> GetTeacher(int id)
+        [HttpGet("{id}/{username}")]
+        public ActionResult<Teacher> GetTeacher(int id, string username)
         {
-            var teacher = await _context.Teacher.FindAsync(id);
+            Teacher teacher = (Teacher)_context.Teacher.Where(x => x.TeacherID == id && x.Username == username).FirstOrDefault(); ;
 
             if (teacher == null)
             {
-                return NotFound();
+                return Ok();
             }
 
             return teacher;
