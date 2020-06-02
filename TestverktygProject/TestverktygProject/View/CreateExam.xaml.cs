@@ -58,6 +58,8 @@ namespace TestverktygProject.View
 
             exams.Add(exam);
 
+            ExamHasBeenCreatedLabel.Text = "A new exam has been created!";
+
             await CreateExamViewModel.AddExamAsync(exam);
         }
 
