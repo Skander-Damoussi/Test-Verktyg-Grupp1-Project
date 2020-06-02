@@ -9,6 +9,7 @@ using TestverktygProject.Services;
 using TestverktygProject.ViewModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -32,22 +33,34 @@ namespace TestverktygProject.View
 
         public APIService Api { get; set; }
         public TakeExamViewModel Tvm { get; set; }
+        //public StudentProfile Spv { get; set; }
         public ObservableCollection<string> tempAltList = new ObservableCollection<string>();
         public List<int> numberofSelectedAlt = new List<int>();
+        public int finalResult;
+        public TakeExamPage selectedItem;
+        public Student selectedStudentItem;
+        public Exam selectedExamItem;
+        public TakeExamPage tePage;
 
         public TakeExam()
         {
             this.InitializeComponent();
             this.Tvm = new TakeExamViewModel();
+            this.Api = new APIService();
             
-
+            selectedItem = new TakeExamPage();
+            selectedStudentItem = new Student();
+            selectedExamItem = new Exam();
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var selectedItem = (Exam)e?.Parameter;
-            SubjectTitle.Text = selectedItem.ExamName;
-            
-            foreach(Question question in selectedItem.Questions)
+            tePage = (TakeExamPage)e?.Parameter;
+            selectedStudentItem = tePage.Student;
+            selectedExamItem = tePage.Exam;
+
+            SubjectTitle.Text = selectedExamItem.ExamName;
+                        
+            foreach(Question question in selectedExamItem.Questions)
             {
                 Tvm.selectedExam.Add(question);
             }
@@ -92,22 +105,27 @@ namespace TestverktygProject.View
         }
         public void checkAlt()
         {
-            if (Tvm.selectedExam[Tvm.index].Alt1.ToString() == AnswerList.SelectedItem.ToString())
+            numberofSelectedAlt.Clear();
+            for (int i = 0; i < AnswerList.SelectedItems.Count; i++)
             {
-                numberofSelectedAlt.Add(1);
+                if (Tvm.selectedExam[Tvm.index].Alt1 == AnswerList.SelectedItems[i].ToString())
+                {
+                    numberofSelectedAlt.Add(1);
+                }
+                if (Tvm.selectedExam[Tvm.index].Alt2 == AnswerList.SelectedItems[i].ToString())
+                {
+                    numberofSelectedAlt.Add(2);
+                }
+                if (Tvm.selectedExam[Tvm.index].Alt3 == AnswerList.SelectedItems[i].ToString())
+                {
+                    numberofSelectedAlt.Add(3);
+                }
+                if (Tvm.selectedExam[Tvm.index].Alt4 == AnswerList.SelectedItems[i].ToString())
+                {
+                    numberofSelectedAlt.Add(4);
+                }
             }
-            if(Tvm.selectedExam[Tvm.index].Alt2.ToString() == AnswerList.SelectedItem.ToString())
-            {
-                numberofSelectedAlt.Add(2);
-            }
-            if (Tvm.selectedExam[Tvm.index].Alt3.ToString() == AnswerList.SelectedItem.ToString())
-            {
-                numberofSelectedAlt.Add(3);
-            }
-            if (Tvm.selectedExam[Tvm.index].Alt4.ToString() == AnswerList.SelectedItem.ToString())
-            {
-                numberofSelectedAlt.Add(4);
-            }
+            testMethod();
         }
         public void updateListOfAlt()
         {
@@ -116,6 +134,29 @@ namespace TestverktygProject.View
             tempAltList.Add(Tvm.selectedExam[Tvm.index].Alt2);
             tempAltList.Add(Tvm.selectedExam[Tvm.index].Alt3);
             tempAltList.Add(Tvm.selectedExam[Tvm.index].Alt4);
+        }
+        public void testMethod()
+        {
+            for (int i = 0; i < numberofSelectedAlt.Count; i++)
+            {
+                if(Tvm.selectedExam[Tvm.index].CorrectAnswer == numberofSelectedAlt[i])
+                {
+                    finalResult += Tvm.selectedExam[Tvm.index].NumberOfPoints;
+                }
+            }
+        }
+        private async void TurnInExamButton_Click(object sender, RoutedEventArgs e)
+        {
+            await Api.UpdateExamAsync(selectedStudentItem.StudentID, selectedExamItem.ExamID, finalResult);
+            
+            MessageDialog confirmDialog = new MessageDialog("Do you want to turn in the the test and complete it?", "cancel confirmation");
+            confirmDialog.Commands.Add(new UICommand("Yes"));
+            confirmDialog.Commands.Add(new UICommand("No"));
+            var confirmResult = await confirmDialog.ShowAsync();
+            // "No" button pressed: Keep the app open.
+            if (confirmResult != null && confirmResult.Label == "No") { return; }
+            // "Back" or "Yes" button pressed: Close the app.
+            if (confirmResult == null || confirmResult.Label == "Yes") { this.Frame.GoBack(); }
         }
     }
 }

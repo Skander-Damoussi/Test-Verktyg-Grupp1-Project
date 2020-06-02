@@ -31,6 +31,7 @@ namespace TestverktygProject.View
         public Student student1;
         public ObservableCollection<Student> studentList;
         public StudentProfileViewModel Sp { get; set; }
+        public TakeExamPage tePage { get;set; }
         public APIService Api { get; set; }
         public TakeExam Te { get; set; }
         public Exam test;
@@ -55,31 +56,16 @@ namespace TestverktygProject.View
             apiGet();
             Sp.cloneList();
         }
-        private async void startExamButton_Click(object sender, RoutedEventArgs e)
+        private void startExamButton_Click(object sender, RoutedEventArgs e)
         {
+            tePage = new TakeExamPage(student1, (Exam)StudentsExam.SelectedItem);
+            this.Frame.Navigate(typeof(TakeExam), tePage);
 
-            var exam = (Exam)StudentsExam.SelectedItem;
-            //foreach(Exam exam in Sp._listOfStudentsExams)
-            //{
-            //    for (int i = 0; i < Sp._listOfStudentsExams.Count; i++)
-            //    {
-            //        if (Sp._listOfStudentsExams[i].ExamID == Sp.updatedListOfExam[i].ExamID)
-            //        {
-            //            Sp.updatedListOfExam.Remove(Sp.updatedListOfExam[i]);
-            //        }
-            //        else
-            //        {
-
-            //        }
-            //    }
-            //}
-
+            var exam = (Exam)StudentsExam.SelectedItem;            
             exam.IsActive = false;
             //skicka in ID == exam.ID och objektet (exam) !!!! PUT !!!! PUT SOM I PUTIN
 
             var test = await Api.UpdateExam1Async(exam.ExamID, exam);
-
-            this.Frame.Navigate(typeof(TakeExam), (Exam)StudentsExam.SelectedItem);
         }
 
         private async void signOutButton_Click(object sender, RoutedEventArgs e)
