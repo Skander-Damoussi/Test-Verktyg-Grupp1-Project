@@ -95,6 +95,20 @@ namespace TestverktygProject.ViewModel
             }
             return student.ListExam;
         }
+
+        public ObservableCollection<StudentExam> getexampoints(Student student, Exam exam)
+        {
+            var results = new ObservableCollection<StudentExam>();
+            foreach(var item in _apiStudentExams)
+            {
+                if(item.StudentID == student.StudentID && item.ExamID == exam.ExamID) 
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+
     }
 
 }
