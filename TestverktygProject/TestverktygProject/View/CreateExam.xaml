@@ -39,8 +39,8 @@
                     <Button
                         Name="BeforeCreationOfExamInfoButton"
                         HorizontalAlignment="Right"
-                        Click="BeforeCreationOfExamInfoButton_OnClick"
                         Background="CadetBlue"
+                        Click="BeforeCreationOfExamInfoButton_OnClick"
                         Content="Submit" />
 
                 </StackPanel>
@@ -113,8 +113,8 @@
                             Margin="10"
                             Padding="10"
                             HorizontalAlignment="Left"
-                            Click="SubmitQuestionButton_OnClick"
                             Background="CadetBlue"
+                            Click="SubmitQuestionButton_OnClick"
                             Content="Submit Questions" />
                     </StackPanel>
                 </ScrollViewer>
@@ -164,9 +164,10 @@
                         <StackPanel>
                             <Button
                                 Name="CreateExamButton"
-                                Click="CreateExamButton_OnClick"
                                 Background="CadetBlue"
+                                Click="CreateExamButton_OnClick"
                                 Content="Create exam" />
+                            <TextBlock Name="ExamHasBeenCreatedLabel" Text="Waiting for a new exam..." />
                         </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
@@ -203,10 +204,11 @@
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-                        <Button Name="ReturnToTeacherProfileButton"
-                                Content="Return to profile"
-                                Background="CadetBlue"
-                                Click="ReturnToTeacherProfileButton_OnClick"/>
+                        <Button
+                            Name="ReturnToTeacherProfileButton"
+                            Background="CadetBlue"
+                            Click="ReturnToTeacherProfileButton_OnClick"
+                            Content="Return to profile" />
 
                     </StackPanel>
                 </ScrollViewer>
