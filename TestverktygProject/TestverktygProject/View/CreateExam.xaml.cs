@@ -109,7 +109,7 @@ namespace TestverktygProject.View
 
         private void ReturnToTeacherProfileButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(TeacherProfile));
+            this.Frame.GoBack();
         }
     }
 }

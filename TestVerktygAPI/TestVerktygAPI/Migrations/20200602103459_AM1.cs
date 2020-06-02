@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TestVerktygAPI.Migrations
 {
-    public partial class Int : Migration
+    public partial class AM1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
