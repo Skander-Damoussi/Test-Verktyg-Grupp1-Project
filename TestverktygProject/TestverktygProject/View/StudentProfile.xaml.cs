@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using TestverktygProject.Model;
 using TestverktygProject.Services;
 using TestverktygProject.ViewModel;
@@ -33,12 +34,14 @@ namespace TestverktygProject.View
         public TakeExamPage tePage { get;set; }
         public APIService Api { get; set; }
         public TakeExam Te { get; set; }
+        public Exam test;
         public StudentProfile()
         {
             this.InitializeComponent();
             this.Sp = new StudentProfileViewModel();
             this.Api = new APIService();
             this.Te = new TakeExam();
+            test = new Exam();
             //student1 = new Student();
         }
 
@@ -51,11 +54,18 @@ namespace TestverktygProject.View
             FirstNameText1.Text = student1.FirstName;
             LastNameText1.Text = student1.LastName;
             apiGet();
+            Sp.cloneList();
         }
         private void startExamButton_Click(object sender, RoutedEventArgs e)
         {
             tePage = new TakeExamPage(student1, (Exam)StudentsExam.SelectedItem);
             this.Frame.Navigate(typeof(TakeExam), tePage);
+
+            var exam = (Exam)StudentsExam.SelectedItem;            
+            exam.IsActive = false;
+            //skicka in ID == exam.ID och objektet (exam) !!!! PUT !!!! PUT SOM I PUTIN
+
+            var test = await Api.UpdateExam1Async(exam.ExamID, exam);
         }
 
         private async void signOutButton_Click(object sender, RoutedEventArgs e)

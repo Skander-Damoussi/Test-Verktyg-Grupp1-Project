@@ -9,6 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -24,9 +25,9 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
-        <Grid Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.ColumnSpan="2" >
-            <StackPanel BorderBrush="Black" BorderThickness="0.5" Width="400" Spacing="5" >
+        <Image Source="/Assets/istockphoto-510185781-1024x1024.jpg" Grid.ColumnSpan="6" Grid.RowSpan="4" Height="1150"/>
+        <Grid Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.ColumnSpan="2" Background="White">
+            <StackPanel BorderBrush="Black" BorderThickness="0.5" Width="400" Spacing="5" CornerRadius="5" >
                 <Border Background="CadetBlue">
                     <TextBlock Text="Login"/>
                 </Border>
