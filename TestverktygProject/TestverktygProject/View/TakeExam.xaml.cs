@@ -149,7 +149,7 @@ namespace TestverktygProject.View
         {
             await Api.UpdateExamAsync(selectedStudentItem.StudentID, selectedExamItem.ExamID, finalResult);
             
-            MessageDialog confirmDialog = new MessageDialog("Do you want to complete the test and complete it?", "cancel confirmation");
+            MessageDialog confirmDialog = new MessageDialog("Do you want to turn in the the test and complete it?", "cancel confirmation");
             confirmDialog.Commands.Add(new UICommand("Yes"));
             confirmDialog.Commands.Add(new UICommand("No"));
             var confirmResult = await confirmDialog.ShowAsync();
