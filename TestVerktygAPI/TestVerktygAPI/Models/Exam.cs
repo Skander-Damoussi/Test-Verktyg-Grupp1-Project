@@ -17,5 +17,6 @@ namespace TestVerktygAPI.Models
         public DateTime ExamDate { get; set; }
         public int Results { get; set; }
         public IList<StudentExam> StudentExam { get; set; }
+        public bool IsActive { get; set; }
     }
 }

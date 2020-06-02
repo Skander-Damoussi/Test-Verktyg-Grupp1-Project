@@ -32,6 +32,9 @@ namespace TestVerktygAPI.Migrations
                     b.Property<string>("ExamName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Results")
                         .HasColumnType("int");
 

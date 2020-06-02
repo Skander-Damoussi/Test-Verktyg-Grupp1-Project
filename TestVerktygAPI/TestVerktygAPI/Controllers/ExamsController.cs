@@ -83,6 +83,8 @@ namespace TestVerktygAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Exam>> PostExam(Exam exam)
         {
+            exam.IsActive = true;
+
             _context.Exam.Add(exam);
             await _context.SaveChangesAsync();
 

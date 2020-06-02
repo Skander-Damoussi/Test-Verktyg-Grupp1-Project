@@ -122,6 +122,15 @@ namespace TestverktygProject.Services
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             var result = await httpClient.PutAsync(WebServiceUrl + "StudentExams/" + StudentId, httpContent);
          }
+
+        public async Task<HttpResponseMessage> UpdateExam1Async(int examID, Exam exam)
+        {
+            var json = JsonConvert.SerializeObject(exam);
+            HttpContent httpContent = new StringContent(json);
+            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var result = await httpClient.PutAsync(WebServiceUrl + "exams/" + examID, httpContent);
+            return result;
+        }
         public async Task<ObservableCollection<StudentExam>> GetAllStudentExamsAsync()
         {
             var jsonTeachers = await httpClient.GetStringAsync(WebServiceUrl + "studentexams");
