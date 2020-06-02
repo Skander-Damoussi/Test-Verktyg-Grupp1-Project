@@ -43,19 +43,19 @@ namespace TestverktygProject.View
             this.InitializeComponent();
             this.api = new APIService();
             this.vm = new TeacherProfileViewModel();
-       //     teacher = new Teacher();
+         //   teacher = new Teacher();
             vm.apiGet();
            
         }
 
 
-        //protected override void OnNavigatedTo(NavigationEventArgs e)
-        //{
-        //    var teacher = (Teacher)e?.Parameter;
-        //    teacherfirstname.Text = teacher.LastName;
-        //    teacherlastname.Text = teacher.FirstName;
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var teacher = (Teacher)e?.Parameter;
+            teacherfirstname.Text = teacher.FirstName;
+            teacherlastname.Text = teacher.LastName;
 
-        //}
+        }
 
         private async void signout_Click(object sender, RoutedEventArgs e)
         {
@@ -76,9 +76,16 @@ namespace TestverktygProject.View
 
         private void viewstudentexam_Click(object sender, RoutedEventArgs e)
         {
-            var examlist = vm.examstudentbind((Student)StudentListView.SelectedItem);
-            examlistview.ItemsSource = examlist;
+          
+            examlistview.ItemsSource = vm.examstudentbind((Student)StudentListView.SelectedItem);
+
         }
 
+        private void viewstudentexam_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            var student = (Student)StudentListView.SelectedItem;
+            var exam = (Exam)examlistview.SelectedItem;
+            pointslistview.ItemsSource = vm.getexampoints(student, exam);
+        }
     }
 }
