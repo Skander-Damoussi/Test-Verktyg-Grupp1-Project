@@ -48,15 +48,18 @@ namespace TestverktygProject.ViewModel
             return exams;
         }
 
-        public async Task AddExamAsync(Exam exam)
+        public async Task<HttpResponseMessage> AddExamAsync(Exam exam)
         {
+            exam.IsActive = true;
             var exams = JsonConvert.SerializeObject(exam);
+
 
             HttpContent httpContent = new StringContent(exams);
 
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            await httpClient.PostAsync(examURL, httpContent);
+            var result = await httpClient.PostAsync(examURL, httpContent);
+            return result;
         }
 
         public async Task<ObservableCollection<Question>> GetAllQuestionsAsync()

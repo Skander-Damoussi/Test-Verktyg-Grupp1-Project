@@ -58,7 +58,7 @@ namespace TestverktygProject.View
 
             exams.Add(exam);
 
-            await CreateExamViewModel.AddExamAsync(exam);
+            var test = await CreateExamViewModel.AddExamAsync(exam);
         }
 
         private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using TestverktygProject.Model;
 using TestverktygProject.Services;
 using TestverktygProject.ViewModel;
@@ -54,24 +55,30 @@ namespace TestverktygProject.View
             apiGet();
             Sp.cloneList();
         }
-        private void startExamButton_Click(object sender, RoutedEventArgs e)
+        private async void startExamButton_Click(object sender, RoutedEventArgs e)
         {
 
-            test = (Exam)StudentsExam.SelectedItem;
-            foreach(Exam exam in Sp._listOfStudentsExams)
-            {
-                for (int i = 0; i < Sp._listOfStudentsExams.Count; i++)
-                {
-                    if (Sp._listOfStudentsExams[i].ExamID == Sp.updatedListOfExam[i].ExamID)
-                    {
-                        Sp.updatedListOfExam.Remove(Sp.updatedListOfExam[i]);
-                    }
-                    else
-                    {
+            var exam = (Exam)StudentsExam.SelectedItem;
+            //foreach(Exam exam in Sp._listOfStudentsExams)
+            //{
+            //    for (int i = 0; i < Sp._listOfStudentsExams.Count; i++)
+            //    {
+            //        if (Sp._listOfStudentsExams[i].ExamID == Sp.updatedListOfExam[i].ExamID)
+            //        {
+            //            Sp.updatedListOfExam.Remove(Sp.updatedListOfExam[i]);
+            //        }
+            //        else
+            //        {
 
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
+
+            exam.IsActive = false;
+            //skicka in ID == exam.ID och objektet (exam) !!!! PUT !!!! PUT SOM I PUTIN
+
+            var test = await Api.UpdateExam1Async(exam.ExamID, exam);
+
             this.Frame.Navigate(typeof(TakeExam), (Exam)StudentsExam.SelectedItem);
         }
 
