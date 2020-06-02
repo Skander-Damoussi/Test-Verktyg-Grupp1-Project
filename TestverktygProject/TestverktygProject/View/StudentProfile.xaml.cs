@@ -56,7 +56,7 @@ namespace TestverktygProject.View
             apiGet();
             Sp.cloneList();
         }
-        private void startExamButton_Click(object sender, RoutedEventArgs e)
+        private async void startExamButton_Click(object sender, RoutedEventArgs e)
         {
             tePage = new TakeExamPage(student1, (Exam)StudentsExam.SelectedItem);
             this.Frame.Navigate(typeof(TakeExam), tePage);

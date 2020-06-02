@@ -2,10 +2,7 @@
     x:Class="TestverktygProject.View.CreateExam"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:control="using:TestverktygProject"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:data="[data ]using:TestverktygProject.Model"
-    xmlns:local="using:TestverktygProject.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:model="using:TestverktygProject.Model"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -14,6 +11,8 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -21,43 +20,42 @@
         <Pivot
             Title="Create exam"
             Grid.Row="0"
-            Grid.Column="0">
+            Grid.Column="0"
+            Grid.ColumnSpan="3">
             <PivotItem Header="Basic information">
 
                 <StackPanel
                     Width="500"
-                    HorizontalAlignment="Left"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Top">
                     <TextBlock Text="How many questions do you want?" />
                     <TextBox Name="NumberOfQuestionsToGenerateField" PlaceholderText="10 for example" />
-                    <TextBlock Name="SubjectLabel" Text="Subject:" />
+                    <TextBlock Text="Subject:" />
                     <TextBox Name="SubjectField" PlaceholderText="Math, for example" />
-                    <TextBlock Name="TitleOfExam" Text="Title of the Exam:" />
+                    <TextBlock Text="Title of the Exam:" />
                     <TextBox Name="TitleOfExamField" PlaceholderText="Math exam 1, for example..." />
-                    <TextBlock Name="WhenExamIsActiveDatePickerLabel" Text="When should this exam be available?" />
+                    <TextBlock Text="When should this exam be available?" />
                     <DatePicker Name="DatePicker" Header="Starting on:" />
                     <Button
-                        Name="BeforeCreationOfExamInfoButton"
                         HorizontalAlignment="Right"
                         Background="CadetBlue"
                         Click="BeforeCreationOfExamInfoButton_OnClick"
                         Content="Submit" />
-
                 </StackPanel>
-
-
             </PivotItem>
             <PivotItem Header="Create questions">
                 <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled">
-                    <StackPanel>
-                        <ListView x:Name="QuestionsToBeFilledListView" ItemsSource="{x:Bind CreateExamViewModel.QuestionsToBeFilled}">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <ListView ItemsSource="{x:Bind CreateExamViewModel.QuestionsToBeFilled}">
                             <ListView.ItemTemplate>
                                 <DataTemplate x:DataType="model:Question">
                                     <StackPanel
                                         x:Name="CreateQuestionsStackPanel"
                                         Width="500"
                                         Margin="0,0,0,50"
-                                        Padding="10">
+                                        Padding="10"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top">
                                         <TextBox
                                             x:Name="TitleOfQuestion"
                                             Padding="10"
@@ -99,20 +97,16 @@
                                             x:Name="NumberOfPointsField"
                                             HorizontalAlignment="Right"
                                             Text="{Binding NumberOfPoints, Mode=TwoWay}" />
-
-
                                     </StackPanel>
-
-
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
 
                         <Button
-                            x:Name="SubmitQuestionButton"
                             Margin="10"
                             Padding="10"
-                            HorizontalAlignment="Left"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom"
                             Background="CadetBlue"
                             Click="SubmitQuestionButton_OnClick"
                             Content="Submit Questions" />
@@ -122,7 +116,7 @@
             </PivotItem>
             <PivotItem Header="Preview exam">
                 <ScrollViewer>
-                    <StackPanel>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
                         <ListView x:Name="NotYetCreatedExamListView" ItemsSource="{x:Bind CreateExamViewModel.CreatedQuestions}">
                             <ListView.ItemTemplate>
                                 <DataTemplate x:DataType="model:Question">
@@ -130,7 +124,9 @@
                                         x:Name="CreatedQuestions"
                                         Width="500"
                                         Margin="0,0,0,50"
-                                        Padding="10">
+                                        Padding="10"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top">
                                         <TextBox
                                             x:Name="TitleOfQuestion"
                                             Padding="10"
@@ -163,7 +159,6 @@
                         </ListView>
                         <StackPanel>
                             <Button
-                                Name="CreateExamButton"
                                 Background="CadetBlue"
                                 Click="CreateExamButton_OnClick"
                                 Content="Create exam" />
@@ -175,11 +170,14 @@
             </PivotItem>
             <PivotItem Header="View created exam">
                 <ScrollViewer>
-                    <StackPanel>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
                         <ListView x:Name="SeeCreatedExamListView" ItemsSource="{x:Bind CreateExamViewModel.ExamList}">
                             <ListView.ItemTemplate>
                                 <DataTemplate x:DataType="model:Exam">
-                                    <StackPanel x:Name="ExamListPanel">
+                                    <StackPanel
+                                        x:Name="ExamListPanel"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top">
                                         <TextBlock x:Name="ExamTitle" Text="{Binding ExamName}" />
                                         <TextBlock x:Name="DateOfExam" Text="{Binding ExamDate}" />
                                         <TextBlock Name="QuestionTitleFieldCreated" Text="{Binding ExamName, Mode=TwoWay}" />
@@ -205,7 +203,6 @@
                             </ListView.ItemTemplate>
                         </ListView>
                         <Button
-                            Name="ReturnToTeacherProfileButton"
                             Background="CadetBlue"
                             Click="ReturnToTeacherProfileButton_OnClick"
                             Content="Return to profile" />
