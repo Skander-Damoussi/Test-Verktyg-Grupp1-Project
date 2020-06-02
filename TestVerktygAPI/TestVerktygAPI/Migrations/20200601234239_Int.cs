@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TestVerktygAPI.Migrations
 {
-    public partial class AZ : Migration
+    public partial class Int : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,8 @@ namespace TestVerktygAPI.Migrations
                     Subject = table.Column<string>(nullable: true),
                     ExamName = table.Column<string>(nullable: true),
                     ExamDate = table.Column<DateTime>(nullable: false),
-                    Results = table.Column<int>(nullable: false)
+                    Results = table.Column<int>(nullable: false),
+                    IsActive = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

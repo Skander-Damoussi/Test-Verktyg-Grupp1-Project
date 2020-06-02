@@ -13,6 +13,7 @@ namespace TestverktygProject.Model
         public DateTime ExamDate { get; set; }
         public int Results { get; set; }
         public IList<StudentExam> StudentExam { get; set; }
+        public bool? IsActive { get; set; }
 
         public Exam(string subject, List<Question> questions, string examName, DateTime examDate, int results)
         {
