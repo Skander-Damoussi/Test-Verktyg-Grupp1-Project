@@ -39,7 +39,7 @@ namespace TestverktygProject.View
 
             for (var i = 0; i < numberOfQuestionsToGenerate; i++)
             {
-              CreateExamViewModel.QuestionsToBeFilled.Add(new Question());
+               CreateExamViewModel.QuestionsToBeFilled.Add(new Question());
             }
 
         }
@@ -49,7 +49,7 @@ namespace TestverktygProject.View
             var exams = CreateExamViewModel.ExamList;
             var exam = new Exam
             { 
-                ExamDate = DateTime.Today, //todo check how to insert DatePicker values here
+                ExamDate = DatePicker.Date.Date, //todo check how to insert DatePicker values here
                 ExamName = TitleOfExamField.Text,
                 Questions = GetQuestions(),
                 Subject = SubjectField.Text,
@@ -58,7 +58,9 @@ namespace TestverktygProject.View
 
             exams.Add(exam);
 
-            var test = await CreateExamViewModel.AddExamAsync(exam);
+            ExamHasBeenCreatedLabel.Text = "A new exam has been created!";
+
+            await CreateExamViewModel.AddExamAsync(exam);
         }
 
         private void SubmitQuestionButton_OnClick(object sender, RoutedEventArgs e)
@@ -103,6 +105,11 @@ namespace TestverktygProject.View
             {
                 CreateExamViewModel.ExamList.Add(exam);
             }
+        }
+
+        private void ReturnToTeacherProfileButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(TeacherProfile));
         }
     }
 }

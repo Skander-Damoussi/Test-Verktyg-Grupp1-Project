@@ -39,6 +39,7 @@
                     <Button
                         Name="BeforeCreationOfExamInfoButton"
                         HorizontalAlignment="Right"
+                        Background="CadetBlue"
                         Click="BeforeCreationOfExamInfoButton_OnClick"
                         Content="Submit" />
 
@@ -112,6 +113,7 @@
                             Margin="10"
                             Padding="10"
                             HorizontalAlignment="Left"
+                            Background="CadetBlue"
                             Click="SubmitQuestionButton_OnClick"
                             Content="Submit Questions" />
                     </StackPanel>
@@ -162,8 +164,10 @@
                         <StackPanel>
                             <Button
                                 Name="CreateExamButton"
+                                Background="CadetBlue"
                                 Click="CreateExamButton_OnClick"
                                 Content="Create exam" />
+                            <TextBlock Name="ExamHasBeenCreatedLabel" Text="Waiting for a new exam..." />
                         </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
@@ -200,6 +204,11 @@
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
+                        <Button
+                            Name="ReturnToTeacherProfileButton"
+                            Background="CadetBlue"
+                            Click="ReturnToTeacherProfileButton_OnClick"
+                            Content="Return to profile" />
 
                     </StackPanel>
                 </ScrollViewer>
