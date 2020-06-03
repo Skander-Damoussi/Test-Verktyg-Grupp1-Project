@@ -33,14 +33,12 @@ namespace TestverktygProject.View
         public StudentProfileViewModel Sp { get; set; }
         public TakeExamPage tePage { get;set; }
         public APIService Api { get; set; }
-        public TakeExam Te { get; set; }
         public Exam test;
         public StudentProfile()
         {
             this.InitializeComponent();
             this.Sp = new StudentProfileViewModel();
             this.Api = new APIService();
-            this.Te = new TakeExam();
             test = new Exam();
             //student1 = new Student();
         }
@@ -56,7 +54,7 @@ namespace TestverktygProject.View
             apiGet();
             Sp.cloneList();
         }
-        private void startExamButton_Click(object sender, RoutedEventArgs e)
+        private async void startExamButton_Click(object sender, RoutedEventArgs e)
         {
             tePage = new TakeExamPage(student1, (Exam)StudentsExam.SelectedItem);
             this.Frame.Navigate(typeof(TakeExam), tePage);

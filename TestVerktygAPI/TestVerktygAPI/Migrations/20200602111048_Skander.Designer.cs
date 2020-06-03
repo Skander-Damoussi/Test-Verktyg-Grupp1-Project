@@ -10,8 +10,8 @@ using TestVerktygAPI.Data;
 namespace TestVerktygAPI.Migrations
 {
     [DbContext(typeof(TestVerktygAPIContext))]
-    [Migration("20200601094313_AM1")]
-    partial class AM1
+    [Migration("20200602111048_Skander")]
+    partial class Skander
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,6 +33,9 @@ namespace TestVerktygAPI.Migrations
 
                     b.Property<string>("ExamName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<int>("Results")
                         .HasColumnType("int");
