@@ -34,6 +34,8 @@
                   Grid.ColumnSpan="1"
                   BorderThickness="1"
                   BorderBrush="black"
+                  IsItemClickEnabled="True"
+                  ItemClick="StudentListView_ItemClick"
              
                   
                   >
@@ -54,7 +56,9 @@
                   Grid.RowSpan="2"
                   Grid.ColumnSpan="1"
                   BorderThickness="1"
-                  BorderBrush="black">
+                  BorderBrush="black"
+                  IsItemClickEnabled="True"
+                  ItemClick="examlistview_ItemClick">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:Exam">
                     <StackPanel Orientation="Horizontal" Spacing="2">
@@ -87,6 +91,7 @@
                     Height="50"
                     BorderThickness="1"
                     BorderBrush="Black"
+                    IsEnabled="False"
                     Click="viewstudentexam_Click" />
             <Button Content="View student exam points"
                 x:Name="viewstudentexam_Copy"
@@ -96,7 +101,8 @@
                 Height="50"
                 BorderThickness="1"
                 BorderBrush="Black"
-                Click="viewstudentexam_Copy_Click" />
+                Click="viewstudentexam_Copy_Click" 
+                    IsEnabled="False"/>
         </StackPanel>
         <Grid Grid.RowSpan="3">
             <StackPanel Grid.Row="3" >

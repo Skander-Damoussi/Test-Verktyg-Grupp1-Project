@@ -75,24 +75,23 @@ namespace TestverktygProject.ViewModel
                 _apiStudentExams.Add(item);
             }
         }
-
         public ObservableCollection<Exam> examstudentbind(Student student) 
-        {
-            student.ListExam = new ObservableCollection<Exam>();
+        {          
+                student.ListExam = new ObservableCollection<Exam>();
 
-            foreach (var item in apiStudentExams)
-            {
-                if (item.StudentID == student.StudentID)
+                foreach (var item in apiStudentExams)
                 {
-                    foreach (var exam in apiExams)
+                    if (item.StudentID == student.StudentID)
                     {
-                        if (item.ExamID == exam.ExamID)
+                        foreach (var exam in apiExams)
                         {
-                            student.ListExam.Add(exam);
+                            if (item.ExamID == exam.ExamID)
+                            {
+                                student.ListExam.Add(exam);
+                            }
                         }
                     }
-                }
-            }
+                }           
             return student.ListExam;
         }
 

@@ -55,7 +55,7 @@ namespace TestverktygProject.ViewModel
             {
                 index--;
                 startindex--;
-                UpdateListOfAlternatives();
+                 UpdateListOfAlternatives();
             }
         }
         public async void TurnInExam()

@@ -63,7 +63,7 @@ namespace TestverktygProject.View
             exam.IsActive = false;
             //skicka in ID == exam.ID och objektet (exam) !!!! PUT !!!! PUT SOM I PUTIN
 
-            var test = await Api.UpdateExam1Async(exam.ExamID, exam);
+            var test = await Api.UpdateExamsAvailabilityAsync(exam.ExamID, exam);
         }
 
         private async void signOutButton_Click(object sender, RoutedEventArgs e)
@@ -103,6 +103,11 @@ namespace TestverktygProject.View
             if (confirmResult != null && confirmResult.Label == "No") { return; }
             // "Back" or "Yes" button pressed: Close the app.
             if (confirmResult == null || confirmResult.Label == "Yes") { Frame.Navigate(typeof(LogIn)); }
+        }
+
+        private void StudentsExam_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            startExamButton.IsEnabled = true;
         }
     }
 }
