@@ -123,7 +123,7 @@ namespace TestverktygProject.Services
             var result = await httpClient.PutAsync(WebServiceUrl + "StudentExams/" + StudentId, httpContent);
          }
 
-        public async Task<HttpResponseMessage> UpdateExam1Async(int examID, Exam exam)
+        public async Task<HttpResponseMessage> UpdateExamsAvailabilityAsync(int examID, Exam exam)
         {
             var json = JsonConvert.SerializeObject(exam);
             HttpContent httpContent = new StringContent(json);

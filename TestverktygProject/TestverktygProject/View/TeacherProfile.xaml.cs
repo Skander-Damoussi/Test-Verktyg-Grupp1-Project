@@ -76,9 +76,7 @@ namespace TestverktygProject.View
 
         private void viewstudentexam_Click(object sender, RoutedEventArgs e)
         {
-          
             examlistview.ItemsSource = vm.examstudentbind((Student)StudentListView.SelectedItem);
-
         }
 
         private void viewstudentexam_Copy_Click(object sender, RoutedEventArgs e)
@@ -86,6 +84,16 @@ namespace TestverktygProject.View
             var student = (Student)StudentListView.SelectedItem;
             var exam = (Exam)examlistview.SelectedItem;
             pointslistview.ItemsSource = vm.getexampoints(student, exam);
+        }
+
+        private void StudentListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            viewstudentexam.IsEnabled = true;
+        }
+
+        private void examlistview_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            viewstudentexam_Copy.IsEnabled = true;
         }
     }
 }

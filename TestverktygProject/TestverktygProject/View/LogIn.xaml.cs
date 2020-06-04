@@ -11,6 +11,7 @@ using TestverktygProject.Services;
 using TestverktygProject.ViewModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -61,22 +62,32 @@ namespace TestverktygProject.View
 
         private async void LogInButton_Click(object sender, RoutedEventArgs e)
         {
-
             string username = usernamebox.Text.ToLower();
             string password = passwordbox.Password.ToLower();
-            object temp = await Lvm.LogIn(username,password);
             object student = null;
             object teacher = null;
             try
             {
-                teacher = (Teacher)temp;
+                object temp = await Lvm.LogIn(username, password);
+
+                try
+                {
+                    teacher = (Teacher)temp;
+                }
+                catch (InvalidCastException)
+                {
+                    student = (Student)temp;
+                }
             }
-            catch (InvalidCastException)
+            catch (FormatException)
             {
-                student = (Student)temp;
+                MessageDialog confirmDialog = new MessageDialog("Your login credentials don't match an account in our system.", "ERROR");
+                confirmDialog.Commands.Add(new UICommand("OK"));
+                var confirmResult = await confirmDialog.ShowAsync();
+                // "No" button pressed: Keep the app open.
+                if (confirmResult != null && confirmResult.Label == "OK") { return; }
             }
-            
-                if (student != null)
+            if (student != null)
                 {
                     Debug.WriteLine("En student loggande in");
                     Frame.Navigate(typeof(StudentProfile), (Student)student);
