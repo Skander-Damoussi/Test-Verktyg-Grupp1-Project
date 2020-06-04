@@ -60,7 +60,7 @@ namespace TestverktygProject.View
             this.Frame.Navigate(typeof(TakeExam), tePage);
 
             var exam = (Exam)StudentsExam.SelectedItem;            
-            exam.IsActive = false;
+            exam.IsActive = true;
             //skicka in ID == exam.ID och objektet (exam) !!!! PUT !!!! PUT SOM I PUTIN
 
             var test = await Api.UpdateExam1Async(exam.ExamID, exam);
