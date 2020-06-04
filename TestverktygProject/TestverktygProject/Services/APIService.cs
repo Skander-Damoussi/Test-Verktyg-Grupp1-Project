@@ -34,10 +34,6 @@ namespace TestverktygProject.Services
             
             return int.Parse(IsTeacher);
         }
-        public async Task PostExams()
-        {
-            throw new Exception();
-        }
         public async Task<ObservableCollection<Student>> GetAllStudentsAsync()
         {
 
