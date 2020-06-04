@@ -42,15 +42,7 @@
 
 
 
-        <StackPanel BorderBrush="Black" BorderThickness="0,1,0,0" >
-            
-            <Button x:Name="GoToTakeExam" Content="Navigate to TakeExamPage" Click="GoToTakeExam_Click"/>
-            <Button x:Name="CreateExamButtonFromLoginPage" Content="Navigate to Create exam" Click="CreateExamButtonFromLoginPage_OnClick"/>
-            <Button x:Name="TeacherProfile" Content="Navigate to teacherprofile exam" Click="TeacherProfile_Click" />
-            <Button x:Name="StudentProfile" Content="Navigate to studentprofile exam" Click="StudentProfile_Click" />
 
-        </StackPanel>
-       
 
 
 

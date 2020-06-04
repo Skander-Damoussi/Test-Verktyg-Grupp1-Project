@@ -40,26 +40,6 @@ namespace TestverktygProject.View
             this.Lvm = new LogInViewModel();
         }
 
-        private void GoToTakeExam_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(TakeExam));
-        }
-
-        private void CreateExamButtonFromLoginPage_OnClick(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(CreateExam));
-        }
-
-        private void TeacherProfile_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(TeacherProfile));
-        }
-
-        private void StudentProfile_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(StudentProfile));
-        }
-
         //Takes input from textbox and passwordbox and puts it through a login method and navigates to a profile depending on what type of user it is
         private async void LogInButton_Click(object sender, RoutedEventArgs e)
         {
