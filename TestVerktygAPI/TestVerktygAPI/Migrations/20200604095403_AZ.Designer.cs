@@ -10,8 +10,8 @@ using TestVerktygAPI.Data;
 namespace TestVerktygAPI.Migrations
 {
     [DbContext(typeof(TestVerktygAPIContext))]
-    [Migration("20200602111048_Skander")]
-    partial class Skander
+    [Migration("20200604095403_AZ")]
+    partial class AZ
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

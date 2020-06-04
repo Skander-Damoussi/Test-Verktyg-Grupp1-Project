@@ -59,6 +59,7 @@ namespace TestverktygProject.View
             this.Frame.Navigate(typeof(StudentProfile));
         }
 
+        //Takes input from textbox and passwordbox and puts it through a login method and navigates to a profile depending on what type of user it is
         private async void LogInButton_Click(object sender, RoutedEventArgs e)
         {
 
