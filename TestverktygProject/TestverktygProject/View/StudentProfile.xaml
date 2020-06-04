@@ -31,7 +31,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="1" Grid.Column="1">
-                            <ListView Height="650" x:Name="StudentsExam" ItemsSource="{x:Bind Sp._listOfStudentsExams}" SelectedItem="aa">
+                            <ListView Height="650" x:Name="StudentsExam" ItemsSource="{x:Bind Sp._listOfStudentsExams}" SelectedItem="aa" IsItemClickEnabled="True" ItemClick="StudentsExam_ItemClick">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="local1:Exam">
                                         <StackPanel Orientation="Horizontal">
@@ -57,7 +57,7 @@
                 <Image Source="../Assets/logo-footer.png" Grid.Column="1" Grid.Row="1"/>
                 <!--START EXAM / EXAM HISTORY BUTTON-->
                 <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Vertical" HorizontalAlignment="Center">
-                    <Button Margin="10" Height="90" Width="250" x:Name="startExamButton" BorderBrush="Black" Content="Start Exam" FontSize="25" FontWeight="Bold" RequestedTheme="Default" Click="startExamButton_Click"/>
+                    <Button Margin="10" Height="90" Width="250" x:Name="startExamButton" BorderBrush="Black" Content="Start Exam" FontSize="25" FontWeight="Bold" RequestedTheme="Default" IsEnabled="False" Click="startExamButton_Click"/>
                 </StackPanel>
                 <!--SIGN OUT BUTTON-->
                 <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center">
