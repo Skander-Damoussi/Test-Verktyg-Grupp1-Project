@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.UI.Xaml.Controls;
+﻿using System.Collections.Generic;
 
 namespace TestverktygProject.Model
 {
@@ -13,7 +8,6 @@ namespace TestverktygProject.Model
         {
 
         }
-        public int QuestionID { get; set; }
         public int CorrectAnswer { get; set; }
         public List<string> Alternatives { get; set; } = new List<string>{"", "", "", ""};
         public string Alt1 { get; set; }
