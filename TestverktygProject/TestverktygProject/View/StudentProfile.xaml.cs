@@ -33,14 +33,12 @@ namespace TestverktygProject.View
         public StudentProfileViewModel Sp { get; set; }
         public TakeExamPage tePage { get;set; }
         public APIService Api { get; set; }
-        public TakeExam Te { get; set; }
         public Exam test;
         public StudentProfile()
         {
             this.InitializeComponent();
             this.Sp = new StudentProfileViewModel();
             this.Api = new APIService();
-            this.Te = new TakeExam();
             test = new Exam();
             //student1 = new Student();
         }
@@ -62,7 +60,7 @@ namespace TestverktygProject.View
             this.Frame.Navigate(typeof(TakeExam), tePage);
 
             var exam = (Exam)StudentsExam.SelectedItem;            
-            exam.IsActive = false;
+            exam.IsActive = true;
             //skicka in ID == exam.ID och objektet (exam) !!!! PUT !!!! PUT SOM I PUTIN
 
             var test = await Api.UpdateExamsAvailabilityAsync(exam.ExamID, exam);

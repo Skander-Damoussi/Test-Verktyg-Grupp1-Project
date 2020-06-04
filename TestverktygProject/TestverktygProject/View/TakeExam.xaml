@@ -66,13 +66,15 @@
                   VerticalAlignment="Top"
                   Margin="0,100,0,0"
                   HorizontalAlignment="Stretch"
-                  ItemsSource="{x:Bind tempAltList}"
-                  SelectionMode="Multiple">
+                  ItemsSource="{x:Bind TakeExamViewModel.tempAlternativeList}"
+                  SelectionMode="Multiple"
+                  ItemClick="AnswerList_ItemClick"
+                  IsItemClickEnabled="True">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:TakeExam">
                     <StackPanel>
                         <TextBlock x:Name="chckBoxAlt1"
-                                   Text="{Binding}" />
+                                   Text="{Binding}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -86,7 +88,8 @@
                 Grid.Row="4"
                 VerticalAlignment="Top"
                 Margin="0,5"
-                Background="CadetBlue" />
+                Background="CadetBlue" 
+                IsEnabled="False"/>
 
         <Button x:Name="NextQuestionBtn"
                 Click="NextQuestionBtn_Click"
@@ -96,21 +99,8 @@
                 VerticalAlignment="Top"
                 HorizontalAlignment="Right"
                 Margin="0,5,0,0"
-                Background="CadetBlue" />
-
-        <Button Content="Cancel Exam"
-                Grid.Column="1"
-                Grid.Row="4"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Bottom"
-                CornerRadius="10"
-                Background="Red"
-                Width="150"
-                Height="50"
-                BorderThickness="1"
-                BorderBrush="Black"
-                Margin="0,0,0,100"
-                Click="Button_Click" />
+                Background="CadetBlue" 
+                IsEnabled="False"/>
 
         <Button x:Name="TurnInExamButton"
                 Content="Turn in Exam"
@@ -124,7 +114,7 @@
                 Height="50"
                 BorderThickness="1"
                 BorderBrush="Black"
-                Margin="0,0,0,155" 
+                Margin="0,0,0,100" 
                 Click="TurnInExamButton_Click"/>
 
         <Grid Grid.Row="2"

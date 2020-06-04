@@ -17,6 +17,9 @@ namespace TestverktygProject.ViewModel
         public ObservableCollection<User> UserList { get; set; }
         public APIService Api { get; set; }
         public Teacher tempteacher { get; set; }
+
+
+        //Login logic, checks if it a student or a teacher
         public async  Task<object> LogIn(string username,string password)
         {
 
