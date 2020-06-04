@@ -33,7 +33,7 @@ namespace TestverktygProject.View
     public sealed partial class TeacherProfile : Page
     {
 
-        //     TeacherProfileViewModel TeacherProfileView = new TeacherProfileViewModel();
+        //   TeacherProfileViewModel TeacherProfileView = new TeacherProfileViewModel();
         public APIService api { get; set; }
         public TeacherProfileViewModel vm { get; set; }
      //   public Teacher teacher;
