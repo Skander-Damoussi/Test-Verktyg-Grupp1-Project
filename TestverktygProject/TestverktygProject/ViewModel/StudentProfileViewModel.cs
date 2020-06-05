@@ -65,7 +65,7 @@ namespace TestverktygProject.ViewModel
             {
                 foreach (var exam in _apiExams)
                 {
-                    if (item.ExamID == exam.ExamID && exam.ExamDate >= System.DateTime.Today && exam.IsActive == true)
+                    if (item.ExamID == exam.ExamID && exam.ExamDate == System.DateTime.Today && exam.IsActive == true)
                     {
                         student.ListExam.Add(exam);
                     }

@@ -34,7 +34,7 @@
                             <ListView Height="650" x:Name="StudentsExam" ItemsSource="{x:Bind Sp._listOfStudentsExams}" SelectedItem="aa" IsItemClickEnabled="True" ItemClick="StudentsExam_ItemClick">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="local1:Exam">
-                                        <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Horizontal" Spacing="10">
                                             <TextBlock Text="{x:Bind ExamName}"
                                                FontSize="20"
                                                FontWeight="Bold"/>
@@ -83,16 +83,16 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" VerticalAlignment="Bottom" BorderBrush="Black" BorderThickness="2">
-                    <TextBlock Text="Exam History:" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+                    <TextBlock Text="Inactive Exams:" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-                            <ListView Height="650" x:Name="InactiveExamsList" ItemsSource="{x:Bind Sp.ExamHistory, Mode=TwoWay}" SelectedItem="aa" IsHitTestVisible="false" Width="370">
+                            <ListView Height="650" x:Name="InactiveExamsList" ItemsSource="{x:Bind Sp.ExamHistory, Mode=TwoWay}" SelectedItem="aa" IsHitTestVisible="false" Width="600">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="local1:Exam">
-                                        <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Horizontal" Spacing="10">
                                             <TextBlock Text="{x:Bind ExamName}"
                                                FontSize="20"
                                                FontWeight="Bold"/>
@@ -104,10 +104,10 @@
                             <ListView Height="650" x:Name="InactiveExamsList1" ItemsSource="{x:Bind Sp._apiStudentExams, Mode=TwoWay}" SelectedItem="aa" IsHitTestVisible="false" Width="370">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="local1:StudentExam">
-                                        <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Horizontal" Spacing="2">
                                             <TextBlock Text="Result: "
                                                FontSize="20"
-                                               FontWeight="Bold"/>
+                                               FontWeight="Bold" Margin="150,0,0,0"/>
                                             <TextBlock Text="{x:Bind Results}" FontSize="20" FontWeight="Bold"/>
                                         </StackPanel>
                                     </DataTemplate>
