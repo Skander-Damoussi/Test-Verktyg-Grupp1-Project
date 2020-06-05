@@ -41,7 +41,7 @@
                   >
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:Student">
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Spacing="3">
                         <TextBlock Text="{x:Bind FirstName}" />
                         <TextBlock Text="{x:Bind LastName}" />
                     </StackPanel>
@@ -61,9 +61,9 @@
                   ItemClick="examlistview_ItemClick">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:Exam">
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Spacing="2">
+                        <TextBlock Text="{x:Bind ExamName}"  />
                         <TextBlock Text="{x:Bind ExamDate}" />
-                        <TextBlock Text="{x:Bind ExamName}" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -71,7 +71,7 @@
         <StackPanel Grid.Row="1"
                     Grid.Column="6"
                     Spacing="5">
-            <Button Content="Create Exam"
+            <Button Content="Create exam"
                     Grid.Column="7"
                     Grid.Row="0"
                     CornerRadius="10"
@@ -81,7 +81,7 @@
                     Background="CadetBlue"
                     BorderBrush="Black"
                     Click="createexam_Click" />
-            <Button Content="View Student Exams"
+            <Button Content="View student exams"
                     x:Name="viewstudentexam"
                     Grid.Column="7"
                     Grid.Row="1"
@@ -93,11 +93,11 @@
                     BorderBrush="Black"
                     IsEnabled="False"
                     Click="viewstudentexam_Click" />
-            <Button Content="View Student Exam points"
+            <Button Content="View student exam points"
                 x:Name="viewstudentexam_Copy"
                 CornerRadius="10"
                 Background="CadetBlue"
-                Width="276"
+                Width="190"
                 Height="50"
                 BorderThickness="1"
                 BorderBrush="Black"
